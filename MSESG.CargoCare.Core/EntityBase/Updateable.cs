@@ -19,11 +19,11 @@ namespace MSESG.CargoCare.Core
         public virtual int? ServerId { get; set; }
         public virtual int? LocalId { get; set; }
         public virtual StatusType Status { get; set; } = StatusType.Creado;
-        public virtual string Nota { get; set; }
+        public virtual string? Nota { get; set; }
         public virtual int? CreatedUser { get; set; }
         public virtual DateTime? CreatedDate { get; set; }
         public virtual int? ModifiedUser { get; set; }
         public virtual DateTime? ModifiedDate { get; set; }
-        public string ExtraData { get; set; }
+        public string? ExtraData { get; set; }
     }
 }

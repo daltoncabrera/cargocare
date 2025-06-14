@@ -7,6 +7,6 @@ namespace MSESG.CargoCare.Core
     public class UpdaterTrack : Updateable
     {
         public EntityType Type { get; set; }
-        public string  Object { get; set; }
+        public string? Object { get; set; }
     }
 }

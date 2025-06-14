@@ -117,8 +117,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     private UsuarioModel GetUserModel(ApplicationUser u)
     {
-      var t = u != null ? (from r1 in _ctx.Roles
-                           from r in _ctx.Roles
+      var t = u != null ? ( from r in _ctx.Roles.ToList()
                            join ur in _ctx.UserRoles.Where(s => s.UserId == u.Id) on r.Id equals ur.RoleId into urg
                            from lr in urg.DefaultIfEmpty()
                            select new
@@ -143,7 +142,7 @@ namespace MSESG.CargoCare.Core.EFServices
       um.Activo = u?.Activo ?? false;
       var uroles = new List<EmpresaRoleModel>();
 
-      var eq = from e in _ctx.Empresas
+      var eq = from e in _ctx.Empresas.ToList()
                join c in _ctx.Clientes on e.Id equals c.EmpresaId into g
                select new
                {
@@ -396,7 +395,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
       if (existinRol != null && !re.Checked)
       {
-        _ctx.Database.ExecuteSqlCommand($" delete from aspnetuserroles where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
+        _ctx.Database.ExecuteSqlRaw($" delete from aspnetuserroles where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
       }
       else if (existinRol == null && re.Checked)
       {

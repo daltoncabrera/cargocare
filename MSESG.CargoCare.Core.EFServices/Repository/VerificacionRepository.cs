@@ -33,7 +33,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public List<VerificacionlistDto> GetByCliente(int clienteId)
     {
-      var result = from r in _ctx.Verificaciones
+            var result = from r in _ctx.Verificaciones.Where(s => s.ClienteId == clienteId).ToList()
         join u in _ctx.Users on r.InspectorId equals u.Id into usG
         join c in _ctx.Camiones on r.CamionId equals c.Id into cG
         join cis in _ctx.Cisternas on r.CisternaId equals cis.Id into cisG

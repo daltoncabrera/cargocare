@@ -24,10 +24,8 @@ namespace MSESG.CargoCare.Core.EFServices
     {
       foreach (var entity in builder.Model.GetEntityTypes())
       {
-        entity.Relational().TableName = entity.DisplayName();
+        builder.Entity(entity.ClrType).ToTable(entity.DisplayName());
       }
-
-
 
       builder.Entity<ApplicationUserRole>().HasKey(i => new { i.EmpresaId, i.ClienteId, i.RoleId, i.UserId });
       builder.Entity<RolePermiso>().HasKey(i => new { i.RolId, i.PermisoId });

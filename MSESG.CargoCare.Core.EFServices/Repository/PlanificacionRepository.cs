@@ -32,7 +32,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<PlanificacionListDto> GetByClienteDto(int clienteId)
     {
-      var r = from p in _ctx.Planificaciones
+      var r = from p in _ctx.Planificaciones.Where(s => s.ClienteId == clienteId).ToList()
               join d in _ctx.PlanificacionDetalles on p.Id equals d.PlanificacionId into d1
               join o in _ctx.Precargas on p.Id equals o.PlanificacionId into og
               where p.ClienteId == clienteId
@@ -174,11 +174,14 @@ namespace MSESG.CargoCare.Core.EFServices
         select new PlanificacionDespachoDto()
         {
            Despacho =  depa,
-           PlanificacionDetalle = detaG.GroupJoin(_ctx.PlanificacionDestinos, a => a.Id, b => b.PlanificacionDetalleId, (a, b) => new { a, b }).Select(s => new PlanificacionDetalleDto() { Detalle = s.a, Destinos =  s.b})
+           PlanificacionDetalle = detaG.Select(d => new PlanificacionDetalleDto() 
+           { 
+             Detalle = d, 
+             Destinos = _ctx.PlanificacionDestinos.Where(dest => dest.PlanificacionDetalleId == d.Id).ToList()
+           }).ToList()
         };
 
       return r;
-
     }
   }
 }

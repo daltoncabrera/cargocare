@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 using MSESG.CargoCare.Web.Handler;
 using RazorLight.Extensions;
 using Stimulsoft.Report.Chart;
+using Microsoft.Extensions.Hosting;
 
 namespace MSESG.CargoCare.Web.Controllers
 {
@@ -23,8 +24,8 @@ namespace MSESG.CargoCare.Web.Controllers
   public class AllReport : BaseController
   {
 
-    private readonly IHostingEnvironment _hostEnvironment;
-    public AllReport(UnitOfWork uow, IHostingEnvironment hostEnvironment) : base(uow)
+    private readonly IWebHostEnvironment _hostEnvironment;
+    public AllReport(UnitOfWork uow, IWebHostEnvironment hostEnvironment) : base(uow)
     {
       _hostEnvironment = hostEnvironment;
     }
@@ -55,7 +56,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Dia
         if (periodo == "dia")
         {
-          string title = $"Movimiento de productos por Día: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string title = $"Movimiento de productos por Dï¿½a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReport(CurAppSessionData.ClienteId, dateInit, dateEnd, title);
           if (grupo == "fecha")
           {
@@ -136,7 +137,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Anio
         if (periodo == "anio")
         {
-          string title = $"Movimiento de productos por Año: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string title = $"Movimiento de productos por Aï¿½o: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportAnio(CurAppSessionData.ClienteId, dateInit, dateEnd, title);
           if (grupo == "fecha")
           {
@@ -179,7 +180,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Dia
         if (periodo == "dia")
         {
-          string title = $"Movimiento de productos por Día: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string title = $"Movimiento de productos por Dï¿½a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGrafico(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {
@@ -219,7 +220,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Mes
         if (periodo == "mes")
         {
-          string title = $"Movimiento de productos por Día: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string title = $"Movimiento de productos por Dï¿½a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGraficoMes(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {
@@ -259,7 +260,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Anio
         if (periodo == "anio")
         {
-          string title = $"Movimiento de productos por Día: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string title = $"Movimiento de productos por Dï¿½a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGraficoAnio(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {

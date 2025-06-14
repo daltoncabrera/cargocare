@@ -13,7 +13,7 @@ namespace MSESG.CargoCare.Core
 
         public int? CompartimentoId { get; set; }
 
-        public string Ubicacion { get; set; }
+        public string? Ubicacion { get; set; }
 
         public SelloStatus SelloStatus { get; set; } = SelloStatus.Disponible;
         public DateTime? FechaUsado { get; set; }

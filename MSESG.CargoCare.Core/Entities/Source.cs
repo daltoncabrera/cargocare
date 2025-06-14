@@ -7,7 +7,7 @@ namespace MSESG.CargoCare.Core
     public class Source : Updateable
     {
 
-        public string SourceName { get; set; }
+        public string? SourceName { get; set; }
         
 
     }

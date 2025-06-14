@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using MSESG.CargoCare.Core;
 using MSESG.CargoCare.Core.EFServices;
 using MSESG.CargoCare.Core.Entities;
@@ -19,8 +20,8 @@ namespace MSESG.CargoCare.Web.Controllers
     //public IJsReportMVCService JsReportMVCService { get; }
     protected UnitOfWork _unitOfWork;
     protected AppSessionData CurAppSessionData;
-    private readonly IHostingEnvironment _hostEnvironment;
-    public TestController(UnitOfWork uow, IHostingEnvironment hostEnvironment) 
+    private readonly IWebHostEnvironment _hostEnvironment;
+    public TestController(UnitOfWork uow, IWebHostEnvironment hostEnvironment) 
     {
       _hostEnvironment = hostEnvironment;
      /// JsReportMVCService = jsReportMVCService;

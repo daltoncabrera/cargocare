@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   cargocare-web:
     build:
@@ -6,4 +5,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:80"
-    restart: unless-stopped 
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
+    networks:
+      - connet
+
+networks:
+  default:
+    external: true
+    name: connet
+

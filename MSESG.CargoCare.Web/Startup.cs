@@ -13,7 +13,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using MSESG.CargoCare.Core;
 using MSESG.CargoCare.Web.Handler;
 using MSESG.CargoCare.Core.EFServices;
@@ -22,7 +26,7 @@ namespace MSESG.CargoCare.Web
 {
   public class Startup
   {
-    public Startup(IHostingEnvironment env)
+    public Startup(IWebHostEnvironment env)
     {
       var builder = new ConfigurationBuilder()
           .SetBasePath(env.ContentRootPath)
@@ -49,7 +53,10 @@ namespace MSESG.CargoCare.Web
       //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("MSESG.CargoCare.Web")));
 
 
-      services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(Configuration.GetConnectionString("MyDefaultConnection"), b => b.MigrationsAssembly("MSESG.CargoCare.Web")));
+      services.AddDbContext<ApplicationDbContext>(options => 
+        options.UseMySql(Configuration.GetConnectionString("MyDefaultConnection"), 
+          ServerVersion.AutoDetect(Configuration.GetConnectionString("MyDefaultConnection")), 
+          b => b.MigrationsAssembly("MSESG.CargoCare.Web")));
 
       services.AddScoped<IViewRenderService, ViewRenderService>();
       //services.AddIdentity<ApplicationUser, ApplicationRole>()
@@ -97,7 +104,7 @@ namespace MSESG.CargoCare.Web
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
-      services.AddMvc(o =>
+      services.AddControllersWithViews(o =>
       {
         o.Filters.Add(new ErrorHandlingFilter());
       }).AddJsonOptions(
@@ -159,24 +166,24 @@ namespace MSESG.CargoCare.Web
 
     }
 
-    private void SetupAction(MvcJsonOptions options)
+    private void SetupAction(JsonOptions options)
     {
-      options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+      options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+      options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
+      options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+      options.JsonSerializerOptions.WriteIndented = true;
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
     {
-      loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-      loggerFactory.AddDebug();
+      // Logging is configured in Program.cs for .NET 6
 
       //app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
-        app.UseDatabaseErrorPage();
-        app.UseBrowserLink();
         try
         {
           app.SeedData().Wait();
@@ -193,18 +200,18 @@ namespace MSESG.CargoCare.Web
       //}
 
       app.UseSession();
-      app.UseIdentity();
+      app.UseAuthentication();
       app.UseStaticFiles();
 
+      app.UseRouting();
 
-      app.UseMvc(routes =>
+      app.UseAuthorization();
+
+      app.UseEndpoints(endpoints =>
       {
-
-        routes.MapRoute(
+        endpoints.MapControllerRoute(
                   name: "default",
-                  template: "{controller=Home}/{action=Index}/{id?}");
-
-
+                  pattern: "{controller=Home}/{action=Index}/{id?}");
       });
     }
 

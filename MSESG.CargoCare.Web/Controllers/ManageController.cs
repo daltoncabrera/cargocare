@@ -11,6 +11,8 @@ using MSESG.CargoCare.Core;
 using MSESG.CargoCare.Core.EFServices;
 using MSESG.CargoCare.Web.Models;
 using MSESG.CargoCare.Web.Models.ManageViewModels;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace MSESG.CargoCare.Web.Controllers
 {
@@ -310,7 +312,7 @@ namespace MSESG.CargoCare.Web.Controllers
         public async Task<IActionResult> LinkLogin(string provider)
         {
             // Clear the existing external cookie to ensure a clean login process
-            await HttpContext.Authentication.SignOutAsync(_externalCookieScheme);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             // Request a redirect to the external login provider to link a login for the current user
             var redirectUrl = Url.Action(nameof(LinkLoginCallback), "Manage");
@@ -339,7 +341,7 @@ namespace MSESG.CargoCare.Web.Controllers
             {
                 message = ManageMessageId.AddLoginSuccess;
                 // Clear the existing external cookie to ensure a clean login process
-                await HttpContext.Authentication.SignOutAsync(_externalCookieScheme);
+                await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             }
             return RedirectToAction(nameof(ManageLogins), new { Message = message });
         }

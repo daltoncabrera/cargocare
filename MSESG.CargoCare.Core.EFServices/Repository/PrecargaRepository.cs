@@ -177,7 +177,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<PrecargaDto> GetByCliente(int? clienteId = null)
     {
-      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId)
+      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId).ToList()
               join ca in appContext.Camiones on o.CamionId equals ca.Id into caG
               join cho in appContext.Choferes on o.ChoferId equals cho.Id into choG
               join cis in appContext.Cisternas on o.CisternaId equals cis.Id into cisG
@@ -228,7 +228,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<PrecargaDto> GetPenddingByClienteWithDetails(int? clienteId = null)
     {
-      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId)
+      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId).ToList()
               join ca in appContext.Camiones on o.CamionId equals ca.Id into caG
               join cho in appContext.Choferes on o.ChoferId equals cho.Id into choG
               join cis in appContext.Cisternas on o.CisternaId equals cis.Id into cisG
@@ -269,7 +269,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<PrecargaDto> GetPenddingByCliente(int? clienteId = null)
     {
-      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId)
+      var r = from o in All.Where(s => clienteId <= 0 || s.ClienteId == clienteId).ToList()
               join ca in appContext.Camiones on o.CamionId equals ca.Id into caG
               join cho in appContext.Choferes on o.ChoferId equals cho.Id into choG
               join cis in appContext.Cisternas on o.CisternaId equals cis.Id into cisG

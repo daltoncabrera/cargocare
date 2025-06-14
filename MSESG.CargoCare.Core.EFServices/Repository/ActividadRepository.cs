@@ -70,7 +70,7 @@ namespace MSESG.CargoCare.Core.EFServices
       result.ActividadId = actividad?.Id;
       result.Disponible = actividad != null && actividad.Disponible;
 
-      var inspect = from i in _ctx.Inspeciones
+      var inspect = from i in _ctx.Inspeciones.Where(s => s.ClienteId == clienteId).ToList()
                     join d in _ctx.InspeccionDetalles on i.Id equals d.IdInspeccion
                     join p in _ctx.Precargas on i.PrecargaId equals p.Id into pg
                     join c in _ctx.Clientes on i.ClienteId equals c.Id
@@ -293,7 +293,7 @@ namespace MSESG.CargoCare.Core.EFServices
       result.ActividadId = actividad?.Id;
       result.Disponible = actividad != null && actividad.Disponible;
 
-      var inspect = (from i in _ctx.Inspeciones
+      var inspect = (from i in _ctx.Inspeciones.Where(s => s.ClienteId == clienteId).ToList()
                      join d in _ctx.InspeccionDetalles on i.Id equals d.IdInspeccion into dg
                      join p in _ctx.Precargas on i.PrecargaId equals p.Id into pg
                      join c in _ctx.Clientes on i.ClienteId equals c.Id
@@ -473,7 +473,7 @@ namespace MSESG.CargoCare.Core.EFServices
       result.ActividadId = actividad?.Id;
       result.Disponible = actividad != null && actividad.Disponible;
 
-      var inspect = (from i in _ctx.Inspeciones
+      var inspect = (from i in _ctx.Inspeciones.Where(s => s.ClienteId == clienteId).ToList()
                      join d in _ctx.InspeccionDetalles on i.Id equals d.IdInspeccion into dg
                      join p in _ctx.Precargas on i.PrecargaId equals p.Id into pg
                      join c in _ctx.Clientes on i.ClienteId equals c.Id

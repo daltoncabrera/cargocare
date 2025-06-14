@@ -54,6 +54,7 @@ namespace MSESG.CargoCare.Core.EFServices
     public IEnumerable<KeyValue> GetLotes(int clienteId)
     {
       var result = _dbContext.Sellos.Where(s => s.ClienteId == clienteId)
+           .ToList()
           .GroupBy(s => new { s.Lote, s.CreatedDate.Value.Date })
           .Select(s => s.Key);
 

@@ -20,7 +20,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<ClienteProductoDto> GetByCliente(int clienteId)
     {
-      var result = from pc in _dbContext.ProductosClientes
+      var result = from pc in _dbContext.ProductosClientes.Where(s => s.ClienteId == clienteId).ToList()
                    join p in _dbContext.Productos on pc.ProductoId equals p.Id
                    join c in _dbContext.Clientes on pc.ClienteId equals c.Id
                    where pc.ClienteId == clienteId
@@ -75,7 +75,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public object GetReport(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
     {
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id
@@ -109,7 +109,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public object GetReportMes(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
     {
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id
@@ -142,7 +142,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public object GetReportAnio(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
     {
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id
@@ -177,7 +177,7 @@ namespace MSESG.CargoCare.Core.EFServices
     {
       var listDto = new List<ChartReportDto>();
 
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id
@@ -221,7 +221,7 @@ namespace MSESG.CargoCare.Core.EFServices
     {
       var listDto = new List<ChartReportDto>();
 
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id
@@ -265,7 +265,7 @@ namespace MSESG.CargoCare.Core.EFServices
     {
       var listDto = new List<ChartReportDto>();
 
-      var prod = from d in _dbContext.InspeccionDetalles
+      var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
                  join p in _dbContext.Productos on d.ProductoId equals p.Id
                  join t in _dbContext.Terminales on i.TerminalId equals t.Id

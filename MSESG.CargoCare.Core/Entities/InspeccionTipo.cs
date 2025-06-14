@@ -6,6 +6,6 @@ namespace MSESG.CargoCare.Core
 {
   public class InspeccionTipo : Updateable
   {
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
   }
 }

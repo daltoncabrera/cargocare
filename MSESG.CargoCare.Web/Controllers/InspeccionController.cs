@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using MSESG.CargoCare.Core;
 using MSESG.CargoCare.Core.EFServices;
 using MSESG.CargoCare.Core.Entities;
@@ -15,8 +16,8 @@ namespace MSESG.CargoCare.Web.Controllers
   [Route("api/[controller]")]
   public class InspeccionController : BaseController
   {
-    private readonly IHostingEnvironment _hostEnvironment;
-    public InspeccionController(UnitOfWork uow, IHostingEnvironment hostEnvironment) : base(uow)
+    private readonly IWebHostEnvironment _hostEnvironment;
+    public InspeccionController(UnitOfWork uow, IWebHostEnvironment hostEnvironment) : base(uow)
     {
       _hostEnvironment = hostEnvironment;
     }

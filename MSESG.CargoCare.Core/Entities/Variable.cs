@@ -6,8 +6,8 @@ namespace MSESG.CargoCare.Core
 {
   public class Variable : Updateable
   {
-    public string VarName { get; set; }
+    public string? VarName { get; set; }
 
-    public string VarValue { get; set; }
+    public string? VarValue { get; set; }
   }
 }

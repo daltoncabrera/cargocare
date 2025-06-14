@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
 using MSESG.CargoCare.Core;
@@ -29,8 +30,8 @@ namespace MSESG.CargoCare.Web.Controllers
   public class ReportController : BaseController
   {
 
-    private readonly IHostingEnvironment _hostEnvironment;
-    public ReportController(UnitOfWork uow, IHostingEnvironment hostEnvironment) : base(uow)
+    private readonly IWebHostEnvironment _hostEnvironment;
+    public ReportController(UnitOfWork uow, IWebHostEnvironment hostEnvironment) : base(uow)
     {
       _hostEnvironment = hostEnvironment;
 

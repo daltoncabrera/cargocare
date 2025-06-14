@@ -401,7 +401,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
     public IEnumerable<InspeccionDto> GetByCliente(int clienteId)
     {
-      var r = from i in All.Where(s => s.ClienteId == clienteId)
+      var r = from i in All.Where(s => s.ClienteId == clienteId).ToList()
               join ca in appContext.Camiones on i.CamionId equals ca.Id into caG
               join cho in appContext.Choferes on i.ChoferId equals cho.Id into choG
               join cis in appContext.Cisternas on i.CisternaId equals cis.Id into cisG

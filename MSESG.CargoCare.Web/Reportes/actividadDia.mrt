@@ -1,0 +1,693 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <JSON Ref="2" type="Stimulsoft.Report.Dictionary.StiJsonDatabase" isKey="true">
+        <Alias>JSON</Alias>
+        <Key />
+        <Name>JSON</Name>
+        <PathData>http://localhost:44315/report/test</PathData>
+      </JSON>
+    </Databases>
+    <DataSources isList="true" count="3">
+      <resumen Ref="3" type="DataTableSource" isKey="true">
+        <Alias>resumen</Alias>
+        <Columns isList="true" count="6">
+          <value>fecha,System.String</value>
+          <value>horaInicio,System.String</value>
+          <value>horaFin,System.String</value>
+          <value>terminal,System.String</value>
+          <value>destino,System.String</value>
+          <value>total,System.Decimal</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>resumen</Name>
+        <NameInSource>JSON.resumen</NameInSource>
+      </resumen>
+      <detalle Ref="4" type="DataTableSource" isKey="true">
+        <Alias>detalle</Alias>
+        <Columns isList="true" count="5">
+          <value>referencia,System.String</value>
+          <value>ficha,System.String</value>
+          <value>temperatura,System.String</value>
+          <value>certificadoCalidad,System.String</value>
+          <value>temperaturaMuestra,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>detalle</Name>
+        <NameInSource>JSON.detalle</NameInSource>
+      </detalle>
+      <observaciones Ref="5" type="DataTableSource" isKey="true">
+        <Alias>observaciones</Alias>
+        <Columns isList="true" count="9">
+          <value>actividadId,System.Decimal</value>
+          <value>fecha,System.String</value>
+          <value>nota,System.String</value>
+          <value>inspectorId,System.Decimal</value>
+          <value>inspector,System.String</value>
+          <value>clienteId,System.Decimal</value>
+          <value>id,System.Decimal</value>
+          <value>empresaId,System.Decimal</value>
+          <value>type,System.Decimal</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>observaciones</Name>
+        <NameInSource>JSON.observaciones</NameInSource>
+      </observaciones>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <Key>8f6423eccf72487a9d6d9b629c726515</Key>
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <Panel1 Ref="7" type="Panel" isKey="true">
+          <Border>None;[165:165:165];1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,1.3,5,2.9</ClientRectangle>
+          <Components isList="true" count="2">
+            <Headerdetalle Ref="8" type="HeaderBand" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,5,0.3</ClientRectangle>
+              <Components isList="true" count="5">
+                <Headerdetalle_referencia Ref="9" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>0,0,1.1,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Headerdetalle_referencia</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="8" />
+                  <Text> Referencia</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Headerdetalle_referencia>
+                <Headerdetalle_ficha Ref="10" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>1.1,0,0.7,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Headerdetalle_ficha</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="8" />
+                  <Text> Ficha</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Headerdetalle_ficha>
+                <Headerdetalle_temperatura Ref="11" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>1.8,0,0.9,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Headerdetalle_temperatura</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="8" />
+                  <Text> Temperatura</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Headerdetalle_temperatura>
+                <Headerdetalle_certificadoCalidad Ref="12" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>2.7,0,1.1,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Headerdetalle_certificadoCalidad</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="8" />
+                  <Text> Certificado Calidad</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Headerdetalle_certificadoCalidad>
+                <Headerdetalle_temperaturaMuestra Ref="13" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>3.8,0,1.2,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Headerdetalle_temperaturaMuestra</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="8" />
+                  <Text> Temperatura Muestra</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Headerdetalle_temperaturaMuestra>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Name>Headerdetalle</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+            </Headerdetalle>
+            <Datadetalle Ref="14" type="DataBand" isKey="true">
+              <Brush>Transparent</Brush>
+              <BusinessObjectGuid isNull="true" />
+              <ClientRectangle>0,0.9,5,0.3</ClientRectangle>
+              <Components isList="true" count="5">
+                <Datadetalle_referencia Ref="15" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>0,0,1.1,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Datadetalle_referencia</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="14" />
+                  <Text> {detalle.referencia}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Datadetalle_referencia>
+                <Datadetalle_ficha Ref="16" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>1.1,0,0.7,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Datadetalle_ficha</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="14" />
+                  <Text> {detalle.ficha}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Datadetalle_ficha>
+                <Datadetalle_temperatura Ref="17" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>1.8,0,0.9,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Datadetalle_temperatura</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="14" />
+                  <Text> {detalle.temperatura}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Datadetalle_temperatura>
+                <Datadetalle_certificadoCalidad Ref="18" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>2.7,0,1.1,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Datadetalle_certificadoCalidad</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="14" />
+                  <Text> {detalle.certificadoCalidad}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Datadetalle_certificadoCalidad>
+                <Datadetalle_temperaturaMuestra Ref="19" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>3.8,0,1.2,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Datadetalle_temperaturaMuestra</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="14" />
+                  <Text> {detalle.temperaturaMuestra}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Datadetalle_temperaturaMuestra>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <DataSourceName>detalle</DataSourceName>
+              <Filters isList="true" count="0" />
+              <Name>Datadetalle</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Sort isList="true" count="0" />
+            </Datadetalle>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Panel1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </Panel1>
+        <Panel2 Ref="20" type="Panel" isKey="true">
+          <Brush>Transparent</Brush>
+          <CanGrow>True</CanGrow>
+          <ClientRectangle>5.1,1.3,2.6,1.5</ClientRectangle>
+          <Components isList="true" count="2">
+            <HeaderBand1 Ref="21" type="HeaderBand" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,2.6,0.3</ClientRectangle>
+              <Components isList="true" count="1">
+                <Text2 Ref="22" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>[242:242:242]</Brush>
+                  <ClientRectangle>0,0,2.6,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold</Font>
+                  <Guid>a679798f273845208b7d642abf764922</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text2</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="21" />
+                  <Text> Notas</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text2>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Name>HeaderBand1</Name>
+              <Page isRef="6" />
+              <Parent isRef="20" />
+            </HeaderBand1>
+            <Dataobservaciones Ref="23" type="DataBand" isKey="true">
+              <Brush>Transparent</Brush>
+              <BusinessObjectGuid isNull="true" />
+              <ClientRectangle>0,0.9,2.6,0.3</ClientRectangle>
+              <Components isList="true" count="2">
+                <Text1 Ref="24" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>0,0,1,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Guid>1db031282f6a49e8a290e1d02912e1f2</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text1</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="23" />
+                  <Text> {observaciones.inspector}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text1>
+                <Text3 Ref="25" type="Text" isKey="true">
+                  <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+                  <Brush>Transparent</Brush>
+                  <CanGrow>True</CanGrow>
+                  <ClientRectangle>1,0,1.6,0.3</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8</Font>
+                  <Guid>a94ae376a606438ba50ac6cb09b69284</Guid>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text3</Name>
+                  <Page isRef="6" />
+                  <Parent isRef="23" />
+                  <Text> {observaciones.nota}</Text>
+                  <TextBrush>DimGray</TextBrush>
+                  <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text3>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <DataRelationName isNull="true" />
+              <DataSourceName>observaciones</DataSourceName>
+              <Filters isList="true" count="0" />
+              <Guid>8a9bae8711464f85a13fd185f3dcb292</Guid>
+              <Name>Dataobservaciones</Name>
+              <Page isRef="6" />
+              <Parent isRef="20" />
+              <Sort isList="true" count="0" />
+            </Dataobservaciones>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Panel2</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+        </Panel2>
+        <Text4 Ref="26" type="Text" isKey="true">
+          <Border>All;[165:165:165];1;Solid;False;4;Black</Border>
+          <Brush>[242:242:242]</Brush>
+          <ClientRectangle>0,0.1,7.7,0.3</ClientRectangle>
+          <Conditions isList="true" count="0" />
+          <Font>Arial,10,Bold</Font>
+          <Guid>ca21a27e6ca1428094c8fc523329a6a0</Guid>
+          <Margins>0,0,0,0</Margins>
+          <Name>Text4</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Text> Reporte de Actividad Diaria para {resumen.fecha} </Text>
+          <TextBrush>DimGray</TextBrush>
+          <TextOptions>,,,,WordWrap=True,A=0</TextOptions>
+          <Type>Expression</Type>
+          <VertAlignment>Center</VertAlignment>
+        </Text4>
+        <CrossTab1 Ref="27" type="Stimulsoft.Report.CrossTab.StiCrossTab" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.5,7.6,0.6</ClientRectangle>
+          <Components isList="true" count="14">
+            <CrossTab1_Row1_Title Ref="28" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.22,0.6,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>569dc5cac25a4faa8f2e481bfc8c87e0</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>0.6,0</MinSize>
+              <Name>CrossTab1_Row1_Title</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Fecha</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row1</TypeOfComponent>
+            </CrossTab1_Row1_Title>
+            <CrossTab1_LeftTitle Ref="29" type="CrossTitle" isKey="true">
+              <Border>None;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,2.2,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>22dcb00f089043cb91e7a63ceb31b63d</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_LeftTitle</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <TextBrush>Transparent</TextBrush>
+              <TypeOfComponent>LeftTitle</TypeOfComponent>
+            </CrossTab1_LeftTitle>
+            <CrossTab1_RightTitle Ref="30" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>2.22,0,2.1,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>61d41d10e2744128910f012b6fc41002</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RightTitle</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Destino</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>RightTitle</TypeOfComponent>
+            </CrossTab1_RightTitle>
+            <CrossTab1_Row2_Title Ref="31" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0.6,0.22,0.8,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>78fb5aefac3943ee9e9c4e6793195338</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>0.8,0</MinSize>
+              <Name>CrossTab1_Row2_Title</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Hora Inicio</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row2</TypeOfComponent>
+            </CrossTab1_Row2_Title>
+            <CrossTab1_Row3_Title Ref="32" type="CrossTitle" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>1.4,0.22,0.8,0.2</ClientRectangle>
+              <Font>Arial,8</Font>
+              <Guid>661cb281f56e499da73718f8d7ffc946</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>0.8,0</MinSize>
+              <Name>CrossTab1_Row3_Title</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Hora Fin</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TypeOfComponent>Row:CrossTab1_Row3</TypeOfComponent>
+            </CrossTab1_Row3_Title>
+            <CrossTab1_RowTotal1 Ref="33" type="CrossRowTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0,0,1,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>c61c8f8d9d604acdaae2d3aeeb3c4cd7</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal1</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal1>
+            <CrossTab1_RowTotal2 Ref="34" type="CrossRowTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0,0,1,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>de59049eb443422888c31630b5437540</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal2</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal2>
+            <CrossTab1_RowTotal3 Ref="35" type="CrossRowTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>0,0,1,0</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>1133740757c7467ea17f2d677f3b9ad4</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_RowTotal3</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_RowTotal3>
+            <CrossTab1_ColTotal1 Ref="36" type="CrossColumnTotal" isKey="true">
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>3.72,0.22,0.6,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>d4e8477642f44a4f8053015e344e3678</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MinSize>0.6,0</MinSize>
+              <Name>CrossTab1_ColTotal1</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>Total</Text>
+              <TextBrush>Black</TextBrush>
+            </CrossTab1_ColTotal1>
+            <CrossTab1_Row1 Ref="37" type="CrossRow" isKey="true">
+              <Alias>fecha</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.44,0.6,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{resumen.fecha}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>1ff7d9863b974e1b934155ae24e19c4c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row1</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <ShowTotal>False</ShowTotal>
+              <Text>fecha</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>c61c8f8d9d604acdaae2d3aeeb3c4cd7</TotalGuid>
+              <Type>Expression</Type>
+              <Value>{resumen.fecha}</Value>
+            </CrossTab1_Row1>
+            <CrossTab1_Row2 Ref="38" type="CrossRow" isKey="true">
+              <Alias>horaInicio</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0.6,0.44,0.8,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{Replace(resumen.horaInicio,",", ":")}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>1a19da0bf821407f8d84b0b7c0bbbcaf</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row2</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <ShowTotal>False</ShowTotal>
+              <Text>horaInicio</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>de59049eb443422888c31630b5437540</TotalGuid>
+              <Value>{resumen.horaInicio}</Value>
+            </CrossTab1_Row2>
+            <CrossTab1_Row3 Ref="39" type="CrossRow" isKey="true">
+              <Alias>horaFin</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>1.4,0.44,0.8,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{Replace(resumen.horaFin,",",":")}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>d84da3f7a69c4962b0cda0189decaba5</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Row3</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <ShowTotal>False</ShowTotal>
+              <Text>horaFin</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>1133740757c7467ea17f2d677f3b9ad4</TotalGuid>
+              <Value>{resumen.horaFin}</Value>
+            </CrossTab1_Row3>
+            <CrossTab1_Column1 Ref="40" type="CrossColumn" isKey="true">
+              <Alias>destino</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>2.22,0.22,1.5,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <DisplayValue>{resumen.destino}</DisplayValue>
+              <Font>Arial,8</Font>
+              <Guid>b7ed719d37bf4121b3d495446cfbb2d9</Guid>
+              <Margins>0,0,0,0</Margins>
+              <MaxSize>1.5,0</MaxSize>
+              <MinSize>1.5,0</MinSize>
+              <Name>CrossTab1_Column1</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>destino</Text>
+              <TextBrush>[105:105:105]</TextBrush>
+              <TotalGuid>d4e8477642f44a4f8053015e344e3678</TotalGuid>
+              <Value>{resumen.destino}</Value>
+            </CrossTab1_Column1>
+            <CrossTab1_Sum1 Ref="41" type="CrossSummary" isKey="true">
+              <Alias>total</Alias>
+              <Border>All;[155:155:155];1;Solid;False;4;Black</Border>
+              <Brush>[255:255:255]</Brush>
+              <ClientRectangle>2.22,0.44,1.5,0.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Arial,8</Font>
+              <Guid>ec026597a7e74815a9b747ba1ce7bb66</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>CrossTab1_Sum1</Name>
+              <Page isRef="6" />
+              <Parent isRef="27" />
+              <Restrictions>AllowMove, AllowResize, AllowSelect, AllowChange</Restrictions>
+              <Text>0</Text>
+              <TextBrush>Black</TextBrush>
+              <Value>{resumen.total}</Value>
+            </CrossTab1_Sum1>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName />
+          <DataSourceName>resumen</DataSourceName>
+          <EmptyValue />
+          <Filters isList="true" count="0" />
+          <Guid>e1a44784fa8041fc9243c4e8bb3f17fb</Guid>
+          <Name>CrossTab1</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </CrossTab1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>70766f76d87e48f2b9a9ddcd7531b3dc</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page1</Name>
+      <PageHeight>11</PageHeight>
+      <PageWidth>8.5</PageWidth>
+      <PaperSize>Letter</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="42" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="43" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/15/2018 3:20:01 AM</ReportChanged>
+  <ReportCreated>10/31/2018 10:39:27 AM</ReportCreated>
+  <ReportFile>D:\sources\work\marhex\marhex\MSESG.CargoCare.Web\Reportes\actividadDia.mrt</ReportFile>
+  <ReportGuid>c016ae1354d241149a0caac044cc61a0</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2018.3.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

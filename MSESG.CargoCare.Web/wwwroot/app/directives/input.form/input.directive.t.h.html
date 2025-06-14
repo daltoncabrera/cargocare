@@ -1,0 +1,9 @@
+﻿<div ng-class="{ 'has-error' : field.$invalid && field.$touched, 'has-success': field.$valid && field.$touched}">
+    <label for="{{name}}" ng-class="collabel" class="control-label">{{display}}</label>
+    <div ng-class="collinput">
+        <div class="input-icon right">
+            <input ng-disabled='disabled' ng-change="change"  id='{{name}}' ng-pattern='pat' type='{{type}}' ng-required='ngRequired' name='{{name}}' class='form-control' ng-model='ngModel' placeholder='{{ngPattern}}'>
+        </div>
+    </div>
+</div>
+

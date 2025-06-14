@@ -1,0 +1,472 @@
+.browser {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.frame {
+    border: 1px solid #BBBCBB;
+    border-radius: 10px;
+    width: 350px;
+    color: #5C5C5C;
+    padding: 30px;
+    margin: auto;
+    display: table;
+}
+
+@media (max-width: 850px) {
+    .cols-sample-area .frame {
+        border: none;
+    }
+}
+
+.toolbar {
+    background-color: #296293;
+    height: 58px;
+    width: 100%;
+    z-index: 10;
+}
+
+.headImg {
+    background: url("images/azure-logo.png") no-repeat;
+    width: 200px;
+    height: 40px;
+    margin-top: 6px;
+    float: left;
+}
+
+.angular1 {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.bodywrapper {
+    width: 100%;
+}
+
+#searchauto_suggestion .control_name, #searchauto_suggestion .control_samplename {
+    display: inline-block;
+    width: 48%;
+    padding: 3px;
+}
+
+
+.navigationbar {
+    bottom: 0px;
+    background-color: #fff;
+    -webkit-box-shadow: 2px 0 5px -2px #888;
+    box-shadow: 2px 0 5px -2px #888;
+    float: left;
+    width: 220px;
+}
+
+    .navigationbar .nav {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+.nav li a {
+    font-family: 'Segoe UI';
+    padding-left: 20px;
+    color: #333;
+    font-size: 14px;
+    line-height: 30px;
+    text-decoration: none;
+    padding: 2px 0px 2px 20px;
+    position: inherit;
+    display: inline-block;
+}
+
+.nav > li > a:hover {
+    background: none;
+    cursor: default;
+}
+
+.nav > li > a {
+    width: 80%;
+    font-weight: 600;
+}
+
+.nav ul li a {
+    width: 100%;
+    padding-left: 40px;
+}
+
+    .nav ul li a:hover {
+        background-color: #f5f5f7;
+    }
+
+.nav a.ng-binding.e-active {
+    background-color: #296293;
+    color: #fff;
+}
+
+.nav .sb-arrow {
+    background-image: url(images/sbarrows.png);
+    width: 16px;
+    height: 14px;
+    float: right;
+    margin-right: -25px;
+    margin-top: 9px;
+}
+
+    .nav .sb-arrow.down {
+        background-position: -5px -5px;
+    }
+
+    .nav .sb-arrow.up {
+        background-position: -3px 20px;
+    }
+
+.nav ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .nav, .nav ul li {
+        width: 100%;
+    }
+
+.content {
+    overflow-x: hidden;
+}
+.contentchild.e-showcase {
+    overflow:hidden;
+}
+.contentbody {
+    min-height: 553px;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.controlnamediv {
+    position: relative;
+    height: 47px;
+}
+
+.controlname {
+    font-size: 25px;
+    font-family: 'Segoe UI';
+    color: #807F7F;
+    line-height: 40px;
+    margin-top: 7px;
+}
+
+.samplename {
+    font-size: 25px;
+    font-family: 'Segoe UI';
+    color: #296293;
+    line-height: 40px;
+    margin-top: 7px;
+}
+
+#controlname_id {
+    margin-left: 27px;
+}
+
+#sample_id {
+    display: inline-block;
+}
+
+.contentchild {
+    border: 1px solid #D9DEDD;
+    border-width: 0.5px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 28px;
+    margin-bottom: 60px;
+    overflow: auto;
+}
+
+.router {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.footerdiv {
+    background-color: black;
+    height: 54px;
+    float: right;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.contentsourcediv {
+    width: 95%;
+    margin: 0 auto 50px auto;
+}
+
+.syncfusion {
+    background: url("images/footer.png") no-repeat;
+    width: 125px;
+    height: 30px;
+    float: right;
+    margin-top: 18px;
+    background-position: -5px -50px;
+}
+
+.copyright {
+    color: #A4A09B;
+    margin-top: 20px;
+    float: left;
+    margin-left: 5px;
+}
+
+.content-container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+    .content-container-fluid > .row:first-child {
+        width: 100%;
+    }
+
+    .content-container-fluid .row {
+        margin: 0;
+    }
+
+.row [class*="cols-"]:first-child {
+    margin-left: 0;
+}
+
+    .row [class*="cols-"]:first-child > div:first-child {
+        margin: 0 auto;
+    }
+
+.box.wide {
+    padding: 3em;
+    margin: 3em 0;
+    background-color: rgba(20,53,80,0.038);
+    border: 1px solid rgba(20,53,80,0.05);
+}
+
+#property-window .row {
+    padding: 20px 0px;
+}
+.listview-sample .row .cols-sample-area{
+  padding: 24px;
+}
+.row .cols-sample-area {
+    background-color: white;
+    margin-bottom: 25px;
+    padding: 25px;
+    min-width: 250px;
+    min-height: 350px;
+}
+
+.row [class*="cols-"] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 1%;
+}
+
+[class*="cols-"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+}
+
+.searchoption {
+    padding: 12px 10px 3px;
+}
+
+.homepage_text .showcasetext.e-homedesign {
+    width: 100%;
+    color: #296293;
+    font-weight: 600;
+    font-size: medium;
+    font-family: 'Segoe UI';
+    text-decoration: none;
+    padding: 10px;
+}
+
+.homepage_text {
+    border-bottom: 1px solid #D9DEDD;
+    padding: 10px;
+}
+
+.nav > li:first-child .sb-arrow.down {
+    display: none;
+}
+
+.e-tab.e-js.e-widget.e-home {
+    display: none;
+}
+
+.contentchild.e-showcase {
+    background-color: #fff;
+    border: none;
+    margin-top: -10px;
+}
+
+/*responsive css*/
+.slidemenuicon.e-button {
+    display: none;
+}
+
+@media (min-width: 982px) {
+    .navigationbar {
+        position: static !important;
+    }
+}
+
+@media (max-width: 981px) {
+    .controlname.ng-binding {
+        margin-left: 50px !important;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    .slidemenuicon .e-slidemenu:before {
+        content: "\e76b";
+    }
+
+    .slidemenuicon .e-slidemenu {
+        font-size: 25px;
+    }
+
+    .slidemenuicon.e-button {
+        display: block;
+        background: none;
+        border: none;
+        float: left;
+        width: 40px;
+        height: 35px;
+        margin-top: 5px;
+        position: absolute;
+        z-index: 990;
+    }
+
+        #slidemenu.slidemenuicon.e-button:hover {
+            background: none;
+            filter: none;
+        }
+
+        .slidemenuicon.e-button.e-btn.e-select:focus {
+            box-shadow: 0 0;
+        }
+
+        .slidemenuicon.e-button.e-btn.e-select:active {
+            background: none;
+            filter:none;
+        }
+
+    #slidemenu.slidemenuicon .e-icon.e-slidemenu {
+        color: #333 ;
+    }
+
+
+    .navigationbar {
+        position: absolute;
+    }
+}
+
+@media (max-width: 600px) {
+    .samplename.ng-binding {
+        margin-left: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .syncfusion {
+        display: none;
+    }
+}
+
+@media (max-width: 390px) {
+    .lisampleimage .imgstyle {
+        background-size: 292px 350px;
+        background-repeat: no-repeat;
+    }
+
+    span.qrcode {
+        right: -177px;
+    }
+}
+
+@media (max-width: 365px) {
+    .lisampleimage .imgstyle {
+        background-size: 250px 349px;
+    }
+
+    span.qrcode {
+        display: none !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .lisampleimage .imgstyle {
+        background-size: 235px 350px;
+    }
+}
+
+@media (max-width: 310px) {
+    span.controlname {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 300px) {
+
+    .lisampleimage .imgstyle {
+        background-size: 205px 349px;
+    }
+}
+
+@media (max-width: 280px) {
+    .lisampleimage .imgstyle {
+        background-size: 203px 350px;
+    }
+}
+.EventBox{
+        max-width:400px;
+        min-height:320px;
+        margin:2em auto;
+        background-color:rgba(20,53,80,0.038);
+        border:1px solid rgba(20,53,80,0.05);
+        box-sizing:border-box;
+        border-radius:14px;
+        display:block;
+        padding: 10px 20px 40px 20px;
+    }
+    .console .divEventTrace hr{
+        margin:5px 0px;
+    }
+    .console .divEventTrace{
+        padding:5px;
+    }
+    .console {
+    background-color: transparent;
+    color: #333;
+    font: 11px Consolas, Monaco, "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    margin-bottom: 5px;
+    overflow-x: hidden;
+    text-align: left;
+    height:230px;
+    border: 1px solid rgba(20,53,80,0.1);
+    background-color: #ffffff;
+    text-indent: 0;
+    display:block;
+}
+    #clrbutton{
+        float:right;
+    }

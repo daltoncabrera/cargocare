@@ -1,0 +1,42 @@
+@model List<MSESG.CargoCare.Core.EFServices.Services.UserClientModel>
+@{
+    ViewData["Title"] = "Select Client";
+    Layout = "~/Views/Shared/_LayoutClean.cshtml";
+}
+
+
+<div class="login-box">
+    <div class="login-logo">
+        <a href="/"><b>Elite Survey Group</b></a>
+    </div>
+    <div class="login-box-body">
+        <p class="login-box-msg">Seleccione Cliente para continuar</p>
+        @if (Model.Any())
+        {
+            <div class="form-group">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                        Seleccionar Cliente
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @foreach (var cli in Model)
+                        {
+                            <li><a href="/App/@cli.EmpresaSlug/@cli.ClienteSlug/">@cli.ClientName [ @cli.EmpresaName ]</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+        else
+        {
+
+            <div class="alert alert-danger">
+                <strong>Danger!</strong> El usuario con el que intenta acceder on tiene cliente configurado. Contactar soporte.
+            </div>
+
+        }
+
+    </div>
+</div>
+

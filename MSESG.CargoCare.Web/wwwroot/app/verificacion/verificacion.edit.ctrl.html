@@ -1,0 +1,446 @@
+﻿<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message:loadingMsg}">
+    <form name="verficacionForm" role="form" novalidate>
+        <div class="box-body">
+            <div class="form-group">
+                <dateform dir="v" ng-required="true" collinput="col-md-3" display="Fecha" name="fecha" field="verficacionForm.fecha" ng-model="model.verificacion.fecha"> </dateform>
+                <selectform dir="v" ng-required="true" option="camiones" collinput="col-md-3" display="Camion" name="camionId" field="verficacionForm.camionId" ng-model="model.verificacion.camionId"> </selectform>
+                <selectform dir="v" ng-required="true" option="choferes" collinput="col-md-3" display="Chofer" name="choferId" field="verficacionForm.choferId" ng-model="model.verificacion.choferId"> </selectform>
+                <selectform dir="v" ng-required="true" option="cisternas" collinput="col-md-3" display="Cisterna" name="cisternaId" field="verficacionForm.cisternaId" ng-model="model.verificacion.cisternaId"> </selectform>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12"><h4>Revisión del Camión</h4></div>
+
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6"></div>
+                <div class="col-xs-3"><h4>Observaci&oacute;n</h4></div>
+
+            </div>
+            <div class="form-group">
+                <div class="col-lg-12">
+
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.gomas.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.gomas.bueno" type="checkbox" ng-change="itemChange(model.detalle.gomas, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.gomas.regular" type="checkbox" ng-change="itemChange(model.detalle.gomas, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.gomas.malo" type="checkbox" ng-change="itemChange(model.detalle.gomas, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.gomas.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lineaVida.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lineaVida.bueno" type="checkbox" ng-change="itemChange(model.detalle.lineaVida, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lineaVida.regular" type="checkbox" ng-change="itemChange(model.detalle.lineaVida, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lineaVida.malo" type="checkbox" ng-change="itemChange(model.detalle.lineaVida, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lineaVida.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesParqueo.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesParqueo.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesParqueo, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesParqueo.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesParqueo, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesParqueo.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesParqueo, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.lucesParqueo.lineaVida.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesFreno.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesFreno.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesFreno, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesFreno.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesFreno, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesFreno.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesFreno, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lucesFreno.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesAltasBajas.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesAltasBajas.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesAltasBajas, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesAltasBajas.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesAltasBajas, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesAltasBajas.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesAltasBajas, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lucesAltasBajas.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesDireccionales.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesDireccionales.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesDireccionales, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesDireccionales.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesDireccionales, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesDireccionales.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesDireccionales, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lucesDireccionales.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesMarcha.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesMarcha.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesMarcha, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesMarcha.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesMarcha, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesMarcha.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesMarcha, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lucesMarcha.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.lucesGalibo.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesGalibo.bueno" type="checkbox" ng-change="itemChange(model.detalle.lucesGalibo, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesGalibo.regular" type="checkbox" ng-change="itemChange(model.detalle.lucesGalibo, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.lucesGalibo.malo" type="checkbox" ng-change="itemChange(model.detalle.lucesGalibo, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.lucesGalibo.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.equipoCarretera.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.equipoCarretera.bueno" type="checkbox" ng-change="itemChange(model.detalle.equipoCarretera, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.equipoCarretera.regular" type="checkbox" ng-change="itemChange(model.detalle.equipoCarretera, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.equipoCarretera.malo" type="checkbox" ng-change="itemChange(model.detalle.equipoCarretera, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.quipoCarretera.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.hojaMsds.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.hojaMsds.bueno" type="checkbox" ng-change="itemChange(model.detalle.hojaMsds, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.hojaMsds.regular" type="checkbox" ng-change="itemChange(model.detalle.hojaMsds, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.hojaMsds.malo" type="checkbox" ng-change="itemChange(model.detalle.hojaMsds, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.hojaMsds.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.rotuloMaterial.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.rotuloMaterial.bueno" type="checkbox" ng-change="itemChange(model.detalle.rotuloMaterial, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.rotuloMaterial.regular" type="checkbox" ng-change="itemChange(model.detalle.rotuloMaterial, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.rotuloMaterial.malo" type="checkbox" ng-change="itemChange(model.detalle.rotuloMaterial, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.rotuloMaterial.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.bandejaDrenage.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.bandejaDrenage.si" type="checkbox" ng-change="itemChange(model.detalle.bandejaDrenage, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.bandejaDrenage.no" type="checkbox" ng-change="itemChange(model.detalle.bandejaDrenage, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.bandejaDrenage.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.conductorUniformado.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.conductorUniformado.si" type="checkbox" ng-change="itemChange(model.detalle.conductorUniformado, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.conductorUniformado.no" type="checkbox" ng-change="itemChange(model.detalle.conductorUniformado, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.conductorUniformado.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.compartimentosIdentifiacados.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.compartimentosIdentifiacados.si" type="checkbox" ng-change="itemChange(model.detalle.compartimentosIdentifiacados, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.compartimentosIdentifiacados.no" type="checkbox" ng-change="itemChange(model.detalle.compartimentosIdentifiacados, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.compartimentosIdentifiacados.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.cintaReflectiva.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.cintaReflectiva.si" type="checkbox" ng-change="itemChange(model.detalle.cintaReflectiva, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.cintaReflectiva.no" type="checkbox" ng-change="itemChange(model.detalle.cintaReflectiva, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.cintaReflectiva.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.calzoSeguridad.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.calzoSeguridad.si" type="checkbox" ng-change="itemChange(model.detalle.calzoSeguridad, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.calzoSeguridad.no" type="checkbox" ng-change="itemChange(model.detalle.calzoSeguridad, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.calzoSeguridad.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.compartimentosAnillos.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.compartimentosAnillos.si" type="checkbox" ng-change="itemChange(model.detalle.compartimentosAnillos, 1,true)"> SI</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.compartimentosAnillos.no" type="checkbox" ng-change="itemChange(model.detalle.compartimentosAnillos, 2,true)"> NO</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.compartimentosAnillos.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.guantes.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.guantes.bueno" type="checkbox" ng-change="itemChange(model.detalle.guantes, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.guantes.regular" type="checkbox" ng-change="itemChange(model.detalle.guantes, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.guantes.malo" type="checkbox" ng-change="itemChange(model.detalle.guantes, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.guantes.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.casco.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.casco.bueno" type="checkbox" ng-change="itemChange(model.detalle.casco, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.casco.regular" type="checkbox" ng-change="itemChange(model.detalle.casco, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.casco.malo" type="checkbox" ng-change="itemChange(model.detalle.casco, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.casco.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.zapatosSeguridad.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.zapatosSeguridad.bueno" type="checkbox" ng-change="itemChange(model.detalle.zapatosSeguridad, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.zapatosSeguridad.regular" type="checkbox" ng-change="itemChange(model.detalle.zapatosSeguridad, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.zapatosSeguridad.malo" type="checkbox" ng-change="itemChange(model.detalle.zapatosSeguridad, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.casco.observacion" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3"><h4>{{model.detalle.arnes.itemDescription}}</h4></div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.arnes.bueno" type="checkbox" ng-change="itemChange(model.detalle.arnes, 1)"> Bueno</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.arnes.regular" type="checkbox" ng-change="itemChange(model.detalle.arnes, 2)"> Regular</label>
+                                </div>
+                                <div class="col-xs-4">
+                                    <label><input ng-model="model.detalle.arnes.malo" type="checkbox" ng-change="itemChange(model.detalle.arnes, 3)"> Malo</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <input class="form-control" ng-model="model.detalle.arnes.observacion" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-10">
+                                <button type="button" ng-click="saveData(verficacionForm.$valid)" ng-disabled="verficacionForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" ng-click="$root.goTo('/verificaciones')" class="btn btn-danger">Ver listado</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

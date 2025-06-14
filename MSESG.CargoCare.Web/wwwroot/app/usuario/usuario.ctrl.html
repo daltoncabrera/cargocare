@@ -1,0 +1,64 @@
+﻿<div class="box box-default" cg-busy="{promise:myPromise, message: loadingMsg}">
+
+    <div class="box-header with-border">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group">
+                    <a href="javascript:;" ng-click="$root.goTo('/usuario/0')" id="sample_editable_1_new" class="btn  btn-primary ">
+                        Agregar Usuario
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="btn-group pull-right">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa fa-user"></i> Usuario
+                        </th>
+
+                        <th>
+                            <i class="fa fa-envelope"></i> Correo
+                        </th>
+                        <th>
+                            <i class="fa fa-phone"></i> Telefono
+                        </th>
+                        <th>
+                            <i class="fa fa-bullseye"></i> Activo
+                        </th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="e in usuarios track by e.id">
+                        <td class="highlight">
+                            <div class="success"></div>
+                            <a href="javascript:;"> {{e.fullName}} </a>
+                        </td>
+                        <td> {{e.email}} </td>
+                        <td> {{e.phone}} </td>
+                        <td> {{e.activo}} </td>
+                        <td>
+                            <a href="javascript:;" ng-click="$root.goTo('/usuario/' + e.id)" class="btn  btn-sm btn-primary">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>
+                            <a href="javascript:;" ng-click="deleteUsuario(e.id)" class="btn  btn-sm btn-danger">
+                                <i class="fa fa-trash-o"></i> Borrar
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

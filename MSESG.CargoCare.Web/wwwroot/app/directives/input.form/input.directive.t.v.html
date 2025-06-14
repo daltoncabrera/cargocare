@@ -1,0 +1,12 @@
+﻿<div class="form-group {{collinput}}" ng-class="{'has-error' : field.$invalid && field.$touched, 'has-success': field.$valid && field.$touched}">
+    <label for="{{name}}" class="control-label">{{display}}</label>
+    <span ng-show="ngRequired" class="required" aria-required="true"> * </span>
+    <div class="input-icon right">
+        <input ng-disabled="disabled"  id="{{name}}" ng-pattern="pat" type="{{type}}" ng-required="ngRequired" name="{{name}}" class="form-control" ng-model="ngModel" placeholder="{{ngPattern}}">
+    </div>
+</div>
+
+
+
+
+

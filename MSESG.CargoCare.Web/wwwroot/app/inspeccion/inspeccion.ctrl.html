@@ -1,0 +1,213 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: loadingMsg}">
+    <div class="box-header with-border">
+        <div class="caption caption-md">
+            <span class="caption-subject font-blue-madison bold uppercase"><i class="fa fa-file-text-o"></i> Ordenes Pendientes</span>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            No. Orden
+                        </th>
+
+                        <th>
+                            No. Planificacion
+                        </th>
+
+                        <th>
+                            No. Referencia
+                        </th>
+
+                        <th>
+                            Terminal
+                        </th>
+
+
+                        <th>
+                            Chofer
+                        </th>
+
+                        <th>
+                            Ficha Camion
+                        </th>
+                        <th>
+                            Ficha Cisterna
+                        </th>
+
+
+                        <th>
+                            Fecha
+                        </th>
+
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="o in ordenes   track by $index">
+                    <tr>
+                        <td class="highlight">
+                            <div class="success"></div>
+                            <a href="javascript:;" ng-click="togleDetail(o)">
+                                <i ng-show="o.showDetail" class="fa fa-arrow-up"></i>
+                                <i ng-show="!o.showDetail" class="fa fa-arrow-down"></i>
+                                {{o.correlativo}}
+                            </a>
+                        </td>
+                        <td> {{o.planificacion}} </td>
+                        <td> {{o.referencia}} </td>
+                        <td> {{o.terminal}} </td>
+                        <td> {{o.choferNombre}} </td>
+                        <td> {{o.fichaCamion}} </td>
+                        <td> {{o.fichaCisterna}} </td>
+                        <td> {{o.fecha | date:'dd/MM/yyyy HH:mm'}} </td>
+                        <td>
+                            <a href="javascript:;" ng-click="editinspeccion(o.precargaId)" class="btn btn-sm btn-primary">
+                                <i class="fa fa-tags"></i> Trabajar
+                            </a>
+
+                        </td>
+                    </tr>
+                    <tr style="background-color:#f3f4f6 !important" ng-show="o.showDetail">
+                        <td colspan="8">
+                            <div class="table-scrollable">
+                                <table class="table table-striped table-bordered table-advance table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Compartimento
+                                            </th>
+                                            <th>
+                                                Producto
+                                            </th>
+
+                                            <th>
+                                                Chapa
+                                            </th>
+
+
+                                            <th>
+                                                Boca Carga
+                                            </th>
+
+                                            <th>
+                                                Boca Descarga
+                                            </th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="d in o.detalle track by $index">
+                                            <td class="highlight">
+                                                {{d.compartimento}}
+                                            </td>
+                                            <td> {{d.producto}} </td>
+                                            <td> {{d.selloChapaManhole}} </td>
+                                            <td> {{d.selloBocaCarga}} </td>
+                                            <td> {{d.selloBocaDescarga}} </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <button ng-click="$root.goTo('/inspeccion/0')" class="btn btn-default"><li class="fa fa-plus"></li> Agregar sin orden</button>
+    </div>
+</div>
+
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise2, message: loadingMsg}">
+    <div class="box-header with-border">
+        <div class="caption caption-md">
+            <span class="caption-subject font-blue-madison bold uppercase"><i class="fa fa-file-text"></i> Inspecciones</span>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                           Conduce No.
+                        </th>
+              
+                        <th>
+                            Terminal
+                        </th>
+
+
+                        <th>
+                            Chofer
+                        </th>
+
+                        <th>
+                            Ficha Camion
+                        </th>
+                        <th>
+                            Ficha Cisterna
+                        </th>
+
+
+                        <th>
+                            Fecha Inicio
+                        </th>
+
+                        <th>
+                            Fecha Fin
+                        </th>
+
+                        <th>
+                            Horas
+                        </th>
+
+
+
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in inspecciones   track by $index">
+                        <td class="highlight">
+                            <div class="success"></div>
+                            <a href="javascript:;"> {{i.referencia}} </a>
+                        </td>
+                        <td> {{i.terminal}} </td>
+                        <td> {{i.choferNombre}} </td>
+                        <td> {{i.fichaCamion}} </td>
+                        <td> {{i.fichaCisterna}} </td>
+                        <td> {{i.fechaInicio | date:'dd/MM/yyyy HH:mm'}} </td>
+                        <td> {{i.fechaFin | date:'dd/MM/yyyy HH:mm'}} </td>
+                        <td> {{i.horas}}:{{i.minutos}}</td>
+                        <td>
+                            <a href="javascript:;" ng-click="print(i.id)" class="btn  btn-sm btn-primary">
+                                <i class="fa fa-print"></i> Conduce
+                            </a>
+
+                            <a href="javascript:;" ng-click="$root.goTo('inspeccion/'+i.id)" class="btn  btn-sm btn-default">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

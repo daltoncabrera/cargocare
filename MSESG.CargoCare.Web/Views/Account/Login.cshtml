@@ -1,0 +1,53 @@
+﻿@using System.Collections.Generic
+@using System.Threading.Tasks
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@using MSESG.CargoCare.Core.EFServices
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+<form class="login-form row" asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="/"><b> Group D&T Inspections</b></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Digite correo y clave para iniciar session</p>
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="form-group has-feedback">
+                <input type="email" name="Email" class="form-control" placeholder="Email">
+                <span asp-validation-for="Email" class="help-block  alert-error"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="Password" class="form-control" placeholder="Password">
+                <span asp-validation-for="Password" class="help-block alert-error"></span>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            @*<input type="checkbox"> Remember Me*@
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-default btn-block btn-flat">Entrar</button>
+                </div>
+                <!-- /.col -->
+            </div>
+
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+
+</form>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,0 +1,319 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: $rootScope.loadingMsg}">
+    <div class="box-header with-border">
+        <div class="caption">
+            <i class="icon-settings font-dark"></i>
+            <span class="caption-subject font-dark sbold uppercase">{{titleMsg}}</span>
+        </div>
+
+    </div>
+    <div class="box-body form">
+        <div class="form-body cliente-form">
+
+            <uib-tabset>
+                <uib-tab index="1" heading="Informacion General">
+                    <form class="form-horizontal" ng-submit="saveData(clienteForm.$valid)" name="clienteForm" role="form" novalidate>
+
+                        <div class="form-group">
+                            <selectform ng-required="true" disabled="{{clienteId > 0}}" en collabel="col-md-2" collinput="col-md-10" option="empresas" display="Empresa" name="empresaId" field="clienteForm.empresaId" ng-model="cliente.empresaId"> </selectform>
+                        </div>
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-2" collinput="col-md-10" display="Nombre" name="nombre" field="clienteForm.nombre" ng-model="cliente.nombre"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-2" collinput="col-md-10" display="Contacto" name="contacto" field="clienteForm.contacto" ng-model="cliente.contacto"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform ng-required="true" type="email" collabel="col-md-2" collinput="col-md-10" display="Correo" name="email" field="clienteForm.email" ng-model="cliente.email"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform collabel="col-md-2" collinput="col-md-5" display="Telefono" name="telefono" field="clienteForm.telefono" ng-model="cliente.telefono"> </inputform>
+
+                            <inputform collabel="col-md-1" collinput="col-md-4" display="Fax" name="fax" field="clienteForm.fax" ng-model="cliente.fax"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform type="email" collabel="col-md-2" collinput="col-md-4" display="Pie Caption" name="notaPieConduce" field="clienteForm.notaPieConduce" ng-model="cliente.notaPieConduce"> </inputform>
+                            <inputform type="email" collabel="col-md-2" collinput="col-md-4" display="Pie Caption 2" name="notaPieConduce2" field="clienteForm.notaPieConduce2" ng-model="cliente.notaPieConduce2"> </inputform>
+                        </div>
+                        <!--<div class="form-group">
+                            <inputform collabel="col-md-2" collinput="col-md-10" display="Lateral Caption" name="notaLateralConduce" field="clienteForm.notaLateralConduce" ng-model="cliente.notaLateralConduce"> </inputform>
+                        </div>-->
+                        <div class="form-group row md-checkbox-inline">
+                            <label class="col-md-2 control-label">Incluye</label>
+
+                            <div class="col-md-2" style="margin: 10px">
+                                <label class="mt-checkbox mt-checkbox-outline">
+                                    S&aacute;bados
+                                    <input type="checkbox" ng-model="cliente.sabados" name="test">
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="col-md-2" style="margin: 10px">
+                                <label class="mt-checkbox mt-checkbox-outline">
+                                    Domingos
+                                    <input type="checkbox" ng-model="cliente.domingos" name="test">
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                           
+                        <div class="form-group row">
+                            <div  ng-class="{ 'has-error' : clienteForm.conduceTpl.$invalid && clienteForm.conduceTpl.$touched, 'has-success': clienteForm.conduceTpl.$valid && clienteForm.conduceTpl.$touched}">
+                            <label class="col-md-2 control-label">Tipo Conduce</label>
+                                <div class="col-md-4">
+                                    <select ng-required="true" class="form-control" ng-options="o.key as o.value for o in conducesTpl" name="conduceTpl" id="conduceTpl" ng-model="cliente.conduceTpl">
+                                        <option value="">--Selecciona tipo condcue--</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <label class="col-md-2 control-label">Llena detalle</label>
+                            <div class="col-md-4">
+                                <input type="checkbox" ng-model="cliente.llenaDetalle" name="test">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label class="col-md-2 control-label">Inicio Labor</label>
+
+                            <div class="input-icon right col-md-2">
+                                <div style="width: 130px">
+                                    <input ui-timepicker="$root.timePickerOptions" placeholder="hh:mm" style="float: left; width: 60px; text-align: center" name="hours" id="hours" ng-model="cliente.inicioLabor" />&nbsp;
+                                    <div style="clear: both">&nbsp;</div>
+                                </div>
+                            </div>
+
+                            <label class="col-md-2 control-label">Fin Labor</label>
+
+                            <div class="input-icon right col-md-2">
+                                <div style="width: 130px">
+                                    <input ui-timepicker="$root.timePickerOptions" placeholder="hh:mm" style="float: left; width: 60px; text-align: center" name="hours" id="hours" ng-model="cliente.finLabor" />&nbsp;
+                                    <div style="clear: both">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <button type="submit" ng-disabled="clienteForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button type="button" ng-click="$root.goTo('/clientes')" class="btn btn-warning">Ver lista</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </uib-tab>
+
+                <uib-tab disable="cliente.id <= 0" index="2" heading="Imagenes">
+                    <div ng-if="(cliente.id > 0)" class="row">
+                        <div class="col-md-12">
+                            <img style="max-width: 200px" ng-if="cliente.logo != ''" ng-src="/files/{{cliente.logo}}" />
+                        </div>
+                        <div class='col-md-12'>
+                                <button style="margin-top: 20px" type="file" ngf-select="changeLogo($file, $invalidFiles)"
+                                        accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                                    Cambiar Logo</button>
+                                <br><br>
+                            <div style="font-size: smaller; width: 100%">
+                                <div style="float: left">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}} &nbsp;&nbsp;</div>
+                                <span style="float: left" class="progress" ng-show="f.progress >= 0">
+                                    <div style="width:{{f.progress}}%"
+                                         ng-bind="f.progress + '%'"></div>
+                                </span>
+                            </div>     
+                                {{errorMsg}}
+
+                       
+                        </div>
+                    </div>
+                </uib-tab>
+
+                <uib-tab disable="cliente.id <= 0" index="3" heading="Plantas / Destinos">
+                    <div class="form-group  row">
+                        <div class=" col-md-2">
+                            <button ng-if="curTerminal == null" type="button" ng-click="editTerminal()" class="btn btn-default"><li class="fa fa-plus"></li>&nbsp;Agregar</button>
+                        </div>
+                        <div class="col-md-12" ng-if="curTerminal != null">
+                            <form class="form-horizontal" ng-submit="saveData(terminalForm.$valid)" name="terminalForm" role="form" novalidate>
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <inputform ng-required="true" collabel="col-md-2" collinput="col-md-3" display="Nombre" name="nombre" field="terminalForm.nombre" ng-model="curTerminal.nombre"> </inputform>
+                                        <inputform ng-required="true" collabel="col-md-2" collinput="col-md-5" display="Descripcion" name="descripcion" field="terminalForm.descripcion" ng-model="curTerminal.descripcion"> </inputform>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <inputform collabel="col-md-2" collinput="col-md-3" display="Telefono" name="telefono" field="terminalForm.telefono" ng-model="curTerminal.telefono"> </inputform>
+                                        <selectform ng-required="true" en collabel="col-md-2" collinput="col-md-2" option="yesno" display="Es Destino" name="esDestino" field="terminalForm.empresaId" ng-model="curTerminal.esDestino"> </selectform>
+                                        <inputform type="number" collabel="col-md-2" collinput="col-md-1" display="Orden" name="destinoOrd" field="terminalForm.destinoOrd" ng-model="curTerminal.destinoOrd"> </inputform>
+                                    </div>
+                                    <div class="form-group">
+                                        <inputform collabel="col-md-2" collinput="col-md-10" display="Contacto" name="contacto" field="terminalForm.contacto" ng-model="curTerminal.nombreContacto"> </inputform>
+                                    </div>
+                                    <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
+                                        <inputform collabel="col-md-2" collinput="col-md-10" display="Direccion" name="direccion" field="terminalForm.direccion" ng-model="curTerminal.direccion"> </inputform>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <inputform collabel="col-md-2" collinput="col-md-10" display="Caption conduce" name="conduceCaption" field="terminalForm.conduceCaption" ng-model="curTerminal.conduceCaption"> </inputform>
+                                    </div>
+
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <button ng-disabled="terminalForm.$invalid" ng-click="saveTerminal()" type="button" class="btn btn-default"><li class="fa fa-save"></li> Guardar</button>
+                                            &nbsp;&nbsp;<button type="button" ng-click="cancelTerminal()" class="btn btn-warning"><li class="fa fa-history"></li>&nbsp;Cancelar</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="table-responsive" cg-busy="{promise:terminalPromise, message: $rootScope.loadingMsg}">
+
+                        <table ng-if="curTerminal == null" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Direcci&oacute;n</th>
+                                    <th>Descripcion</th>
+                                    <th>Telefono</th>
+                                    <th>Contacto</th>
+                                    <th>Es Destino</th>
+                                    <th>Dest. Ord</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="t in terminales track by $index">
+                                    <td>{{t.nombre}}</td>
+                                    <td>{{t.direccion}}</td>
+                                    <td>{{t.descripcion}}</td>
+                                    <td>{{t.telefono}}</td>
+                                    <td>{{t.nombreContacto}}</td>
+                                    <td><input type="checkbox" ng-disabled="true" ng-model="t.esDestino" /></td>
+                                    <td>{{t.destinoOrd}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info" ng-click="editTerminal(t)"><li class="fa fa-edit"></li></button>
+                                        <button type="button" class="btn btn-danger" ng-click="removeTerminal(t)"><li class="fa fa-remove"></li></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </uib-tab>
+
+                <uib-tab disable="cliente.id <= 0" index="4" heading="Correos">
+                    <div class="form-group  row">
+                        <div class=" col-md-2">
+                            <button ng-if="curCorreo == null" type="button" ng-click="editMail()" class="btn btn-default"><li class="fa fa-plus"></li>&nbsp;Agregar</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <form name="mailForm">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Correo</th>
+                                        <th>Nombre</th>
+                                        <th style="width: 100px">Planificacion</th>
+                                        <th style="width: 100px">Orden</th>
+                                        <th style="width: 100px">Inspeccion</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-if="curCorreo != null">
+                                        <td>
+                                            <input ng-required="true" type="email" class="form-control" id="email" name="email" ng-model="curCorreo.email" />
+                                        </td>
+                                        <td>
+                                            <input ng-required="true" class="form-control" id="nombre" name="nombre" ng-model="curCorreo.nombre" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="notificaPlanitificacion" name="notificaPlanificacion" ng-model="curCorreo.notificaPlanificacion" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="notificaOrden" name="notificaOrden" ng-model="curCorreo.notificaOrden" />
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" id="notificaInspeccion" name="notificaInspeccion" ng-model="curCorreo.notificaInspeccion" />
+                                        </td>
+                                        <td>
+                                            <button ng-disabled="mailForm.$invalid" ng-click="saveMail()" type="button" class="btn btn-default"><li class="fa fa-save"></li> Guardar</button>
+                                            &nbsp;&nbsp;<button type="button" ng-click="cancelMail()" class="btn btn-warning"><li class="fa fa-history"></li>&nbsp;Cancelar</button>
+
+                                        </td>
+                                    </tr>
+                                    <tr ng-if="curCorreo == null" ng-repeat="c in correos track by $index">
+                                        <td>{{c.email}}</td>
+                                        <td>{{c.nombre}}</td>
+                                        <td><input type="checkbox" ng-disabled="true" ng-model="c.notificaPlanificacion" /></td>
+                                        <td><input type="checkbox" ng-disabled="true" ng-model="c.notificaOrden" /></td>
+                                        <td><input type="checkbox" ng-disabled="true" ng-model="c.notificaInspeccion" /></td>
+                                        <td>
+                                            <button type="button" class="btn btn-info" ng-click="editMail(c)"><li class="fa fa-edit"></li></button>
+                                            <button type="button" class="btn btn-danger" ng-click="deleteMail(c)"><li class="fa fa-remove"></li></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </uib-tab>
+                <uib-tab disable="cliente.id <= 0" index="5" heading="Productos del cliente">
+                    <div class="row form-group">
+
+                        <div class="col-md-1 text-right"><label for="productoId" class="control-label">Producto</label></div>
+                        <div class=" col-md-2">
+                            <select class="form-control" ng-change="productoChanged(productoId)" ng-options="o.key as o.value for o in productos" name="productoId" id="productoId" ng-model="productoId">
+                                <option value="">--Selecciona producto--</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 text-right"><label for="productoId" class="control-label">Codigo Prod</label></div>
+                        <div class=" col-md-2">
+                            <input class="form-control col-md-2" ng-change="changeCodigo(codigoProducto)" name="codigoProducto" ng-model="codigoProducto" />
+                        </div>
+                        <div class="col-md-2">
+                            <button ng-disabled="productoId <= 0" type="button" ng-click="addProducto()" class="btn btn-default"><li class="fa fa-plus"></li>&nbsp;Agregar</button>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Codigo Prod</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="p in productosCliente track by $index">
+                                        <td>{{p.producto}}</td>
+                                        <td>{{p.codigoProducto}}</td>
+                                        <td>{{p.orden}}</td>
+                                        <td><a ng-click="removeProducto(p.productoId)" href="javascript:;" class="text-danger"><li class="fa fa-remove"></li></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+
+    </div>
+</div>

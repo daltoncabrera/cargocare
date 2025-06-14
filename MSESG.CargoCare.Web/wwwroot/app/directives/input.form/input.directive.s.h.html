@@ -1,0 +1,15 @@
+﻿
+<div ng-class="{ 'has-error' : field.$invalid && field.$touched, 'has-success': field.$valid && field.$touched}">
+    <label for="{{name}}" ng-class="collabel" class="control-label">{{display}}</label>
+    <div ng-class="collinput">
+        <div class="input-icon right">
+            <select ng-disabled="disabled" id="{{name}}" ng-required="ngRequired" name="{{name}}" class="form-control" ng-model="ngModel" placeholder="{{ngPattern}}">
+                <option ng-repeat="o in option track by $index" ng-value="{{o.key}}">{{o.value}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+
+

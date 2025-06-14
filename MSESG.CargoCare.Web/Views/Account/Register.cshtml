@@ -1,0 +1,57 @@
+﻿@model RegisterViewModel
+
+
+<div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+            <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="login-form">
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <h4>Registro</h4>
+                        <p class="center">Crea una cuenta y comienza a facturar!</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <label for="email" class="center-align">Email</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        <label for="password-again">Confirmar password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light col s12">Registrar ahora!</button>
+                    </div>
+                    <div class="input-field col s12">
+                        <p class="margin center medium-small sign-up">
+                           Ya tienes una cuenta? <a href="/Account/Login">Entra aqui</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -1,0 +1,118 @@
+﻿@using MSESG.CargoCare.Core
+@using MSESG.CargoCare.Core.EFServices.Dto
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model PlanificacionDto
+@{
+    var modtable = "";
+    var destinos = Model.Destinos;
+    var terminales = Model.Terminales;
+    var cliente = Model.Cliente;
+    var empresa = Model.Empresa;
+
+
+    foreach (var despacho in Model.PlanificacionDespacho)
+    {
+        var terminalStr = terminales.FirstOrDefault(s => (int)s.Key == despacho.Despacho.TerminalId)?.Value;
+        modtable += $"<table class='table1' style=''><thead><tr><th style='width:90px'></th><th class='thead' colspan='3'>Despacho&nbsp;</th> <th class='thead' colspan='{destinos.Count() * 3}'>Destino</th></tr>";
+        modtable += $"<tr><th></th><th colspan='3' style='text-align: center;border:1px solid #AAAAAA'>{terminalStr}</th>";
+        foreach (var d in destinos)
+        {
+            modtable += $"<th colspan='3' style='text-align: center;border:1px solid #AAAAAA'>{d.Value}</th>";
+        }
+
+        modtable += $"</tr><tr><th></th><th>C. Qty</th><th>H. Inicio</th><th>H. Fin</th>";
+
+        foreach (var d in destinos)
+        {
+            modtable += $"<th>C. Qty</th><th>H. Inicio</th><th>H. Fin</th>";
+
+
+        }
+        modtable += "</tr></thead><tbody>";
+
+        foreach (var detalle in despacho.PlanificacionDetalle)
+        {
+            modtable += "<tr>";
+            modtable += $"<td>{detalle.Detalle.Fecha.ToString("dd/MM/yyyy")}</td>";
+
+            modtable += $"<td>{detalle.Detalle.CamionesQty}'</td>";
+            modtable += $"<td>{detalle.Detalle.FechaInicio.ToLocalTime().ToString("HH:mm tt")}</td>";
+            modtable += $"<td>{detalle.Detalle.FechaFin.ToLocalTime().ToString("HH:mm tt")}</td>";
+
+            foreach (var d in destinos)
+            {
+                var curDest = detalle.Destinos.FirstOrDefault(s => s.TerminalId == (int)d.Key);
+                if (curDest != null)
+                {
+                    modtable += $"<td>{curDest.CamionesQty}'/></td>";
+                    modtable += $"<td>{curDest.FechaInicio.ToLocalTime().ToString("HH:mm tt")}/></td>";
+                    modtable += $"<td>{curDest.FechaFin.ToLocalTime().ToString("HH:mm tt")}/></td>";
+                }
+            }
+
+            modtable += "</tr>";
+        }
+
+        modtable += "</tbody></table>";
+    }
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style type="text/css">
+        .planitable {
+            overflow: auto;
+        }
+
+            .planitable .table1 {
+                min-width: 800px;
+                max-width: 900px;
+                border-spacing: 5px 0px;
+                border-collapse: separate;
+                margin-bottom: 20px;
+            }
+
+            .planitable th {
+                /*border: 1px solid #F4F4F4*/
+            }
+
+            .planitable input {
+                width: 100%;
+            }
+
+        .thead {
+            text-align: center;
+            border: 1px solid #D2D6DE;
+            font-weight: bold;
+            background-color: #F4F4F4;
+        }
+
+        .box-title {
+            width: 100%;
+            border-bottom: 1px solid #D2D6DE;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; text-align: center">
+        <h2 style="text-align: center">@empresa<br />@cliente</h2>
+        <div style="font-size: 18px">Planificaci&oacute;n #@Model.Planificacion.Correlativo desde el <b>@Model.Planificacion.FechaInicio.ToString("dd/MM/yyyy")</b> hasta el <b>@Model.Planificacion.FechaFin.ToString("dd/MM/yyyy")</b></div>
+
+    </div>
+    <div class="planitable">@Html.Raw(modtable)</div>
+    <div style="width:100%">
+        <table>
+            <tr>
+                <td><b>Nota: </b></td>
+                <td>@Model.Planificacion.Nota</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

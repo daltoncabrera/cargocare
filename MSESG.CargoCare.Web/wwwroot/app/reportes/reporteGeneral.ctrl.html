@@ -1,0 +1,277 @@
+﻿<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: $rootScope.loadingMsg}">
+
+    <div class="box-body form">
+        <div class="form-body">
+
+            <uib-tabset>
+                <uib-tab index="0" heading="Reportes">
+                    <div class="row atitle">
+                        <div class="col-md-9">
+
+                        </div>
+
+                    </div>
+
+                    <form name="oform" role="form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="reportName" class="control-label">Nombre Reporte</label>
+                                    <div class="input-icon right">
+                                        <select id="reportName" ng-options="o.key as o.value for o in reports" ng-required="true" name="reportName" class="form-control" ng-model="model.reportName">
+                                            <option value="">--Nombre Reporte--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="reportName" class="control-label">Periodos</label>
+                                    <div class="input-icon right">
+                                        <select id="reportName" ng-options="o.key as o.value for o in periods" ng-required="true" name="reportName" class="form-control" ng-model="model.periodo">
+                                            <option value="">--Tipo Reporte--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="reportName" class="control-label">Agrupar por</label>
+                                    <div class="input-icon right">
+                                        <select id="reportName" ng-options="o.key as o.value for o in groups" ng-required="true" name="reportName" class="form-control" ng-model="model.grupo">
+                                            <option value="">--Agrupar por--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="reportName" class="control-label">Tipo de reporte</label>
+                                    <div class="input-icon right">
+                                        <select id="reportName" ng-options="o.key as o.value for o in tipos" ng-required="true" name="reportName" class="form-control" ng-model="model.tipo">
+                                            <option value="">--Tipo reporte--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <dateform dir="v" ng-required="true" collinput="col-sm-3" display="Fecha inicio" name="dateInit" field="oForm.dateInit" ng-model="model.dateInit"> </dateform>
+                            <dateform dir="v" ng-required="true" collinput="col-sm-3" display="Fecha Fin" name="dateEnd" field="oForm.dateEnd" ng-model="model.dateEnd"> </dateform>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="" class="control-label">&nbsp;</label>
+                                    <div class="input-icon right">
+                                        <button type="button" ng-click="showReport()" ng-disabled="!isValid()" class="btn btn-primary">Mostrar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <iframe id="frame" style="border:0px;margin:0px;padding:0px;overflow-y: hidden; overflow-x: scroll " width="900" height="1080" ng-src="{{url}}"></iframe>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </uib-tab>
+
+                <uib-tab ng-show="false" index="1" select="resumen()" heading="Despachos">
+                    <div class="row atitle">
+                        <div class="col-md-9">
+                            <h3>Resumen Mensual <strong>{{reporteActMonth.cliente}}</strong> <small>{{monthTitle()}}</small></h3>
+                        </div>
+                        <div class="col-md-3 text-right pop">
+                            <div class="btn-group">
+                                <button ng-click="monthChanged(dateMonthFilter, -1)" type="button" class="btn btn-default"><i class="fa  fa-arrow-left"></i></button>
+                                <button type="button" ng-click="isOpen = true" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                <button ng-click="monthChanged(dateMonthFilter, 1)" type="button" class="btn btn-default"><i class="fa  fa-arrow-right"></i></button>
+                            </div>
+                            <form name="oform" role="form">
+                                <input style="width: 0px; height: 0px;border:none" type="text" name="datesearch" popup-placement="bottom-right" uib-datepicker-popup="dd/MM/yyyy" ng-change="monthChanged(dateFilterMonth, null)" ng-model="model.dateFilterMonth" is-open="isOpen" datepicker-options="monthOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table style="border: none; border-top: 0px" class="tactividad">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Conduce</th>
+                                            <th>Chofer</th>
+                                            <th>Ficha</th>
+                                            <th>Placa Cabezote</th>
+                                            <th>Placa Cisterna</th>
+                                            <th>Producto</th>
+                                            <th>Total a Cargar</th>
+                                            <th>Cantiad Cargada</th>
+                                            <th>Destino</th>
+                                            <th>Temp. de Carga</th>
+                                            <th>Temp. oC Tomada</th>
+                                            <th>Certificado de Calidad</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>1</th>
+                                            <th>2</th>
+                                            <th>3</th>
+                                            <th>4</th>
+                                            <th>5</th>
+                                            <th>Hora Inicio</th>
+                                            <th>Hora Salida</th>
+                                            <th>Inspector</th>
+                                            <th>Objservaciones</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="c in reporteActMonth.conduces">
+                                            <td>{{c.fechaInicio|date:'dd/MM/yyyy'}}</td>
+                                            <td>{{c.referencia}}</td>
+                                            <td>{{c.chofer}}</td>
+                                            <td>{{c.ficha}}</td>
+                                            <td>{{c.placaCamion}}</td>
+                                            <td>{{c.placaCisterna}}</td>
+                                            <td>{{c.producto}}</td>
+                                            <td>{{c.cantidadProducto}}</td>
+                                            <td>{{c.totalCarga}}</td>
+                                            <td>{{c.destino}}</td>
+                                            <td>{{c.temperaturaCarga}}</td>
+                                            <td>{{c.temperaturaTomada}}</td>
+                                            <td>{{c.certificados}}</td>
+                                            <td>{{c.selloChapa1}}</td>
+                                            <td>{{c.selloChapa2}}</td>
+                                            <td>{{c.selloChapa3}}</td>
+                                            <td>{{c.selloChapa4}}</td>
+                                            <td>{{c.selloChapa5? c.selloChapa5 : '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'}}</td>
+                                            <td>{{c.selloBocaDescarga1}}</td>
+                                            <td>{{c.selloBocaDescarga2}}</td>
+                                            <td>{{c.selloBocaDescarga3}}</td>
+                                            <td>{{c.selloBocaDescarga4}}</td>
+                                            <td>{{c.selloBocaDescarga5? c.selloBocaDescarga5 : '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'}}</td>
+                                            <td>{{c.fechaInicio|date:'HH:mm'}}</td>
+                                            <td>{{c.fechaFin|date:'HH:mm'}}</td>
+                                            <td>{{c.inspector}}</td>
+                                            <td>{{c.objservaciones}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+
+                <uib-tab ng-show="false" index="2" select="resumen()" heading="Resumen Mensual">
+                    <div class="row atitle">
+                        <div class="col-md-9">
+                            <h3>Resumen Despachos <strong>{{reporteActMonth.cliente}}</strong> <small>{{monthTitle()}}</small></h3>
+                        </div>
+                        <div class="col-md-3 text-right pop">
+                            <div class="btn-group">
+                                <button ng-click="monthChanged(dateMonthFilter, -1)" type="button" class="btn btn-default"><i class="fa  fa-arrow-left"></i></button>
+                                <button type="button" ng-click="isOpen = true" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                                <button ng-click="monthChanged(dateMonthFilter, 1)" type="button" class="btn btn-default"><i class="fa  fa-arrow-right"></i></button>
+                            </div>
+                            <form name="oform" role="form">
+                                <input style="width: 0px; height: 0px;border:none" type="text" name="datesearch" popup-placement="bottom-right" uib-datepicker-popup="dd/MM/yyyy" ng-change="monthChanged(dateFilterMonth, null)" ng-model="model.dateFilterMonth" is-open="isOpen" datepicker-options="monthOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <form class="form-horizontal" name="clienteForm" role="form" novalidate>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table style="border: none; border-top: 0px" class="tactividad">
+                                    <thead>
+                                        <tr>
+                                            <th style="border: none"></th>
+                                            <th style="border: none"></th>
+                                            <th style="border: none"></th>
+                                            <th colspan="4">Camiones despachados</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Hora Inicio</th>
+                                            <th>Hora Final</th>
+                                            <th ng-repeat="r in reporteActMonth.terminales ">{{r.nombre}}</th>
+                                            <th>&nbsp;&nbsp;Total&nbsp;&nbsp;</th>
+                                            <th>Acumulado</th>
+                                        </tr>
+                                        <tr ng-repeat="a in reporteActMonth.detalle">
+                                            <td>{{a.fechaInicio | date:'dd-MMM-yyyy'}}</td>
+                                            <td>{{a.fechaInicio | date:'HH:mm'}}</td>
+                                            <td>{{a.fechaFin | date:'HH:mm'}}</td>
+                                            <td ng-repeat="t in reporteActMonth.terminales">{{a.detalles[t.terminalId].camionesQty}}</td>
+                                            <td>{{a.totalCamiones}}</td>
+                                            <td>{{a.acumulado}}</td>
+                                        </tr>
+                                        <tr class="tfooter">
+                                            <td colspan="3"> Total Mes</td>
+                                            <td ng-repeat="t in reporteActMonth.terminales">{{t.total}}</td>
+                                            <td>{{reporteActMonth.totalCamiones}}</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="tactividad">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Observaciones&nbsp;<a href="javascript:;" ng-click="addNoteMonth()" class="text-info"><li class="fa fa-plus"></li></a></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="o in reporteActMonth.observaciones">
+                                            <td style="width:2%">{{$index + 1}}) </td>
+                                            <td ng-mouseover="curIndex = $index" ng-mouseleave="curIndex = -1" style="text-align: left; padding: 5px; position: relative">
+                                                <div style="width: 100%">{{o.nota}} <br /><small>({{o.inspector}})</small><a ng-if="curIndex == $index" href="javascript:;" ng-click="delNoteMonth(o)" class="text-danger delIcon">&nbsp;&nbsp;<li class="fa fa-remove"></li></a></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </uib-tab>
+
+            </uib-tabset>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/ng-template" id="observacion.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Agregar observaci&oacute;n/comentario</h3>
+    </div>
+    <div class="modal-body">
+        <textarea ng-model="note" style="width:100%;height:80px">
+            
+       </textarea>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Enviar</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+    </div>
+</script>

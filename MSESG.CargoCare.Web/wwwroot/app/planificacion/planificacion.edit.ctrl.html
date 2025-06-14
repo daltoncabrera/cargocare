@@ -1,0 +1,132 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: loadingMsg}">
+    <uib-tabset>
+        <uib-tab index="0" heading="Planificacion">
+            <div class="box-body form">
+                <form class="form-horizontal" ng-submit="saveData(planificacionForm.$valid)" name="planificacionForm" role="form" novalidate>
+                    <div class="form-body">
+                        <div ng-if="model.planificacion.id > 0" class="form-group">
+                            <inputform disabled="true" colllabel="col-md-2" collinput="col-md-4" display="Planificacion No." ng-model="model.planificacion.correlativo"></inputform>
+                            <div class="col-md-2"><button ng-if="model.planificacion.id > 0 && model.planificacionDespacho && model.planificacionDespacho.length > 0" type="button" ng-click="sendMail()" class="btn btn-default">Enviar Correo</button></div>
+                        </div>
+                        <div class="form-group">
+                            <dateform dir="h" ng-change="timeWatcher" ng-required="true" colllabel="col-md-2" collinput="col-md-4" type="date" display="Fecha Inicio" name="fechaInicio" field="planificacionForm.fechaInicio" ng-model="model.planificacion.fechaInicio"> </dateform>
+                        </div>
+                        <div class="form-group">
+                            <dateform dir="h" ng-change="timeWatcher" ng-required="true" colllabel="col-md-2" collinput="col-md-4" type="date" display="Fecha Fin" name="fechaFin" field="planificacionForm.fechaFin" ng-model="model.planificacion.fechaFin"> </dateform>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nota" class="control-label col-md-2">Nota</label>
+                            <div class="col-md-4  input-group">
+                                <textarea id="nota" style="width: 100%; height: 60px" class="form-control" name="nota" ng-model="model.planificacion.nota"></textarea>
+                            </div>
+                        </div>
+                        <div ng-if="model.planificacion.id > 0" class="form-group">
+                            <div class="col-md-10">
+                                <a href="javascript:;" ng-click="$root.goTo('/orden/0/'+model.planificacion.id)" class="btn btn-outline btn-circle dark btn-sm blue">
+                                    <i class="fa fa-eye"></i> Orden
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box-title">Detalles  <button ng-click="addTerminal()" type="button" class="btn btn-default btn-xs btn-flat"><li class="fa fa-plus"></li></button></div>
+                            </div>
+
+                        </div>
+
+                        <div class="row" ng-show="model.planificacionDespacho.length > 0">
+
+                            <div class="col-md-12 planitable" dynamic="getTable()"> </div>
+
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px">
+                        <button type="button" ng-click="saveData()" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" ng-click="$root.goTo('/planificaciones')" class="btn btn-danger">Cancelar</button>
+
+                    </div>
+                </form>
+            </div>
+        </uib-tab>
+        <uib-tab  index="1" heading="Ordenes">
+            <div class="box-body" cg-busy="{promise:prePromise, message: 'Cargando ordenes'}">
+                <div class="col-md-12">
+                    <button ng-click="editPrecarga(0)" class="btn btn-default"><li class="fa fa-plus"></li> Agregar precarga</button>
+                </div>
+                <div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-advance table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <i class="fa fa-key"></i> No.
+                                </th>
+
+                                <th>
+                                    <i class="fa fa-file-text-o"></i> Planificacion
+                                </th>
+
+                                <th>
+                                    <i class="fa fa-arrows-alt"></i> Terminal
+                                </th>
+
+                                <th>
+                                    <i class="fa fa-building-o"></i> Destino
+                                </th>
+
+
+                                <th>
+                                    <i class="fa fa-user"></i> Chofer
+                                </th>
+
+                                <th>
+                                    <i class="fa fa-truck"></i> Camion / Cisterna
+                                </th>
+
+                                <th>
+                                    <i class="fa  fa-calendar"></i> Fecha
+                                </th>
+
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="o in precargas   track by $index">
+                                <td class="highlight">
+                                    <div class="success"></div>
+                                    <a href="javascript:;"> {{o.correlativo}} </a>
+                                </td>
+                                <td> {{o.planificacion}} </td>
+                                <td> {{o.terminal}} </td>
+                                <td> {{o.destino}} </td>
+                                <td> {{o.choferNombre}} </td>
+                                <td> {{o.fichaCamion}} / {{o.fichaCisterna}} </td>
+                                <td> {{o.fecha | utcToLocal: 'dd/MM/yyyy hh:mm a'}} </td>
+                                <td>
+                                    <a ng-if="o.inspeccionId <= 0" href="javascript:;" ng-click="editprecarga(o.precargaId)" class="btn  btn-sm btn-primary">
+                                        <i class="fa fa-edit"></i> Editar
+                                    </a>
+                                    <a ng-if="o.inspeccionId <= 0" ng-click="$root.goTo('/inspeccion/' + o.precargaId)" class="btn btn-sm btn-info">
+                                        <i class="fa  fa-gear"></i> Trabajar
+                                    </a>
+                            
+                                    <a  ng-if="o.inspeccionId  > 0" href="javascript:;" ng-click="verConduce(o.precargaId)" class="btn btn-sm btn-info">
+                                        <i class="fa  fa-eye"></i> Conduce
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+</div>
+

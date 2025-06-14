@@ -1,0 +1,81 @@
+/*================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 3.1
+	Author: GeeksLabs
+	Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN CSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+/* Clicking the label does not activate the input without this */
+input[type="text"] + label {
+    pointer-events: none;
+}
+
+    input[type="text"] + label * {
+        pointer-events: all;
+    }
+
+header .brand-logo img {
+    width: 96px;
+    margin: -8px 0 0 50px;
+}
+
+ul.side-nav.leftside-navigation li.user-details {
+    background-image: none;
+    background-color: #2C3B41;
+}
+
+.notification-badge {
+    background-color: #00646F;
+    padding: 5px 8px;
+}
+
+footer.page-footer {
+    background-color: #3D4E54;
+}
+
+@media (min-width: 992px) {
+    .page-content-wrapper .page-content {
+        padding: 0px 0 0 20px !important;
+    }
+}
+
+.animate-show-hide.ng-hide {
+    -ms-opacity: 0;
+    opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+    -ms-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+
+.page-content-wrapper .page-content {
+    padding: 10px 0 0 20px;
+}
+
+.popeye-modal-container {
+    z-index: 1050;
+}
+
+
+.popprint .popeye-modal {
+    width: 950px;
+}
+
+.lined {
+    border-bottom: 1px solid #eef1f5;
+    padding: 0;
+    min-height: 26px;
+    display: block;
+    width: 100%;
+    margin: 20px 0 10px 0;
+}
+
+

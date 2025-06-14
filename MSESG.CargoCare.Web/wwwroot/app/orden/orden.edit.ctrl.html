@@ -1,0 +1,136 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: $rootScope.loadingMsg}">
+
+    <div class="box-body">
+        <form class="" ng-submit="saveData(ordenForm.$valid)" name="ordenForm" role="form" novalidate>
+
+            <div class="portlet-body form">
+
+                <div class="row">
+
+                    <inputform dir="v" disabled="true" collinput="col-md-2" display="Numero de Orden" name="correlativo" field="ordenForm.correlativo" ng-model="model.orden.correlativo"> </inputform>
+
+                    <dateform dir="v" ng-required="true" collinput="col-md-3" display="Fecha" name="fecha" field="ordenForm.fecha" ng-model="model.orden.fecha"> </dateform>
+                    <div class="form-group col-md-2">
+                        <div class="input-icon right form-group">
+                            <label for="note" class="control-label">Hora</label>
+                            <input class="form-control" ui-timepicker="$root.timePickerOptions" ng-model="model.orden.fecha"/>
+                        </div>
+                    </div>
+                    <inputform dir="v" collinput="col-md-2" display="Referencia" name="referencia" field="ordenForm.referencia" ng-model="model.orden.referencia"> </inputform>
+                    <inputform dir="v" collinput="col-md-3" display="No Carga Refineria" name="noCargaRefineria" field="ordenForm.noCargaRefineria" ng-model="model.orden.noCargaRefineria"> </inputform>
+                </div>
+                <div class="row">
+                    <selectform dir="v" option="terminales" ng-required="true" collinput="col-md-3" display="Terminal" name="camionId" field="ordenForm.camionId" ng-model="model.orden.terminalId"> </selectform>
+                    <selectform dir="v" option="camiones" ng-required="true" collinput="col-md-3" display="Camion" name="camionId" field="ordenForm.camionId" ng-model="model.orden.camionId"> </selectform>
+                    <selectform dir="v" option="choferes" ng-required="true" collinput="col-md-3" display="Chofer" name="choferId" field="ordenForm.choferId" ng-model="model.orden.choferId"> </selectform>
+                    <selectform dir="v" option="cisternas" ng-required="true" collinput="col-md-3" display="Cisterna" name="cisternaId" field="ordenForm.cisternaId" ng-model="model.orden.cisternaId"> </selectform>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="note" class="control-label">Comentario</label>
+                        <textarea id="note" name="note" ng-model="model.orden.nota" class="form-control" style="width:100%;height:80px">
+                            </textarea>
+                    </div>
+                </div>
+
+                <div ng-repeat="d in model.detalle track by $index" class="row">
+                    <div class="form-group col-md-1">
+                        <label for="check{{$index}}" class="control-label">&nbsp;</label>
+                        <div class="md-checkbox has-success">
+                            <input ng-change="detalleChecked(d)" type="checkbox" id="check{{$index}}" ng-model="d.enUso" class="md-check">
+                            <label for="check{{$index}}">
+                                <span class="inc"></span>
+                                <span class="check"></span>
+                                <span class="box"></span>
+                                Comp#{{d.compartimento}}
+                            </label>
+                        </div>
+
+                    </div>
+                    <!--<inputform dir="v" collinput="col-md-2" type="number" display="Cantidad" name="cantidadConduce" field="ordenForm.cantidadConduce" ng-model="d.cantidadConduce"> </inputform>-->
+                    <div class="form-group col-md-2">
+                        <label for="cantidad" class="control-label">Cantidad</label>
+                        <div class="input-icon right">
+                            <input ng-disabled="!d.enUso" name="cantidadConduce" type="number" class="form-control" ng-model="d.cantidadConduce">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3" ng-class="{'has-error' : ordenForm.producto.$invalid && ordenForm.producto.$touched, 'has-success': ordenForm.producto.$valid && ordenForm.producto.$touched}">
+                        <label for="producto" class="control-label">Producto</label>
+                        <div class="input-icon right">
+                            <select ng-disabled="!d.enUso" ng-change="productoChanged(d)" id="producto" type="{{type}}" name="producto" class="form-control" ng-model="d.productoId">
+                                <option ng-repeat="o in productos track by $index" ng-value="{{o.key}}">{{o.value}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="producto" class="control-label">Sello Chapa</label>
+                        <div class="input-icon right">
+                            <input ng-disabled="!d.enUso" type="text" ng-model="d.selloChapaManhole" placeholder="sellos"
+                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                   typeahead-select-on-exact="true"
+                                   typeahead-editable="false"
+                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 0)"
+                                   typeahead-min-length="0" class="form-control">
+                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                            <div ng-show="noResults">
+                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="producto" class="control-label">Boca Carga</label>
+                        <div class="input-icon right">
+                            <input ng-disabled="!d.enUso" type="text" ng-model="d.selloBocaCarga" placeholder="sellos"
+                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                   typeahead-select-on-exact="true"
+                                   typeahead-editable="false"
+                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 1)"
+                                   typeahead-min-length="0" class="form-control">
+                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                            <div ng-show="noResults">
+                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="producto" class="control-label">Boca Descarga</label>
+                        <div class="input-icon right">
+                            <input ng-disabled="!d.enUso" type="text" ng-model="d.selloBocaDescarga" placeholder="sellos"
+                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                   typeahead-select-on-exact="true"
+                                   typeahead-editable="false"
+                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 2)"
+                                   typeahead-min-length="0" class="form-control">
+                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                            <div ng-show="noResults">
+                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Chapa" name="selloChapaManholeId" field="ordenForm.selloChapaManholeId" ng-model="d.selloChapaManholeId"> </selectform>-->
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Carga" name="selloBocaCargaId" field="ordenForm.selloBocaCargaId" ng-model="d.selloBocaCargaId"> </selectform>-->
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Descarga" name="selloBocaDescargaId" field="ordenForm.selloBocaDescargaId" ng-model="d.selloBocaDescargaId"> </selectform>-->
+                </div>
+
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <button type="submit" ng-disabled="ordenForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" ng-click="$root.goTo('/ordenes')" class="btn btn-danger">Cancelar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@using MSESG.CargoCare.Core.EFServices
+@{
+    var menuModel = ViewData["Menu"] as List<MenuModel>;
+    var sessionData = ViewData["SessionData"] as AppSessionData;
+}
+
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/images/avatar.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@sessionData?.FullName</p>
+                <a href="#">@sessionData?.Email</a>
+            </div>
+        </div>
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        @if (menuModel != null)
+        {
+            <ul class="sidebar-menu" data-widget="tree">
+
+                <li class="header">MAIN NAVIGATION</li>
+                
+                <li>
+                    <a href="@ViewData["baseurl"]/#!">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                @foreach (var item in menuModel)
+                {
+                    if (item.ChildMenuList != null && item.ChildMenuList.Where(s => s.Visible).Any())
+                    {
+                        <li class="treeview">
+                            <a href="javascript:;">
+                                <i class="fa @item.CSSClass"></i>
+                                <span>@item.Caption</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+
+                            <ul class="treeview-menu">
+                                @foreach (var subITem in item.ChildMenuList.Where(s => s.Visible))
+                                {
+                                    <li><a href="@ViewData["baseurl"]/#!/@subITem.Name"><i class="fa fa-circle-o"></i>@subITem.Caption</a></li>
+
+                                }
+                            </ul>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@ViewData["baseurl"]/#!/@item.Name">
+                                <i class="fa fa-th"></i> <span>@item.Caption</span>
+
+                            </a>
+                        </li>
+                    }
+                }
+
+                @if (sessionData != null && sessionData.UserId > 0)
+                {
+                    <li class="treeview">
+                        <a href="javascript:;">
+                            <i class="fa  fa-user"></i>
+                            <span>Perfil</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+
+                        <ul class="treeview-menu">
+
+                            <li><a href="/Account/Exit"><i class="fa fa-circle-o"></i>Salir</a></li>
+                            <li><a href="/Manage/ChangePassword"><i class="fa fa-circle-o"></i>Cambiar clave</a></li>
+
+                        </ul>
+
+                    </li>
+                }
+
+            </ul>
+        }
+    </section>
+    <!-- /.sidebar -->
+</aside>
+
+
+

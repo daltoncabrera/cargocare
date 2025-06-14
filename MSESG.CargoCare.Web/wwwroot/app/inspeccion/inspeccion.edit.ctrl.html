@@ -1,0 +1,176 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: $rootScope.loadingMsg}">
+    <div class="box-body">
+        <form class="" ng-submit="saveData(inspeccionForm.$valid)" name="inspeccionForm" role="form" novalidate>
+
+            <div class="portlet-body form">
+
+                <div class="row">
+
+                    <dateform dir="v" ng-required="true" collinput="col-md-2" display="Fecha" name="fechaInicio" field="inspeccionForm.fechaInicio" ng-model="model.inspeccion.fechaInicio"> </dateform>
+
+                    <inputform dir="v" collinput="col-md-2" display="No. Conduce" name="referencia" field="inspeccionForm.referencia" ng-model="model.inspeccion.referencia"> </inputform>
+                    <inputform dir="v" collinput="col-md-2" display="No Carga Ref" name="noCargaRefineria" field="inspeccionForm.noCargaRefineria" ng-model="model.inspeccion.noCargaRefineria"> </inputform>
+                    <selectform dir="v" option="terminales" ng-required="true" collinput="col-md-3" display="Terminal" name="terminalId" field="inspeccionForm.terminalId" ng-model="model.inspeccion.terminalId"> </selectform>
+                    <selectform dir="v" option="destinos" ng-required="true" collinput="col-md-3" display="Destino" name="terminalDestinoId" field="inspeccionForm.terminalDestinoId" ng-model="model.inspeccion.terminalDestinoId"> </selectform>
+
+                </div>
+                <div class="row">
+                    <selectform dir="v" option="camiones" ng-required="true" collinput="col-md-4" display="Camion" name="camionId" field="inspeccionForm.camionId" ng-model="model.inspeccion.camionId"> </selectform>
+                    <selectform dir="v" option="choferes" ng-required="true" collinput="col-md-4" display="Chofer" name="choferId" field="inspeccionForm.choferId" ng-model="model.inspeccion.choferId"> </selectform>
+                    <selectform dir="v" option="cisternas" ng-required="true" collinput="col-md-4" display="Cisterna" name="cisternaId" field="inspeccionForm.cisternaId" ng-model="model.inspeccion.cisternaId"> </selectform>
+                </div>
+                <div class="row">
+                    <inputform dir="v" collinput="col-md-3" display="Ceritificado Calidad" name="certificadoCalidad" field="inspeccionForm.certificadoCalidad" ng-model="model.inspeccion.certificadoCalidad"> </inputform>
+                    <inputform dir="v" collinput="col-md-3" type="number" display="Temp Refineria" name="temperatura" field="inspeccionForm.temperatura" ng-model="model.inspeccion.temperatura"> </inputform>
+                    <inputform dir="v" collinput="col-md-3" type="number" display="Temp Tomada" name="temperatura" field="inspeccionForm.temperatura" ng-model="model.inspeccion.temperaturaMuestra"> </inputform>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 form-group">
+                        <div class="form-control" style="visibility:hidden">&nbsp;</div>
+                        <label class="label-control">H. Inicio</label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <div class="input-icon right input-group" style="margin-top: -10px">
+                            <div uib-timepicker ng-model="model.inspeccion.fechaInicio" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="form-control" style="visibility:hidden">&nbsp;</div>
+                        <label class="label-control">H. Fin</label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <div class="input-icon right input-group" style="margin-top: -10px">
+                            <div uib-timepicker ng-model="model.inspeccion.fechaFin" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="!model.inspeccion.llenaDetalle" class="row">
+                    <div  class="form-group col-md-3">
+                        <label class="">Producto</label>
+                        <select ng-change="productoChanged(d)" name="producto" class="form-control" ng-model="model.inspeccion.productoId">
+                            <option ng-repeat="o in productos track by $index" ng-value="{{o.key}}">{{o.value}}</option>
+                        </select>
+                    </div>
+                    <inputform dir="v" type="number" collinput="col-md-3" display="Cantidad" name="cantidad" field="inspeccionForm.cantidad" ng-model="model.inspeccion.cantidad"> </inputform>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="note" class="control-label">Comentario</label>
+                        <textarea id="note" name="note" ng-model="model.inspeccion.nota" class="form-control" style="width:100%;height:60px">
+                            </textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Comp#</th>
+                                    <th ng-if="model.inspeccion.llenaDetalle"  style="min-width: 200px">Producto</th>
+                                    <th ng-if="model.inspeccion.llenaDetalle" >Cant. Conduce</th>
+                                    <th ng-if="model.inspeccion.llenaDetalle" >Cant. Medida</th>
+                                    <th ng-if="model.hasChapa">Sello Chapa</th>
+                                    <th ng-if="model.hasBocaCarga">Sello Carga</th>
+                                    <th ng-if="model.hasBocaDescarga">Sello Descarga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="d in model.detalle track by $index">
+                                    <td>
+                                        <div class="md-checkbox has-success">
+                                            <input ng-change="detalleChecked(d)" type="checkbox" id="check{{$index}}" ng-model="d.enUso" class="md-check">
+                                            <label for="check{{$index}}">
+                                                <span class="inc"></span>
+                                                <span class="check"></span>
+                                                <span class="box"></span>
+                                                #{{d.compartimentoId}}
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td ng-if="model.inspeccion.llenaDetalle" >
+                                        <select ng-options="o.key as o.value  for o in productos" ng-disabled="!d.enUso"  id="producto{{$index}}" type="{{type}}" name="producto{{$index}}" class="form-control" ng-model="d.productoId">
+                                            <option  value="">--Seleccionar Producto--</option>
+                                        </select>
+                                    </td>
+                                    <td ng-if="model.inspeccion.llenaDetalle" >
+                                        <input ng-disabled="!d.enUso" name="capacidad" type="number" class="form-control" ng-model="d.cantidad">
+                                    </td>
+                                    <td ng-if="model.inspeccion.llenaDetalle">
+                                         <input  ng-disabled="!d.enUso" name="cantidad" type="number" class="form-control" ng-model="d.cantidadDespachada">
+                                    </td>
+                                    <td ng-if="model.hasChapa">
+                                        <div class="input-icon right">
+                                            <input ng-disabled="!d.enUso  || !d.hasChapa" type="text" ng-model="d.selloChapaManhole" placeholder="sellos"
+                                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                                   typeahead-select-on-exact="true"
+                                                   typeahead-editable="false"
+                                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 0)"
+                                                   typeahead-min-length="0" class="form-control">
+                                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                                            <div ng-show="noResults">
+                                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td ng-if="model.hasBocaCarga">
+                                        <div class="input-icon right">
+                                            <input ng-disabled="!d.enUso || !d.hasBocaCarga" type="text" ng-model="d.selloBocaCarga" placeholder="sellos"
+                                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                                   typeahead-select-on-exact="true"
+                                                   typeahead-editable="false"
+                                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 1)"
+                                                   typeahead-min-length="0" class="form-control">
+                                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                                            <div ng-show="noResults">
+                                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td ng-if="model.hasBocaDescarga">
+                                        <div class="input-icon right">
+                                            <input ng-disabled="!d.enUso  || !d.hasBocaDescarga" type="text" ng-model="d.selloBocaDescarga" placeholder="sellos"
+                                                   uib-typeahead="sello.codSello for sello in getSellos($viewValue)"
+                                                   typeahead-loading="loadingSellos" typeahead-no-results="noResults"
+                                                   typeahead-select-on-exact="true"
+                                                   typeahead-editable="false"
+                                                   typeahead-on-select="selectSelloCallBack($item, $model,d, 2)"
+                                                   typeahead-min-length="0" class="form-control">
+                                            <i ng-show="loadingSellos" class="glyphicon glyphicon-refresh"></i>
+                                            <div ng-show="noResults">
+                                                <i class="glyphicon glyphicon-remove"></i> No Results Found
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Chapa" name="selloChapaManholeId" field="ordenForm.selloChapaManholeId" ng-model="d.selloChapaManholeId"> </selectform>-->
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Carga" name="selloBocaCargaId" field="ordenForm.selloBocaCargaId" ng-model="d.selloBocaCargaId"> </selectform>-->
+                    <!--<selectform dir="v" option="sellos" collinput="col-md-2" display="Sello Descarga" name="selloBocaDescargaId" field="ordenForm.selloBocaDescargaId" ng-model="d.selloBocaDescargaId"> </selectform>-->
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-primary"><li class="fa fa-save"></li> Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button ng-if="inspeccionId > 0" type="button" ng-click="print()" ng-disabled="inspeccionForm.$invalid" class="btn btn-default"><li class="fa fa-print"></li> Imprimir</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" ng-click="$root.goTo('/inspecciones')" class="btn btn-danger"><li class="fa fa-angle-left"></li> Listado</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

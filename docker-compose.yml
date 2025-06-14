@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  cargocare-web:
+    build:
+      context: ./MSESG.CargoCare.Web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped 

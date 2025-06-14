@@ -1,0 +1,21 @@
+﻿@using Stimulsoft.Report.Web;
+@using Stimulsoft.Report.Mvc;
+
+@{
+    Layout = null;
+    int id = 1;
+}
+
+@Html.StiNetCoreViewer(new StiNetCoreViewerOptions()
+{
+    Toolbar = { ShowParametersButton = false, ShowBookmarksButton = false, ShowViewModeButton = false, ShowFullScreenButton = false, PrintDestination = StiPrintDestination.Pdf, ShowFindButton = true, ShowSendEmailButton = true },
+    Actions =
+{
+GetReport = @ViewData["name"]?.ToString(),
+ViewerEvent = "ViewerEvent"
+}
+
+
+
+
+})

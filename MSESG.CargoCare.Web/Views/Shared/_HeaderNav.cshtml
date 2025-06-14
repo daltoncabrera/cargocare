@@ -1,0 +1,70 @@
+﻿@using MSESG.CargoCare.Core
+@using MSESG.CargoCare.Core.EFServices
+@using MSESG.CargoCare.Core.EFServices.Services
+@{
+    var clients = ViewData["Clientes"] as List<UserClientModel>;
+    var companies = ViewData["Empresas"] as List<Empresa>;
+    var sessionData = ViewData["SessionData"] as AppSessionData;
+    var curClient = clients?.FirstOrDefault(s => s.ClientId == sessionData?.ClienteId);
+    var changeClientButtonCaption = curClient?.ClientName ?? "Seleccionar Cliente";
+    var clientImg = curClient?.Logo ?? "cliente.png";
+    var curEmpresa = companies?.FirstOrDefault(s => s.Id == sessionData?.EmpresaId);
+}
+
+<header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>D&T</b></span>
+        <!-- logo for regular state and mobile devices -->
+
+        <img src="~/images/dyte3.png">
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="javascript:;" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+
+                    <a href="javascript:;" data-toggle="control-sidebar" data-toggle="dropdown">
+                        <img src="~/files/@clientImg" class="user-image" alt="Client Image">
+                        <span class="hidden-xs">@changeClientButtonCaption</span>
+                    </a>
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+
+    <ul style=" " class="control-sidebar-menu">
+        @foreach (var cli in clients)
+        {
+            <li>
+                <a style="color: white" href="/App/@cli.EmpresaSlug/@cli.ClienteSlug/">
+                   <img style="width:60px;float:left" src="~/files/@cli.Logo" class="img-circle" alt="Client Image">
+
+                    <div class="menu-info" style="float: left; margin:20px 0 0 10px">
+                        <h4 class="control-sidebar-subheading">@cli.ClientName</h4>
+
+                        <p> @cli.EmpresaName </p>
+                    </div>
+                </a>
+            </li>
+        }
+    </ul>
+
+</aside>
+<!-- /.control-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+immediately after the control sidebar -->
+<div class="control-sidebar-bg"></div>

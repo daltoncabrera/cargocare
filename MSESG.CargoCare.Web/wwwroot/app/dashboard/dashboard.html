@@ -1,0 +1,141 @@
+﻿<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+
+        <!-- CLIENTES -->
+        <div ng-if="$root.hasClaim('sadmin', 'supervisor', 'inspector') && $root.info.clienteId <= 0" class="box box-success" cg-busy="{promise:clientesPromise, message: loadingMsg}">
+            <div class="box-header">
+                <h3 class="box-title">( {{clientes.length}} ) Clientes</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <!--<ul class="users-list clearfix">
+                    <li>
+                        <img style="max-width: 110px" ng-src="/files/{{cdto.cliente.logo}}" alt="User Image">
+                        <a class="users-list-name" ng-href='/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/'>{{cdto.cliente.nombre}}<br />{{cdto.cliente.contacto}}</a>
+                        <span class="users-list-date">{{cdto.empresa.nombre}}</span>
+                    </li>
+                </ul>-->
+                <!-- /.users-list -->
+                <div ng-repeat="cdto in clientes" class="col-lg-4 col-md-6">
+                    <div class="info-box">
+                        <span class="info-box-icon" style="background-color: #F4F4F4">
+                            <img style="max-width: 90px" ng-src="/files/{{cdto.cliente.logo}}" alt="User Image">
+                        </span>
+
+                        <div class="info-box-content">
+                            <div class="info-box-text">
+                                <div style="float: left" class="btn-group">
+                                    <a style="float:left" href="javascript:;" class="users-list-name" data-toggle="dropdown" aria-expanded="false"> {{cdto.cliente.nombre}} <br /> <small>{{cdto.cliente.contacto}}</small></a>
+                                    <li class="fa  fa-caret-down"></li>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a ng-href='/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/'>Seleccionar</a></li>
+                                        <li><a href="/#!/cliente/{{cdto.cliente.id}}">Editar</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/inspeccion/0">Crear conduce   sin precarga</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/inspecciones">ver conduces</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/planificacion/0">Crear Planificacion</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/planificaciones">Ver Planificaciones</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/precarga/0">Crear Precarga</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/precargas">Ver Precargas</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/sellos">Sellos</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/choferes">Choferes</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/camiones">Camiones</a></li>
+                                        <li><a href="/App/{{cdto.empresa.slug}}/{{cdto.cliente.slug}}/#!/cisternas">Cisternas</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <a href="/#!/clientes" style="margin-left: 10px" class="btn btn-sm btn-info btn-flat pull-right">Ver lista</a>
+                <a href="/#!/cliente/0" class="btn btn-sm btn-default btn-flat pull-right">Agregar cliente</a>
+            </div>
+            <!-- /.box-footer -->
+        </div>
+        <!--/.box -->
+        <!-- TABLE: ORDENES -->
+        <div ng-if="ordenes.length > 0" class="box box-info" cg-busy="{promise:ordenesPromise, message:loadingMsg}">
+            <div class="box-header with-border">
+                <h3 class="box-title">&Uacute;ltimas Ordenes</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>No Orden</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Empresa</th>
+                                <th>Terminal</th>
+                                <th>Chofer</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="o in ordenes">
+                                <td><a ng-href="/App/{{o.empresaSlug}}/{{o.clienteSlug}}/#!/precarga/{{o.precargaId}}">{{o.correlativo}}</a></td>
+                                <td>{{o.fecha}}</td>
+                                <td><a ng-href="/App/{{o.empresaSlug}}/{{o.clienteSlug}}/#!/precargas">{{o.clienteNombre}}</a></td>
+                                <td>{{o.empresaNombre}}</td>
+                                <td>{{o.terminal}}</td>
+                                <td>{{o.choferNombre}}</td>
+                                <td>
+                                    <a ng-href="/App/{{o.empresaSlug}}/{{o.clienteSlug}}/#!/precarga/{{o.precargaId}}" class="btn btn-sm btn-info btn-flat">Ver Orden</a>
+                                    <a ng-if="o.inspeccionId > 0" href="javascript:;" ng-click="print(o.inspeccionId)" class="btn  btn-sm btn-primary">
+                                        <i class="fa fa-eye"></i> Conduce
+                                    </a>
+                                    <a ng-if="o.inspeccionId <= 0" href="javascript:;" ng-click="editinspeccion(o.precargaId)" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-tags"></i> Trabajar
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer clearfix" style="display: none;">
+                <!--<a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>-->
+            </div>
+            <!-- /.box-footer -->
+        </div>
+        <!-- /.box -->
+    
+    </div>
+    <!-- /.col -->
+    <!-- /.col -->
+</div>
+

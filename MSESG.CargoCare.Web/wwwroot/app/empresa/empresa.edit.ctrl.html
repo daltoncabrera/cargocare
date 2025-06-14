@@ -1,0 +1,118 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: loadingMsg}">
+    <div class="box-header with-border">
+        <div class="caption">
+            <i class="icon-settings font-dark"></i>
+            <span class="caption-subject font-dark sbold uppercase">{{titleMsg}}</span>
+        </div>
+
+    </div>
+    <div class="box-body form">
+        <uib-tabset>
+            <uib-tab index="0" heading="Informacion General">
+                <form class="form-horizontal" ng-submit="saveData(empresaForm.$valid)" name="empresaForm" role="form" novalidate>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-1" collinput="col-md-11" display="Nombre" name="nombre" field="empresaForm.nombre" ng-model="empresa.nombre"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-1" collinput="col-md-11" display="Rnc" name="rnc" field="empresaForm.rnc" ng-model="empresa.rnc"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform ng-required="true" type="email" collabel="col-md-1" collinput="col-md-11" display="Correo" name="mail" field="empresaForm.mail" ng-model="empresa.mail"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform collabel="col-md-1" collinput="col-md-5" display="Telefono" name="telefono" field="empresaForm.telefono" ng-model="empresa.telefono"> </inputform>
+
+                            <inputform collabel="col-md-1" collinput="col-md-5" display="Fax" name="fax" field="empresaForm.fax" ng-model="empresa.fax"> </inputform>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-10">
+                            <button type="submit" ng-disabled="empresaForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" ng-click="$root.goTo('/empresas')" class="btn btn-danger">Cancelar</button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </uib-tab>
+            
+            <uib-tab disable="empresa.id <= 0" index="1" heading="Imagenes">
+                     <!--<div class="col-md-12">
+                        <img style="max-width: 200px" ng-if="empresa.logo != ''" ng-src="/files/{{empresa.logo}}" />
+                    </div>
+                    <div class='col-md-12'>
+                        <fieldset>
+                            <legend>Cambiar logo/imagen</legend>
+                            <img ngf-src="picFile" style="width: 150px" class="thumb">
+                            <input type="file" ngf-select ng-model="picFile" name="file"
+                                   accept="image/*" ngf-max-size="2MB" required
+                                   ngf-model-invalid="errorFile">
+                            <button style="margin-top: 10px" ng-disabled="!picFile" type="button" ng-click="changeLogo(picFile)">Enviar</button>
+
+                            <span class="progress" ng-show="picFile.progress >= 0">
+                                <span style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></span>
+                            </span>
+
+                        </fieldset>
+                    </div>-->
+                    
+                    <div ng-if="(empresa.id > 0)" class="row">
+                        <div class="col-md-12">
+                            <img style="max-width: 200px" ng-if="empresa.logo != ''" ng-src="/files/{{empresa.logo}}" />
+                        </div>
+                        <div class='col-md-12'>
+                            <button style="margin-top: 20px" type="file" ngf-select="changeLogo($file, $invalidFiles)"
+                                    accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+                                Cambiar Logo</button>
+                            <br><br>
+                            <div style="font-size: smaller; width: 100%">
+                                <div style="float: left">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}} &nbsp;&nbsp;</div>
+                                <span style="float: left" class="progress" ng-show="f.progress >= 0">
+                                    <div style="width:{{f.progress}}%"
+                                         ng-bind="f.progress + '%'"></div>
+                                </span>
+                            </div>     
+                            {{errorMsg}}
+                        </div>
+                    </div>
+
+            </uib-tab>
+            <uib-tab disable="empresa.id <= 0" index="2" heading="Servidor Correo">
+                <form class="form-horizontal" ng-submit="saveData(settingsForm.$valid)" name="settingsForm" role="form" novalidate>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <inputform  collabel="col-md-1" collinput="col-md-5" display="Dominino SMTP" name="emailDomain" field="settingsForm.emailDomain" ng-model="settings.emailDomain"> </inputform>
+                            <inputform  collabel="col-md-1" collinput="col-md-5" display="Puerto" name="emailPort" field="settingsForm.emailPort" ng-model="settings.emailPort"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform  collabel="col-md-1" collinput="col-md-5" display="Email" name="userEmail" field="settingsForm.emailDomain" ng-model="settings.userEmail"> </inputform>
+                            <inputform  type="password" collabel="col-md-1" collinput="col-md-5" display="Password" name="emailPassword" field="settingsForm.emailPort" ng-model="settings.emailPassword"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform collabel="col-md-1" collinput="col-md-3" display="Remite" name="fromEmail" field="settingsForm.fromEmail" ng-model="settings.fromEmail"> </inputform>
+                            <inputform collabel="col-md-1" collinput="col-md-2" display="CC" name="ccEmail" field="settingsForm.ccEmail" ng-model="settings.ccEmail"> </inputform>
+                            <inputform collabel="col-md-1" collinput="col-md-2" display="CCO" name="ccoEmail" field="settingsForm.ccoEmail" ng-model="settings.ccoEmail"> </inputform>
+                            <div ng-click="sendTest()" ng-if="settings.id > 0" class="col-md-2 text-left">
+                                <button type="button" class="btn btn-default">Enviar correo de prueba</button>
+                            </div>
+                        </div>
+                     
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10">
+                                <button type="button" ng-click="saveSettings()" ng-disabled="settingsForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </uib-tab>
+        </uib-tabset>
+   
+    </div>
+</div>
+

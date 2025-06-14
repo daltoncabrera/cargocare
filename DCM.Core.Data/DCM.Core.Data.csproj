@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\dalto\Desktop\Update_Marhex_ CargoCare_19-01-2016\DCM.Core.Data.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{789E08D4-D6C0-423E-B7B0-3ACEEAA521CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DCM.Core.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>DCM.Core.Data</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColumnModel.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="TConverter.cs" />
+    <Compile Include="MarhexTypes.cs" />
+    <Compile Include="GenericSearch.cs" />
+    <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="ColumnFilter.cs" />
+    <Compile Include="SearchResult.cs" />
+    <Compile Include="SortDirection.cs" />
+    <Compile Include="Compare.cs" />
+    <Compile Include="MarhexEntity.cs" />
+    <Compile Include="IMeta.cs" />
+    <Compile Include="IColumns.cs" />
+    <Compile Include="NameValueObject.cs" />
+    <Compile Include="ConditionLine.cs" />
+    <Compile Include="Literales.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

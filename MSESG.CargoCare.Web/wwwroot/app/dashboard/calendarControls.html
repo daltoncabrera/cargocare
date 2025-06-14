@@ -1,0 +1,37 @@
+<div class="row">
+
+    <div class="col-md-6 text-left">
+        <div class="btn-group">
+
+            <button class="btn btn-primary"
+                    mwl-date-modifier
+                    date="$parent.viewDate"
+                    decrement="$parent.calendarView">
+                Previous
+            </button>
+            <button class="btn btn-default"
+                    mwl-date-modifier
+                    date="$parent.viewDate"
+                    set-to-today>
+                Today
+            </button>
+            <button class="btn btn-primary"
+                    mwl-date-modifier
+                    date="$parent.viewDate"
+                    increment="$parent.calendarView">
+                Next
+            </button>
+        </div>
+    </div>
+
+    <div class="col-md-6 text-right">
+        <div class="btn-group">
+            <label class="btn btn-primary" ng-model="$parent.calendarView" uib-btn-radio="'year'">Year</label>
+            <label class="btn btn-primary" ng-model="$parent.calendarView" uib-btn-radio="'month'">Month</label>
+            <label class="btn btn-primary" ng-model="$parent.calendarView" uib-btn-radio="'week'">Week</label>
+            <label class="btn btn-primary" ng-model="$parent.calendarView" uib-btn-radio="'day'">Day</label>
+        </div>
+    </div>
+
+</div>
+<br/>

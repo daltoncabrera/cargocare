@@ -1,0 +1,126 @@
+﻿@using MSESG.CargoCare.Core.EFServices.Services
+@{
+    var curCliente = ViewData["CurCliente"] as UserClientModel;
+    var clienteId = curCliente?.ClientId ?? 0;
+    var userClaims = ViewData["UserClaims"]?.ToString() ?? "";
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Elite survey group is an innovative, leading supplier of inspection and laboratory services. Is recognized for its innovation and high regard for customer service as it continuously strives to surpass the demanding needs of the petroleum industry.">
+    <meta name="keywords" content="Loss Control, Pre-Shipment Inspection, Vessel Loading, Discharging, Time Logging, Bunker Survey, Ship To Ship Transfers, Quantity Certification, Cargo Sampling">
+    <title>{{$root.title}} | Elite Survey Group - Leading Suplier of Loss Control and Inspection Services</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="~/lib/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/lte/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+    folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/lte/css/skins/_all-skins.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link href="~/lib/ui-bootstrap/ui-bootstrap-2.5.0-csp.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/lib/jquery-timepicker/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="~/lib/jquery-timepicker/jquery.timepicker.min.css" rel="stylesheet">
+    <link href="~/lib/angular-bootstrap-calendar/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="~/lib/popeye/popeye.css" rel="stylesheet" type="text/css" />
+    <link href="~/lib/loadingbar/loading-bar.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/lib/angularbusy/angular-busy.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/lib/toasty/angular-toasty.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/lib/ngSweetAlert/sweetalert.css" rel="stylesheet" type="text/css" />
+    <link href="~/lib/ng-dropzone/dropzone.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/lte/css/custom.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-init="info={clienteId: @clienteId, claims: '@userClaims'.split(',')}">
+    <div class="wrapper">
+        <!-- BEGIN HEADER -->
+        @Html.Partial("_HeaderNav")
+        <!-- Left side column. contains the logo and sidebar -->
+        @Html.Partial("_LefNav")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header"  ng-show="$root.title.length > 0">
+                <h1>
+                    {{$root.parentTitle}}
+                    <small> {{$root.title}}</small>
+                </h1>
+
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <toasty></toasty>
+        <!-- BEGIN FOOTER -->
+        @Html.Partial("_Footer")
+
+    </div>
+    <!-- ./wrapper -->
+    <!-- AdminLTE App -->
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/lib/momentjs/moment.min.js" type="text/javascript"></script>
+    <script src="~/lib/momentjs/es.js" type="text/javascript"></script>
+
+    <script src="~/lib/jquery-timepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="~/lib/jquery-timepicker/jquery.timepicker.min.js" type="text/javascript"></script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+
+    <script src="~/lib/ui-bootstrap/ui-bootstrap-2.5.0.min.js" type="text/javascript"></script>
+    <script src="~/lib/ui-bootstrap/ui-bootstrap-tpls-2.5.0.min.js" type="text/javascript"></script>
+
+    <script src="~/lib/angular-bootstrap-calendar/js/angular-bootstrap-calendar-tpls.min.js" type="text/javascript"></script>
+
+
+    <script src="~/lib/popeye/popeye.js" type="text/javascript"></script>
+    <script src="~/lib/angularbusy/angular-busy.min.js" type="text/javascript"></script>
+    <script src="~/lib/loadingbar/loading-bar.min.js" type="text/javascript"></script>
+    <script src="~/lib/toasty/angular-toasty.min.js" type="text/javascript"></script>
+    <script src="~/lib/ngSweetAlert/SweetAlert.min.js" type="text/javascript"></script>
+    <script src="~/lib/ngSweetAlert/ngSweetAlert.js" type="text/javascript"></script>
+    <script src="~/lib/ng-dropzone/dropzone.js" type="text/javascript"></script>
+    <script src="~/lib/ng-dropzone/ng-dropzone.min.js" type="text/javascript"></script>
+    <script src="~/lib/jquery-timepicker/timepickerdirective.js" type="text/javascript"></script>
+    <script src="~/lib/ng-file-upload/ng-file-upload-shim.min.js" type="text/javascript"></script>
+    <script src="~/lib/ng-file-upload/ng-file-upload.min.js" type="text/javascript"></script>
+    <script src="~/lte/js/adminlte.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="lte/js/demo.js"></script>
+
+    <script type="text/javascript" src="~/app/app.mod.js?v=@string.Format("{0}", DateTime.Now.Ticks)"></script>
+    <script type="text/javascript" src="~/dist/all.js?v=@string.Format("{0}", DateTime.Now.Ticks)"></script>
+    <script type="text/javascript" src="~/dist/templates.js?v=@string.Format("{0}", DateTime.Now.Ticks)"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

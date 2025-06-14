@@ -1,0 +1,14 @@
+﻿<div class="form-group {{collinput}}" ng-class="{'has-error' : field.$invalid && field.$touched, 'has-success': field.$valid && field.$touched}">
+    <label for="{{name}}" class="control-label">{{display}}</label>
+    <div class="input-icon right input-group">
+        <input uib-datepicker-popup="{{format}}" is-open="opened" ng-disabled="disabled" id="{{name}}"  ng-required="ngRequired" name="{{name}}" class="form-control" ng-model="ngModel" placeholder="" />
+        <span ng-show="!disabled" class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="opened=true"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+    </div>
+</div>
+
+
+
+
+

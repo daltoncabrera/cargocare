@@ -1,0 +1,44 @@
+﻿<div class="row" style="padding-top:20px">
+    <div class="col-md-12">
+        <div class="portlet light bordered" cg-busy="{promise:myPromise, message: loadingMsg}">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject font-dark sbold uppercase">{{titleMsg}}</span>
+                </div>
+
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" ng-submit="saveData(terminalForm.$valid)" name="terminalForm" role="form" novalidate>
+                    <div class="form-body">
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-2" collinput="col-md-4" display="Nombre" name="nombre" field="terminalForm.nombre" ng-model="terminal.nombre"> </inputform>
+                            <inputform collabel="col-md-2" collinput="col-md-4" display="Telefono" name="telefono" field="terminalForm.telefono" ng-model="terminal.telefono"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform collabel="col-md-2" collinput="col-md-10" display="Contacto" name="contacto" field="terminalForm.contacto" ng-model="terminal.nombreContacto"> </inputform>
+                        </div>      
+                        <div class="form-group">
+                            <inputform ng-required="true" collabel="col-md-2" collinput="col-md-10" display="Descripcion" name="descripcion" field="terminalForm.descripcion" ng-model="terminal.descripcion"> </inputform>
+                        </div>
+                        <div class="form-group">
+                            <inputform collabel="col-md-2" collinput="col-md-10" display="Direccion" name="direccion" field="terminalForm.direccion" ng-model="terminal.direccion"> </inputform>
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" ng-disabled="terminalForm.$invalid" class="btn blue-madison">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button type="button" ng-click="cancel()" class="btn default">Cancelar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>

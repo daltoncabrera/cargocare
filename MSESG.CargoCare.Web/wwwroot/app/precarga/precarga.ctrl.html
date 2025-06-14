@@ -1,0 +1,85 @@
+﻿<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: loadingMsg}">
+
+    <div class="box-header with-border">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="btn-group">
+                    <button ng-click="editprecarga(0)" id="sample_editable_1_new" class="btn btn-primary">
+                        Agregar precarga
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa fa-key"></i>Conduce No.
+                        </th>
+
+                        <th>
+                            <i class="fa fa-file-text-o"></i> Planificacion
+                        </th>
+
+                        <th>
+                            <i class="fa fa-arrows-alt"></i> Terminal
+                        </th>
+
+                        <th>
+                            <i class="fa fa-building-o"></i> Destino
+                        </th>
+
+
+                        <th>
+                            <i class="fa fa-user"></i> Chofer
+                        </th>
+
+                        <th>
+                            <i class="fa fa-truck"></i> Camion / Cisterna
+                        </th>
+
+                        <th>
+                            <i class="fa  fa-calendar"></i> Fecha
+                        </th>
+
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="o in precargas   track by $index">
+                        <td class="highlight">
+                            <div class="success"></div>
+                            <a href="javascript:;"> {{o.referencia}} </a>
+                        </td>
+                        <td> {{o.planificacion}} </td>
+                        <td> {{o.terminal}} </td>
+                        <td> {{o.destino}} </td>
+                        <td> {{o.choferNombre}} </td>
+                        <td> {{o.fichaCamion}} / {{o.fichaCisterna}} </td>
+                        <td> {{o.fecha | utcToLocal: 'dd/MM/yyyy hh:mm a'}} </td>
+                        <td>
+                            <a ng-if="o.inspeccionId <= 0" href="javascript:;" ng-click="editprecarga(o.precargaId)" class="btn  btn-sm btn-primary">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>
+                            <a ng-if="o.inspeccionId <= 0" ng-click="$root.goTo('/inspeccion/0/' + o.precargaId)" class="btn btn-sm btn-info">
+                                <i class="fa  fa-gear"></i> Trabajar
+                            </a>
+                            <a  ng-if="o.inspeccionId  > 0" href="javascript:;" ng-click="verConduce(o.precargaId)" class="btn btn-sm btn-info">
+                                <i class="fa  fa-eye"></i> Conduce
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

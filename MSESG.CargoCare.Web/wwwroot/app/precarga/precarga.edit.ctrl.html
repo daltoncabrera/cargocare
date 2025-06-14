@@ -1,0 +1,108 @@
+﻿
+<div class="box box-default color-palette-box" cg-busy="{promise:myPromise, message: $rootScope.loadingMsg}">
+    <div class="box-header">
+
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          
+            </button>
+            <button ng-if="precargaId > 0" ng-click="print()" type="button" class="btn btn-box-tool" >
+                <i class="fa fa-print"></i>
+            </button>
+        </div>
+    </div>
+    <div class="box-body">
+        <form class="" ng-submit="saveData(precargaForm.$valid)" name="precargaForm" role="form" novalidate>
+
+            <div class="portlet-body form">
+
+                <div class="row">
+
+                    <inputform dir="v"  collinput="col-md-2" display="Conduce No." name="referencia" field="precargaForm.referencia" ng-model="model.precarga.referencia"> </inputform>
+
+                    <dateform dir="v" ng-required="true" collinput="col-md-3" display="Fecha" name="fecha" field="precargaForm.fecha" ng-model="model.precarga.fecha"> </dateform>
+                    <!--<div class="form-group col-md-2">
+                        <div class="input-icon right form-group">
+                            <label for="note" class="control-label">Hora</label>
+                            <input class="form-control" ui-timepicker="$root.timePickerOptions" ng-model="model.precarga.fecha" />
+                        </div>
+                    </div>-->
+                    <div class="form-group col-md-2">
+                        <div class="input-icon right input-group" style="margin-top: -10px">
+                            <div uib-timepicker ng-model="model.precarga.fecha"></div>
+                        </div>
+                    </div>
+                    <!--<inputform dir="v" collinput="col-md-2" display="Referencia" name="referencia" field="precargaForm.referencia" ng-model="model.precarga.referencia"> </inputform>-->
+                    <inputform dir="v" collinput="col-md-3" display="Codigo Producto" name="codigoProducto" field="precargaForm.codigoProducto" ng-model="model.precarga.codigoProducto"> </inputform>
+                </div>
+             
+                <div class="row">
+                    <selectform dir="v" option="terminales" ng-required="true" collinput="col-md-3" display="Terminal" name="terminalId" field="precargaForm.terminalId" ng-model="model.precarga.terminalId"> </selectform>
+                    <selectform dir="v" option="destinos" ng-required="true" collinput="col-md-3" display="Planta Destino" name="terminalDestinoId" field="precargaForm.terminalDestinoId" ng-model="model.precarga.terminalDestinoId"> </selectform>
+                    <selectform dir="v" option="camiones" ng-required="true" collinput="col-md-2" display="Camion" name="camionId" field="precargaForm.camionId" ng-model="model.precarga.camionId"> </selectform>
+                    <selectform dir="v" option="choferes" ng-required="true" collinput="col-md-2" display="Chofer" name="choferId" field="precargaForm.choferId" ng-model="model.precarga.choferId"> </selectform>
+                    <selectform dir="v" option="cisternas" ng-required="true" collinput="col-md-2" display="Cisterna" name="cisternaId" field="precargaForm.cisternaId" ng-model="model.precarga.cisternaId"> </selectform>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="note" class="control-label">Comentario</label>
+                        <textarea id="note" name="note" ng-model="model.precarga.nota" class="form-control" style="width:100%;height:60px">
+                            </textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th class="text-center">Comp. No 1</th>
+                                    <th class="text-center">Comp. No 2</th>
+                                    <th class="text-center">Comp. No 3</th>
+                                    <th class="text-center">Comp. No 4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat="d in model.detalle track by $index">
+                                    <td style="min-width: 250px">
+                                        <span>{{d.producto}}</span>
+                                    </td>
+                                    <td>
+                                        <input min="0" readonly="readonly" name="cantidadConduce" type="number" step="1000" class="form-control" ng-model="d.cantidad">
+                                    </td>
+                                    <td>
+                                        <input min="0" ng-disabled="sumaCompartimentos(d,1)" ng-change="lineChanged(d)" name="compartimento1" type="number" step="1000" class="form-control" ng-model="d.compartimento1">
+                                    </td>
+                                    <td>
+                                        <input min="0" ng-disabled="sumaCompartimentos(d,2)" ng-change="lineChanged(d)" name="compartimento2" type="number" step="1000" class="form-control" ng-model="d.compartimento2">
+                                    </td>
+                                    <td>
+                                        <input min="0" ng-disabled="sumaCompartimentos(d,3)" ng-change="lineChanged(d)" name="compartimento3" type="number" step="1000" class="form-control" ng-model="d.compartimento3">
+                                    </td>
+                                    <td>
+                                        <input min="0" ng-disabled="sumaCompartimentos(d,4)" ng-change="lineChanged(d)" name="compartimento4" type="number" step="1000" class="form-control" ng-model="d.compartimento4">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <button type="submit" ng-disabled="precargaForm.$invalid" class="btn btn-primary">Guardar</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" ng-click="cancel()" class="btn btn-danger">Cancelar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

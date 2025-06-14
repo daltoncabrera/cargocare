@@ -1,0 +1,261 @@
+﻿/// <binding AfterBuild='build' />
+module.exports = function(grunt) {
+
+    // configure the tasks
+    grunt.initConfig({
+    
+        //Copy all content for vendor folder
+        copy: {
+            main: {
+                //src: ['**/*',  '!**/node_modules/**',  '!**/sass/**',  '!**/vendor/**',  '!**/bin/**',  '!**/temp/**', '!**/templates/**','!.gitgnore','!package.json','!package.js','!bower.json','!Gruntfile.js'],
+                //expand: true,
+                //cwd:'wwwroot',
+                //src:['js/plugins/*'],
+                //dest: 'wwwroot/vendor/'
+            }
+        },
+
+        //SASS Compile css
+        sass: {
+            main: {
+         
+                options: {
+                    outputStyle: 'expanded',
+                    sourcemap: false
+                },
+                files: {
+                    './wwwroot/css/materialize.css': './wwwroot/sass/materialize.scss',
+                    './wwwroot/css/style.css': './wwwroot/sass/style.scss',
+                    './wwwroot/css/layouts/style-fullscreen.css': './wwwroot/sass/theme-components/layouts/style-fullscreen.scss',
+                    './wwwroot/css/layouts/style-horizontal.css': './wwwroot/sass/theme-components/layouts/style-horizontal.scss',
+                    './wwwroot/css/custom.css': './wwwroot/sass/custom/custom.scss'
+                }
+            },
+
+            prod: {
+                options: {
+                    outputStyle: 'compressed',
+                    sourcemap: false
+                },
+                files: {
+                    './wwwroot/css/materialize.min.css': './wwwroot/sass/materialize.scss',
+                    './wwwroot/css/style.min.css': './wwwroot/sass/style.scss',
+                    './wwwroot/css/layouts/style-fullscreen.min.css': './wwwroot/sass/theme-components/layouts/style-fullscreen.scss',
+                    './wwwroot/css/layouts/style-horizontal.min.css': './wwwroot/sass/theme-components/layouts/style-horizontal.scss',
+                    './wwwroot/css/custom.min.css': './wwwroot/sass/custom/custom.scss'
+                }
+            },
+
+        },
+
+      
+        //Concat js
+        concat: {
+            options: {
+                separator: ';'
+            },
+            main: {
+                // the files to concatenate
+                src: [
+                    "./wwwroot/js/materialize-plugins/jquery.easing.1.3.js",
+                    "./wwwroot/js/materialize-plugins/animation.js",
+                    "./wwwroot/js/materialize-plugins/velocity.min.js",
+                    "./wwwroot/js/materialize-plugins/hammer.min.js",
+                    "./wwwroot/js/materialize-plugins/jquery.hammer.js",
+                    "./wwwroot/js/materialize-plugins/global.js",
+                    "./wwwroot/js/materialize-plugins/collapsible.js",
+                    "./wwwroot/js/materialize-plugins/dropdown.js",
+                    "./wwwroot/js/materialize-plugins/leanModal.js",
+                    "./wwwroot/js/materialize-plugins/materialbox.js",
+                    "./wwwroot/js/materialize-plugins/parallax.js",
+                    "./wwwroot/js/materialize-plugins/tabs.js",
+                    "./wwwroot/js/materialize-plugins/tooltip.js",
+                    "./wwwroot/js/materialize-plugins/waves.js",
+                    "./wwwroot/js/materialize-plugins/toasts.js",
+                    "./wwwroot/js/materialize-plugins/sideNav.js",
+                    "./wwwroot/js/materialize-plugins/scrollspy.js",
+                    "./wwwroot/js/materialize-plugins/forms.js",
+                    "./wwwroot/js/materialize-plugins/slider.js",
+                    "./wwwroot/js/materialize-plugins/cards.js",
+                    "./wwwroot/js/materialize-plugins/chips.js",
+                    "./wwwroot/js/materialize-plugins/pushpin.js",
+                    "./wwwroot/js/materialize-plugins/buttons.js",
+                    "./wwwroot/js/materialize-plugins/transitions.js",
+                    "./wwwroot/js/materialize-plugins/scrollFire.js",
+                    "./wwwroot/js/materialize-plugins/date_picker/picker.js",
+                    "./wwwroot/js/materialize-plugins/date_picker/picker.date.js",
+                    "./wwwroot/js/materialize-plugins/character_counter.js",
+                ],
+                // the location of the resulting JS file
+                dest: './wwwroot/js/materialize.js'
+            },
+            temp: {
+                // the files to concatenate
+                src: [
+                    "./wwwroot/js/materialize-plugins/jquery.easing.1.3.js",
+                    "./wwwroot/js/materialize-plugins/animation.js",
+                    "./wwwroot/js/materialize-plugins/velocity.min.js",
+                    "./wwwroot/js/materialize-plugins/hammer.min.js",
+                    "./wwwroot/js/materialize-plugins/jquery.hammer.js",
+                    "./wwwroot/js/materialize-plugins/global.js",
+                    "./wwwroot/js/materialize-plugins/collapsible.js",
+                    "./wwwroot/js/materialize-plugins/dropdown.js",
+                    "./wwwroot/js/materialize-plugins/leanModal.js",
+                    "./wwwroot/js/materialize-plugins/materialbox.js",
+                    "./wwwroot/js/materialize-plugins/parallax.js",
+                    "./wwwroot/js/materialize-plugins/tabs.js",
+                    "./wwwroot/js/materialize-plugins/tooltip.js",
+                    "./wwwroot/js/materialize-plugins/waves.js",
+                    "./wwwroot/js/materialize-plugins/toasts.js",
+                    "./wwwroot/js/materialize-plugins/sideNav.js",
+                    "./wwwroot/js/materialize-plugins/scrollspy.js",
+                    "./wwwroot/js/materialize-plugins/forms.js",
+                    "./wwwroot/js/materialize-plugins/slider.js",
+                    "./wwwroot/js/materialize-plugins/cards.js",
+                    "./wwwroot/js/materialize-plugins/chips.js",
+                    "./wwwroot/js/materialize-plugins/pushpin.js",
+                    "./wwwroot/js/materialize-plugins/buttons.js",
+                    "./wwwroot/js/materialize-plugins/transitions.js",
+                    "./wwwroot/js/materialize-plugins/scrollFire.js",
+                    "./wwwroot/js/materialize-plugins/date_picker/picker.js",
+                    "./wwwroot/js/materialize-plugins/date_picker/picker.date.js",
+                    "./wwwroot/js/materialize-plugins/character_counter.js",
+                ],
+                // the location of the resulting JS file
+                dest: './wwwroot/temp/js/materialize.js'
+            },
+        },
+
+        //Uglify js
+        uglify: {
+      
+            main: {
+                options: {
+                    compress: true,
+                },
+                files: {
+                    './wwwroot/js/materialize.min.js': ['./wwwroot/js/materialize.js'],
+                    './wwwroot/js/plugins.min.js': ['./wwwroot/js/plugins.js']
+                }
+            }
+      
+        },
+    
+        //Clean folder 
+        clean: {
+            temp: {
+                src: [ './wwwroot/temp/' ]
+            },
+        },
+
+
+        //Watch for any files changes
+        watch: {
+            js: {
+                files: [ "./wwwroot/js/**/*", "!js/init.js"],
+                tasks: ['js_compile'],
+                options: {
+                    interrupt: false,
+                    spawn: false,
+                },
+            },
+
+            sass: {
+                files: ['./wwwroot/sass/**/*'],
+                tasks: ['sass_compile'],
+                options: {
+                    interrupt: false,
+                    spawn: false,
+                },
+            }
+        },
+
+
+        //Concurrent
+        concurrent: {
+            options: {
+                logConcurrentOutput: true,
+                limit: 10,
+            },
+            monitor: {
+                tasks: ["watch:js", "watch:sass", "notify:watching", 'server']
+            },
+        },
+
+
+        //Notifications for task complition
+        notify: {
+            watching: {
+                options: {
+                    enabled: true,
+                    message: 'Watching Files!',
+                    title: "Materialize", // defaults to the name in package.json, or will use project directory's name
+                    success: true, // whether successful grunt executions should be notified automatically
+                    duration: 1 // the duration of notification in seconds, for `notify-send only
+                }
+            },
+
+            sass_compile: {
+                options: {
+                    enabled: true,
+                    message: 'Sass Compiled!',
+                    title: "Materialize",
+                    success: true,
+                    duration: 1
+                }
+            },
+
+            js_compile: {
+                options: {
+                    enabled: true,
+                    message: 'JS Compiled!',
+                    title: "Materialize",
+                    success: true,
+                    duration: 1
+                }
+            },
+
+            server: {
+                options: {
+                    enabled: true,
+                    message: 'Server Running!',
+                    title: "Materialize",
+                    success: true,
+                    duration: 1
+                }
+            }
+        },
+
+    });
+
+    // load the tasks  
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-clean');  
+    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-text-replace');  
+    grunt.loadNpmTasks('grunt-browser-sync');  
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+  
+    // define the tasks
+    grunt.registerTask(
+        'build', [
+            'sass:main',
+            'sass:prod',
+            'concat:temp',
+            'concat:main',
+            'copy',
+            'uglify:main',
+        ]
+    );
+  
+    grunt.registerTask('js_compile', ['concat:temp', 'uglify:main', 'notify:js_compile', 'clean:temp']);
+    grunt.registerTask('sass_compile', ['sass:main', 'notify:sass_compile']);
+    grunt.registerTask('server', ['browserSync', 'notify:server']);
+    grunt.registerTask("monitor", ["concurrent:monitor"]);
+};
+

@@ -1,0 +1,27 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Manage your account";
+}
+
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    <div class="login-form row">
+        <div class="col-sm-12 header">
+            <img src="images/logoMd2.png" alt="" class="">
+            <p class="">@ViewData["Title"]</p>
+        </div>
+
+        <div class="col-sm-12 body">
+            <div>
+                <p class="text-info">@ViewData["StatusMessage"]</p>
+            </div>
+          
+            <div class="form-group">
+                <a href="/" id="forget-password" class="btn btn-info">Ir a inicio</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

@@ -1,17 +1,13 @@
-environment:
-  PORT: 8090
-
 services:
   cargocare-web:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${PORT}:80"
+      - "8090:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
-      - PORT=80
     restart: unless-stopped
     networks:
       - default

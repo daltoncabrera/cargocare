@@ -1,8 +1,9 @@
 services:
-  cargocare-web:
+  cargocare:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: cargocare
     ports:
       - "8090:80"
     environment:

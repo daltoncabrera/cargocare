@@ -5,6 +5,7 @@ WORKDIR /app
 # Copy the solution file and restore dependencies
 COPY *.sln ./
 COPY MSESG.CargoCare.Web/*.csproj ./MSESG.CargoCare.Web/
+COPY MSESG.CargoCare.Web/Reportes ./MSESG.CargoCare.Web/
 COPY MSESG.CargoCare.Core/*.csproj ./MSESG.CargoCare.Core/
 COPY MSESG.CargoCare.Core.EFServices/*.csproj ./MSESG.CargoCare.Core.EFServices/
 

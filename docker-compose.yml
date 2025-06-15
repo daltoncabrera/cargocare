@@ -10,7 +10,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
     restart: unless-stopped
     networks:
-      - connet
+      - default
 
 networks:
   default:

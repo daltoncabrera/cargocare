@@ -9,6 +9,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
     restart: unless-stopped
+    volumes:
+      - $WORKDIR/config/cargocare/appsettings.json:/app/appsettings.json
+
     networks:
       - default
 

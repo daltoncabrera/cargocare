@@ -1,7 +1,7 @@
 services:
   cargocare-web:
     build:
-      context: ./MSESG.CargoCare.Web
+      context: .
       dockerfile: Dockerfile
     ports:
       - "8080:80"

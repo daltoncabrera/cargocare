@@ -18,11 +18,18 @@ namespace MSESG.CargoCare.Web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddEnvironmentVariables();
 
             Configuration = builder.Build();
 
-            if (!string.IsNullOrWhiteSpace(Configuration["port"]))
+            // Read port from environment variable first, then from configuration
+            var portFromEnv = Environment.GetEnvironmentVariable("PORT");
+            if (!string.IsNullOrWhiteSpace(portFromEnv) && int.TryParse(portFromEnv, out int envPort))
+            {
+                _port = envPort;
+            }
+            else if (!string.IsNullOrWhiteSpace(Configuration["port"]))
             {
                 _port = Convert.ToInt32(Configuration["port"]);
             }

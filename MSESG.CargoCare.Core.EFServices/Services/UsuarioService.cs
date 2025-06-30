@@ -395,12 +395,12 @@ namespace MSESG.CargoCare.Core.EFServices
 
       if (existinRol != null && !re.Checked)
       {
-        _ctx.Database.ExecuteSqlCommand($" delete from applicationuserrole where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
+        _ctx.Database.ExecuteSqlRaw($" delete from applicationuserrole where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
       }
     
       if (existinRol == null && re.Checked)
       {
-       _ctx.Database.ExecuteSqlCommand($@"
+       _ctx.Database.ExecuteSqlRaw($@"
                 INSERT INTO `applicationuserrole`
                 (`EmpresaId`,
                 `ClienteId`,

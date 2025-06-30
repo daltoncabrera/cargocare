@@ -389,24 +389,29 @@ namespace MSESG.CargoCare.Core.EFServices
     {
       var existinRol = _ctx.UserRoles.FirstOrDefault(s =>
         s.RoleId  == re.RoleId
-        && s.UserId == re.UserId
+        && s.UserId == user.Id
         && s.ClienteId == re.ClienteId 
         && s.EmpresaId == re.EmpresaId);
 
       if (existinRol != null && !re.Checked)
       {
-        _ctx.Database.ExecuteSqlRaw($" delete from aspnetuserroles where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
+        _ctx.Database.ExecuteSqlCommand($" delete from applicationuserrole where EmpresaId =  {existinRol.EmpresaId}  and RoleId =  {existinRol.RoleId}  and userId = {existinRol.UserId} and ClienteId = {existinRol.ClienteId}");
       }
-      else if (existinRol == null && re.Checked)
+    
+      if (existinRol == null && re.Checked)
       {
-        _ctx.UserRoles.Add(new ApplicationUserRole()
-        {
-          EmpresaId = re.EmpresaId,
-          ClienteId = re.ClienteId,
-          RoleId = re.RoleId,
-          UserId = user.Id
-        });
-        _ctx.SaveChanges();
+       _ctx.Database.ExecuteSqlCommand($@"
+                INSERT INTO `applicationuserrole`
+                (`EmpresaId`,
+                `ClienteId`,
+                `RoleId`,
+                `UserId`)
+                VALUES
+                ({re.EmpresaId},
+                {re.ClienteId},
+                {re.RoleId},
+                {user.Id});
+        ");
       }
       
     }

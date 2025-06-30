@@ -18,7 +18,8 @@ namespace MSESG.CargoCare.Core.EFServices
             return new ApplicationUserRole()
             {
                 UserId = user.Id,
-                RoleId = role.Id
+                RoleId = role.Id,
+
             };
         }
 

@@ -8,7 +8,7 @@ namespace MSESG.CargoCare.Core.Entities
     {
         public int CisternaId { get; set; }
         public int Compartimento { get; set; }
-        public int? MedidaReferencia { get; set; }
+        public string MedidaReferencia { get; set; }
         public string Medida { get; set; }
         public string Unidad { get; set; }
         public decimal Capacidad { get; set; }

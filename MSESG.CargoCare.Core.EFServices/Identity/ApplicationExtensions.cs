@@ -50,7 +50,7 @@ namespace MSESG.CargoCare.Core.EFServices
                         var rolInspector = await CreateRole(app, RoleType.Empresas, "Inspector", "Usuario Inspector");
                         var rolGerente = await CreateRole(app, RoleType.Empresas, "Gerente", "Usuario Gerente");
 
-                        var rolReprensentante = await CreateRole(app, RoleType.Cliente, "Representante", "Usuario Representante");
+                        var rolReprensentante = await CreateRole(app, RoleType.Empresas, "Representante", "Usuario Representante");
 
                         var user1 = await CreateUser(app, "daltoncabrera@gmail.com", "Dalton Cabrera");
                         var user2 = await CreateUser(app, "mijijo@gmail.com", "Dalton Cabrera");

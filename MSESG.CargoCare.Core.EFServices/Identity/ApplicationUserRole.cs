@@ -13,6 +13,8 @@ namespace MSESG.CargoCare.Core.EFServices
 {
     public class ApplicationUserRole: IdentityUserRole<int>
     {
+        public int UserId { get; set; }
+        public int RoleId { get; set; }
         public int EmpresaId { get; set; }
         public int ClienteId { get; set; }
     }

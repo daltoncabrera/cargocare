@@ -22,7 +22,9 @@ namespace MSESG.CargoCare.Core.EFServices
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-      foreach (var entity in builder.Model.GetEntityTypes())
+            base.OnModelCreating(builder);
+
+            foreach (var entity in builder.Model.GetEntityTypes())
       {
         entity.Relational().TableName = entity.DisplayName();
       }
@@ -33,7 +35,6 @@ namespace MSESG.CargoCare.Core.EFServices
       builder.Entity<RolePermiso>().HasKey(i => new { i.RolId, i.PermisoId });
       builder.Entity<Cliente>().HasIndex(i => i.Slug).IsUnique();
       builder.Entity<Empresa>().HasIndex(i => i.Slug).IsUnique();
-      base.OnModelCreating(builder);
 
       var dummyVar = "";
     }

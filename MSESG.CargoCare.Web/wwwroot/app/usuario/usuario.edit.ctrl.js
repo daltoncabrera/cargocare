@@ -9,7 +9,9 @@
             $scope.myPromise = $http.get($rootScope.config.apiBase + '/Permisos/Usuario/' + $scope.usuarioId,
                 { 'Content-Type': 'application/json' })
                 .then(function success(result) {
-                    $scope.usuario = result.data;
+                    $scope.usuario = result.data; 
+                    if (!$scope.usuarioId)
+                        $scope.usuario.activo = true;
                 },
                 function error(err) {
                     console.log(err);

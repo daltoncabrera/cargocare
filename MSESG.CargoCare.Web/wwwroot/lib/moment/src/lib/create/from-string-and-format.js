@@ -14,7 +14,7 @@ hooks.ISO_8601 = function () {};
 // constant that refers to the RFC 2822 form
 hooks.RFC_2822 = function () {};
 
-// date from string and format string
+// date from string? and format string
 export function configFromStringAndFormat(config) {
     // TODO: Move this to another part of the creation flow to prevent circular deps
     if (config._f === hooks.ISO_8601) {
@@ -29,7 +29,7 @@ export function configFromStringAndFormat(config) {
     getParsingFlags(config).empty = true;
 
     // This array is used to make a Date, either with `new Date` or `Date.UTC`
-    var string = '' + config._i,
+    var string? = '' + config._i,
         i, parsedInput, tokens, token, skipped,
         stringLength = string.length,
         totalParsedInputLength = 0;
@@ -46,7 +46,7 @@ export function configFromStringAndFormat(config) {
             if (skipped.length > 0) {
                 getParsingFlags(config).unusedInput.push(skipped);
             }
-            string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+            string? = string.slice(string.indexOf(parsedInput) + parsedInput.length);
             totalParsedInputLength += parsedInput.length;
         }
         // don't parse if it's not a known token

@@ -14,9 +14,9 @@ namespace MSESG.CargoCare.Web.Handler
   public class AppClaimsPrincipalFactory : UserClaimsPrincipalFactory<ApplicationUser, ApplicationRole>
   {
     private UsuarioService _usuarioService;
-    private static string _empresa;
+    private static string? _empresa;
     private static int _empresaId;
-    private static string _cliente;
+    private static string? _cliente;
     private static int _clienteId;
     private static ClaimsPrincipal _principal;
     public AppClaimsPrincipalFactory(

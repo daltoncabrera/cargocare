@@ -7,6 +7,6 @@ namespace MSESG.CargoCare.Core.Entities
    public class ProductosCliente : Identificable
     {
       public int ProductoId { get; set; }
-      public string CodigoProducto { get; set; }
+      public string? CodigoProducto { get; set; }
   }
 }

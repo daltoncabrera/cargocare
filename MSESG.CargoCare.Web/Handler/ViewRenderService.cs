@@ -16,7 +16,7 @@ namespace MSESG.CargoCare.Web.Handler
 {
   public interface IViewRenderService
   {
-    Task<string> RenderToStringAsync(string viewName, object model);
+    Task<string> RenderToStringAsync(string? viewName, object model);
   }
 
   public class ViewRenderService : IViewRenderService
@@ -34,7 +34,7 @@ namespace MSESG.CargoCare.Web.Handler
       _serviceProvider = serviceProvider;
     }
 
-    public async Task<string> RenderToStringAsync(string viewName, object model)
+    public async Task<string> RenderToStringAsync(string? viewName, object model)
     {
       var httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
       var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());

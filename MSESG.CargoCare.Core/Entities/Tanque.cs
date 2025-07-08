@@ -6,7 +6,7 @@ namespace MSESG.CargoCare.Core.Entities
 {
     public class TanqueSisterna
     {
-        public string Ficha { get; set; }
+        public string?Ficha { get; set; }
 
         public int? Compartimentos { get; set; }
 

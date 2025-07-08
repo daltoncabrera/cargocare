@@ -8,15 +8,15 @@ namespace MSESG.CargoCare.Core
 {
   public class Item
   {
-    public Item(string name, string descripcion, int orden = 1)
+    public Item(string? name, string? descripcion, int orden = 1)
     {
       this.Name = name;
       this.Descripcion = descripcion;
       this.Orden = orden;
     }
 
-    public string Descripcion { get; set; }
-    public string Name { get; set; }
+    public string? Descripcion { get; set; }
+    public string? Name { get; set; }
     public int Orden { get; set; }
     public bool? Bueno { get; set; }
     public bool? Regular { get; set; }

@@ -16,7 +16,7 @@ namespace MSESG.CargoCare.Core.Entities
     public int CamionId { get; set; }
     public int ChoferId { get; set; }
     public int CisternaId { get; set; }
-    public string Referencia { get; set; }
-    public string NoCargaRefineria { get; set; }
+    public string?Referencia { get; set; }
+    public string?NoCargaRefineria { get; set; }
   }
 }

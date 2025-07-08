@@ -32,7 +32,7 @@ namespace MSESG.CargoCare.Core
         {
             
         }
-        public FilterModel(int page, int pageSize, int totalItems, int column, string filter, int sortColumn, SortDir dir, SelloStatus estatus = SelloStatus.None)
+        public FilterModel(int page, int pageSize, int totalItems, int column, string? filter, int sortColumn, SortDir dir, SelloStatus estatus = SelloStatus.None)
         {
             Page = page;
             PageSize = pageSize;
@@ -44,7 +44,7 @@ namespace MSESG.CargoCare.Core
             Estatus = estatus;
         }
 
-        public string Filter { get; set; }
+        public string? Filter { get; set; }
         public int Page { get; set; } = 1;
         public int PageSize { get; set; } = 30;
         public int TotalItems { get; set; }

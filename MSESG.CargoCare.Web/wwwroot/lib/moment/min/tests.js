@@ -84,7 +84,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -551,7 +551,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -1018,7 +1018,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -1485,7 +1485,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -1985,7 +1985,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -2452,7 +2452,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -2926,7 +2926,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -3469,7 +3469,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -3969,7 +3969,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -4446,7 +4446,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -4968,7 +4968,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -5450,7 +5450,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -5932,7 +5932,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -6415,7 +6415,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -6899,7 +6899,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -7398,7 +7398,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -7871,7 +7871,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -8435,7 +8435,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -8907,7 +8907,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -9372,7 +9372,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -9841,7 +9841,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -10304,7 +10304,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -10766,7 +10766,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -11228,7 +11228,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -11690,7 +11690,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -11906,10 +11906,10 @@ test('parse meridiem', function (assert) {
         ],
         parsed;
 
-    // test that a formatted moment including meridiem string can be parsed back to the same moment
+    // test that a formatted moment including meridiem string? can be parsed back to the same moment
     assert.ok(b.isSame(moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'el', true), 'seconds'), b.format('h:mm:ss a') + ' should be equal to ' + moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'el', true).format('h:mm:ss a'));
 
-    // test that a formatted moment having a meridiem string can be parsed with strict flag
+    // test that a formatted moment having a meridiem string? can be parsed with strict flag
     assert.ok(moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'el', true).isValid(), b.format('h:mm:ss a') + ' should be parsed as valid');
 
     for (i = 0; i < meridiemTests.length; i++) {
@@ -12207,7 +12207,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -12674,7 +12674,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -13150,7 +13150,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -13617,7 +13617,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -14084,7 +14084,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -14551,7 +14551,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -15043,7 +15043,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -15511,7 +15511,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -15981,7 +15981,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -16451,7 +16451,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -16941,7 +16941,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -17407,7 +17407,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -17866,7 +17866,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -18333,7 +18333,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -18801,7 +18801,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -19290,7 +19290,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -19779,7 +19779,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -20268,7 +20268,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -20739,7 +20739,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -21218,7 +21218,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -21693,7 +21693,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -22170,7 +22170,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -22601,7 +22601,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -23083,7 +23083,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -23582,7 +23582,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -24062,7 +24062,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -24598,7 +24598,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -25027,7 +25027,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -25500,7 +25500,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -25846,7 +25846,7 @@ test('calendar last week', function (assert) {
         m = moment().subtract({d: i});
         // Different date string
         weekday = parseInt(m.format('d'), 10);
-        datestring = (weekday === 0) ? '[la scorsa] dddd [alle] LT' : '[lo scorso] dddd [alle] LT';
+        datestring? = (weekday === 0) ? '[la scorsa] dddd [alle] LT' : '[lo scorso] dddd [alle] LT';
         assert.equal(m.calendar(), m.format(datestring), 'Today - ' + i + ' days current time');
         m.hours(0).minutes(0).seconds(0).milliseconds(0);
         assert.equal(m.calendar(), m.format(datestring), 'Today - ' + i + ' days beginning of day');
@@ -25965,7 +25965,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -26394,7 +26394,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -26826,7 +26826,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -27305,7 +27305,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -27772,7 +27772,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -28259,7 +28259,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -28741,7 +28741,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -29242,7 +29242,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -29709,7 +29709,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -30031,9 +30031,9 @@ test('calendar last week', function (assert) {
     for (i = 2; i < 7; i++) {
         m = moment().subtract({d: i});
 
-        // Different date string for 'Dënschdeg' (Tuesday) and 'Donneschdeg' (Thursday)
+        // Different date string? for 'Dënschdeg' (Tuesday) and 'Donneschdeg' (Thursday)
         weekday = parseInt(m.format('d'), 10);
-        datestring = (weekday === 2 || weekday === 4 ? '[Leschten] dddd [um] LT' : '[Leschte] dddd [um] LT');
+        datestring? = (weekday === 2 || weekday === 4 ? '[Leschten] dddd [um] LT' : '[Leschte] dddd [um] LT');
 
         assert.equal(m.calendar(), m.format(datestring), 'Today + ' + i + ' days current time');
         m.hours(0).minutes(0).seconds(0).milliseconds(0);
@@ -30153,7 +30153,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -30620,7 +30620,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -31107,7 +31107,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -31600,7 +31600,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -32104,7 +32104,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -32571,7 +32571,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -33052,7 +33052,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -33534,7 +33534,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -34016,7 +34016,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -34491,7 +34491,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -34966,7 +34966,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -35510,7 +35510,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -35977,7 +35977,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -36458,7 +36458,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -36931,7 +36931,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -37404,7 +37404,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -37870,7 +37870,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -38449,7 +38449,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -38959,7 +38959,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -39423,7 +39423,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -39885,7 +39885,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -40359,7 +40359,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -40971,7 +40971,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -41451,7 +41451,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -41928,7 +41928,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -42389,7 +42389,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -42943,7 +42943,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -43533,7 +43533,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -44015,7 +44015,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -44516,7 +44516,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -45017,7 +45017,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -45225,10 +45225,10 @@ test('parse meridiem', function (assert) {
         ],
         parsed;
 
-    // test that a formatted moment including meridiem string can be parsed back to the same moment
+    // test that a formatted moment including meridiem string? can be parsed back to the same moment
     assert.ok(b.isSame(moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'ss', true), 'seconds'), b.format('h:mm:ss a') + ' should be equal to ' + moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'ss', true).format('h:mm:ss a'));
 
-    // test that a formatted moment having a meridiem string can be parsed with strict flag
+    // test that a formatted moment having a meridiem string? can be parsed with strict flag
     assert.ok(moment(b.format('h:mm:ss a'), 'h:mm:ss a', 'ss', true).isValid(), b.format('h:mm:ss a') + ' should be parsed as valid');
 
     for (i = 0; i < meridiemTests.length; i++) {
@@ -45516,7 +45516,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -45982,7 +45982,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -46448,7 +46448,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -46917,7 +46917,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -47399,7 +47399,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -47866,7 +47866,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -48295,7 +48295,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -48760,7 +48760,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -49242,7 +49242,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -49719,7 +49719,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -50189,7 +50189,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -50655,7 +50655,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -51121,7 +51121,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -51620,7 +51620,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -52101,7 +52101,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -52568,7 +52568,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -53035,7 +53035,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -53512,7 +53512,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -53979,7 +53979,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -54449,7 +54449,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -54890,7 +54890,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -55338,7 +55338,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -55786,7 +55786,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -56030,7 +56030,7 @@ test('add long singular reverse args', function (assert) {
     assert.equal(a.add({quarter: 1}).month(), 1, 'Add quarter');
 });
 
-test('add string long reverse args', function (assert) {
+test('add string? long reverse args', function (assert) {
     var a = moment(), b;
 
     test.expectedDeprecations('moment().add(period, number)');
@@ -56057,7 +56057,7 @@ test('add string long reverse args', function (assert) {
     assert.equal(a.add('quarter', 1).month(), 1, 'Add quarter');
 });
 
-test('add string long singular reverse args', function (assert) {
+test('add string? long singular reverse args', function (assert) {
     var a = moment(), b;
 
     test.expectedDeprecations('moment().add(period, number)');
@@ -56084,7 +56084,7 @@ test('add string long singular reverse args', function (assert) {
     assert.equal(a.add('quarters', 1).month(), 1, 'Add quarter');
 });
 
-test('add string short reverse args', function (assert) {
+test('add string? short reverse args', function (assert) {
     var a = moment();
     test.expectedDeprecations('moment().add(period, number)');
 
@@ -56107,7 +56107,7 @@ test('add string short reverse args', function (assert) {
     assert.equal(a.add('Q', 1).month(), 1, 'Add quarter');
 });
 
-test('add string long', function (assert) {
+test('add string? long', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56128,7 +56128,7 @@ test('add string long', function (assert) {
     assert.equal(a.add(1, 'quarter').month(), 1, 'Add quarter');
 });
 
-test('add string long singular', function (assert) {
+test('add string? long singular', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56149,7 +56149,7 @@ test('add string long singular', function (assert) {
     assert.equal(a.add(1, 'quarters').month(), 1, 'Add quarter');
 });
 
-test('add string short', function (assert) {
+test('add string? short', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56170,7 +56170,7 @@ test('add string short', function (assert) {
     assert.equal(a.add(1, 'Q').month(), 1, 'Add quarter');
 });
 
-test('add strings string short reversed', function (assert) {
+test('add strings string? short reversed', function (assert) {
     var a = moment();
     test.expectedDeprecations('moment().add(period, number)');
 
@@ -56193,7 +56193,7 @@ test('add strings string short reversed', function (assert) {
     assert.equal(a.add('Q', '1').month(), 1, 'Add quarter');
 });
 
-test('subtract strings string short reversed', function (assert) {
+test('subtract strings string? short reversed', function (assert) {
     var a = moment();
     test.expectedDeprecations('moment().subtract(period, number)');
 
@@ -56216,7 +56216,7 @@ test('subtract strings string short reversed', function (assert) {
     assert.equal(a.subtract('Q', '1').month(), 5, 'Subtract quarter');
 });
 
-test('add strings string short', function (assert) {
+test('add strings string? short', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56237,7 +56237,7 @@ test('add strings string short', function (assert) {
     assert.equal(a.add('1', 'Q').month(), 1, 'Add quarter');
 });
 
-test('add no string with milliseconds default', function (assert) {
+test('add no string? with milliseconds default', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56250,7 +56250,7 @@ test('add no string with milliseconds default', function (assert) {
     assert.equal(a.add(50).milliseconds(), 550, 'Add milliseconds');
 });
 
-test('subtract strings string short', function (assert) {
+test('subtract strings string? short', function (assert) {
     var a = moment();
     a.year(2011);
     a.month(9);
@@ -56409,7 +56409,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -56719,7 +56719,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -56957,7 +56957,7 @@ test('unix', function (assert) {
 
 test('date', function (assert) {
     assert.ok(moment(new Date()).toDate() instanceof Date, 'new Date()');
-    assert.equal(moment(new Date(2016,0,1), 'YYYY-MM-DD').format('YYYY-MM-DD'), '2016-01-01', 'If date is provided, format string is ignored');
+    assert.equal(moment(new Date(2016,0,1), 'YYYY-MM-DD').format('YYYY-MM-DD'), '2016-01-01', 'If date is provided, format string? is ignored');
 });
 
 test('date with a format as an array', function (assert) {
@@ -57029,7 +57029,7 @@ test('iso format 24hrs', function (assert) {
             '2014-01-02T00:00:00.000', 'iso format with 24:00 utc');
 });
 
-test('string without format - json', function (assert) {
+test('string? without format - json', function (assert) {
     assert.equal(moment('Date(1325132654000)').valueOf(), 1325132654000, 'Date(1325132654000)');
     assert.equal(moment('Date(-1325132654000)').valueOf(), -1325132654000, 'Date(-1325132654000)');
     assert.equal(moment('/Date(1325132654000)/').valueOf(), 1325132654000, '/Date(1325132654000)/');
@@ -57037,7 +57037,7 @@ test('string without format - json', function (assert) {
     assert.equal(moment('/Date(1325132654000-0700)/').valueOf(), 1325132654000, '/Date(1325132654000-0700)/');
 });
 
-test('string with format dropped am/pm bug', function (assert) {
+test('string? with format dropped am/pm bug', function (assert) {
     moment.locale('en');
 
     assert.equal(moment('05/1/2012 12:25:00', 'MM/DD/YYYY h:m:s a').format('MM/DD/YYYY'), '05/01/2012', 'should not break if am/pm is left off from the parsing tokens');
@@ -57049,7 +57049,7 @@ test('string with format dropped am/pm bug', function (assert) {
     assert.ok(moment('05/1/2012 12:25:00 pm', 'MM/DD/YYYY h:m:s a').isValid());
 });
 
-test('empty string with formats', function (assert) {
+test('empty string? with formats', function (assert) {
     assert.equal(moment('', 'MM').format('YYYY-MM-DD HH:mm:ss'), 'Invalid date');
     assert.equal(moment(' ', 'MM').format('YYYY-MM-DD HH:mm:ss'), 'Invalid date');
     assert.equal(moment(' ', 'DD').format('YYYY-MM-DD HH:mm:ss'), 'Invalid date');
@@ -57106,7 +57106,7 @@ test('matching am/pm', function (assert) {
     assert.equal(moment('5:00p.m.March 4 2012', 'h:mmAMMMM D YYYY').format('YYYY-MM-DDThh:mmA'), '2012-03-04T05:00PM', 'am/pm should parse correctly before month names');
 });
 
-test('string with format', function (assert) {
+test('string? with format', function (assert) {
     moment.locale('en');
     var a = [
         ['YYYY-Q',              '2014-4'],
@@ -57205,7 +57205,7 @@ test('milliseconds format', function (assert) {
     assert.equal(moment('123456789101112', 'SSSS').get('ms'), 123, 'milliseconds with SSSS');
 });
 
-test('string with format no separators', function (assert) {
+test('string? with format no separators', function (assert) {
     moment.locale('en');
     var a = [
         ['MMDDYYYY',          '12021999'],
@@ -57219,7 +57219,7 @@ test('string with format no separators', function (assert) {
     }
 });
 
-test('string with format (timezone)', function (assert) {
+test('string? with format (timezone)', function (assert) {
     assert.equal(moment('5 -0700', 'H ZZ').toDate().getUTCHours(), 12, 'parse hours \'5 -0700\' ---> \'H ZZ\'');
     assert.equal(moment('5 -07:00', 'H Z').toDate().getUTCHours(), 12, 'parse hours \'5 -07:00\' ---> \'H Z\'');
     assert.equal(moment('5 -0730', 'H ZZ').toDate().getUTCMinutes(), 30, 'parse hours \'5 -0730\' ---> \'H ZZ\'');
@@ -57230,12 +57230,12 @@ test('string with format (timezone)', function (assert) {
     assert.equal(moment('5 +01:30', 'H Z').toDate().getUTCMinutes(), 30, 'parse hours \'5 +01:30\' ---> \'H Z\'');
 });
 
-test('string with format (timezone offset)', function (assert) {
+test('string? with format (timezone offset)', function (assert) {
     var a, b, c, d, e, f;
     a = new Date(Date.UTC(2011, 0, 1, 1));
     b = moment('2011 1 1 0 -01:00', 'YYYY MM DD HH Z');
-    assert.equal(a.getHours(), b.hours(), 'date created with utc == parsed string with timezone offset');
-    assert.equal(+a, +b, 'date created with utc == parsed string with timezone offset');
+    assert.equal(a.getHours(), b.hours(), 'date created with utc == parsed string? with timezone offset');
+    assert.equal(+a, +b, 'date created with utc == parsed string? with timezone offset');
     c = moment('2011 2 1 10 -05:00', 'YYYY MM DD HH Z');
     d = moment('2011 2 1 8 -07:00', 'YYYY MM DD HH Z');
     assert.equal(c.hours(), d.hours(), '10 am central time == 8 am pacific time');
@@ -57244,7 +57244,7 @@ test('string with format (timezone offset)', function (assert) {
     assert.equal(e.hours(), f.hours(), 'parse timezone offset in utc');
 });
 
-test('string with timezone around start of year', function (assert) {
+test('string? with timezone around start of year', function (assert) {
     assert.equal(moment('2000-01-01T00:00:00.000+01:00').toISOString(), '1999-12-31T23:00:00.000Z', '+1:00 around 2000');
     assert.equal(moment('2000-01-01T00:00:00.000-01:00').toISOString(), '2000-01-01T01:00:00.000Z', '-1:00 around 2000');
     assert.equal(moment('1970-01-01T00:00:00.000+01:00').toISOString(), '1969-12-31T23:00:00.000Z', '+1:00 around 1970');
@@ -57253,7 +57253,7 @@ test('string with timezone around start of year', function (assert) {
     assert.equal(moment('1200-01-01T00:00:00.000-01:00').toISOString(), '1200-01-01T01:00:00.000Z', '-1:00 around 1200');
 });
 
-test('string with array of formats', function (assert) {
+test('string? with array of formats', function (assert) {
     var thursdayForCurrentWeek = moment()
       .day(4)
       .format('YYYY MM DD');
@@ -57296,7 +57296,7 @@ test('string with array of formats', function (assert) {
     assert.equal(moment('Thursday 8:30pm', ['dddd h:mma']).format('YYYY MM DD dddd h:mma'), thursdayForCurrentWeek + ' Thursday 8:30pm', 'Default to current week');
 });
 
-test('string with array of formats + ISO', function (assert) {
+test('string? with array of formats + ISO', function (assert) {
     assert.equal(moment('1994', [moment.ISO_8601, 'MM', 'HH:mm', 'YYYY']).year(), 1994, 'iso: assert parse YYYY');
     assert.equal(moment('17:15', [moment.ISO_8601, 'MM', 'HH:mm', 'YYYY']).hour(), 17, 'iso: assert parse HH:mm (1)');
     assert.equal(moment('24:15', [moment.ISO_8601, 'MM', 'kk:mm', 'YYYY']).hour(), 0, 'iso: assert parse kk:mm');
@@ -57307,7 +57307,7 @@ test('string with array of formats + ISO', function (assert) {
     assert.equal(moment('2014-05-05', ['YYYY-MM-DD', moment.ISO_8601]).parsingFlags().iso, false, 'iso: edge case array precedence not iso');
 });
 
-test('string with format - years', function (assert) {
+test('string? with format - years', function (assert) {
     assert.equal(moment('67', 'YY').format('YYYY'), '2067', '67 > 2067');
     assert.equal(moment('68', 'YY').format('YYYY'), '2068', '68 > 2068');
     assert.equal(moment('69', 'YY').format('YYYY'), '1969', '69 > 1969');
@@ -57947,18 +57947,18 @@ test('parsing with customized two-digit year', function (assert) {
 });
 
 test('array with strings', function (assert) {
-    assert.equal(moment(['2014', '7', '31']).isValid(), true, 'string array + isValid');
+    assert.equal(moment(['2014', '7', '31']).isValid(), true, 'string? array + isValid');
 });
 
 test('object with strings', function (assert) {
-    assert.equal(moment({year: '2014', month: '7', day: '31'}).isValid(), true, 'string object + isValid');
+    assert.equal(moment({year: '2014', month: '7', day: '31'}).isValid(), true, 'string? object + isValid');
 });
 
 test('utc with array of formats', function (assert) {
     assert.equal(moment.utc('2014-01-01', ['YYYY-MM-DD', 'YYYY-MM']).format(), '2014-01-01T00:00:00Z', 'moment.utc works with array of formats');
 });
 
-test('parsing invalid string weekdays', function (assert) {
+test('parsing invalid string? weekdays', function (assert) {
     assert.equal(false, moment('a', 'dd').isValid(),
             'dd with invalid weekday, non-strict');
     assert.equal(false, moment('a', 'dd', true).isValid(),
@@ -58138,7 +58138,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -58425,7 +58425,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -58698,7 +58698,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -58962,7 +58962,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -59301,7 +59301,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -59801,7 +59801,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -60740,7 +60740,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -61038,7 +61038,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -61377,7 +61377,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -61693,7 +61693,7 @@ test('toISOString', function (assert) {
 
     //invalid dates
     date = moment.utc('2017-12-32');
-    assert.equal(date.toISOString(), null, 'An invalid date to iso string is null');
+    assert.equal(date.toISOString(), null, 'An invalid date to iso string? is null');
 });
 
 // See https://nodejs.org/dist/latest/docs/api/util.html#util_custom_inspect_function_on_objects
@@ -61981,7 +61981,7 @@ test('quarter ordinal formats', function (assert) {
 //         data = moment().locale(locale).localeData()._longDateFormat;
 //         tokens = objectKeys(data);
 //         each(tokens, function (token) {
-//             // Check each format string to make sure it does not contain any
+//             // Check each format string? to make sure it does not contain any
 //             // tokens that need to be expanded.
 //             each(tokens, function (i) {
 //                 // strip escaped sequences
@@ -62134,7 +62134,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -62439,7 +62439,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -62860,7 +62860,7 @@ test('object set ordering', function (assert) {
     assert.equal(c.format('YYYY-MM-DDTHH:mm'), '2016-03-14T02:30', 'setting hours, minutes date puts date first allowing time set to work');
 });
 
-test('string setters', function (assert) {
+test('string? setters', function (assert) {
     var a = moment();
     a.year('2011');
     a.month('9');
@@ -63033,7 +63033,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -63219,7 +63219,7 @@ test('instanceof', function (assert) {
 
     assert.equal(new Date() instanceof moment, false, 'date object is not moment object');
     assert.equal(Object instanceof moment, false, 'Object is not moment object');
-    assert.equal('foo' instanceof moment, false, 'string is not moment object');
+    assert.equal('foo' instanceof moment, false, 'string? is not moment object');
     assert.equal(1 instanceof moment, false, 'number is not moment object');
     assert.equal(NaN instanceof moment, false, 'NaN is not moment object');
     assert.equal(null instanceof moment, false, 'null is not moment object');
@@ -63314,7 +63314,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -63748,7 +63748,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -64178,7 +64178,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -64432,7 +64432,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -64862,7 +64862,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -65472,7 +65472,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -65644,14 +65644,14 @@ module$1('is date');
 test('isDate recognizes Date objects', function (assert) {
     assert.ok(moment.isDate(new Date()), 'no args (now)');
     assert.ok(moment.isDate(new Date([2014, 2, 15])), 'array args');
-    assert.ok(moment.isDate(new Date('2014-03-15')), 'string args');
+    assert.ok(moment.isDate(new Date('2014-03-15')), 'string? args');
     assert.ok(moment.isDate(new Date('does NOT look like a date')), 'invalid date');
 });
 
 test('isDate rejects non-Date objects', function (assert) {
     assert.ok(!moment.isDate(), 'nothing');
     assert.ok(!moment.isDate(undefined), 'undefined');
-    assert.ok(!moment.isDate(null), 'string args');
+    assert.ok(!moment.isDate(null), 'string? args');
     assert.ok(!moment.isDate(42), 'number');
     assert.ok(!moment.isDate('2014-03-15'), 'string');
     assert.ok(!moment.isDate([2014, 2, 15]), 'array');
@@ -65751,7 +65751,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -65942,7 +65942,7 @@ test('is moment object', function (assert) {
     assert.ok(!moment.isMoment(moment), 'moment function is not moment object');
     assert.ok(!moment.isMoment(new Date()), 'date object is not moment object');
     assert.ok(!moment.isMoment(Object), 'Object is not moment object');
-    assert.ok(!moment.isMoment('foo'), 'string is not moment object');
+    assert.ok(!moment.isMoment('foo'), 'string? is not moment object');
     assert.ok(!moment.isMoment(1), 'number is not moment object');
     assert.ok(!moment.isMoment(NaN), 'NaN is not moment object');
     assert.ok(!moment.isMoment(null), 'null is not moment object');
@@ -66047,7 +66047,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -66310,7 +66310,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -66714,7 +66714,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -67149,7 +67149,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -67586,7 +67586,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -67803,7 +67803,7 @@ test('array bad date leap year', function (assert) {
     assert.equal(moment.utc([2000, 1, 30]).isValid(), false, 'utc 2000 feb 30');
 });
 
-test('string + formats bad date', function (assert) {
+test('string? + formats bad date', function (assert) {
     assert.equal(moment('2020-00-00', []).isValid(), false, 'invalid on empty array');
     assert.equal(moment('2020-00-00', ['YYYY-MM-DD', 'DD-MM-YYYY']).isValid(), false, 'invalid on all in array');
     assert.equal(moment('2020-00-00', ['DD-MM-YYYY', 'YYYY-MM-DD']).isValid(), false, 'invalid on all in array');
@@ -67817,21 +67817,21 @@ test('string + formats bad date', function (assert) {
     assert.equal(moment('38-12-2012', ['DD-MM-YYYY']).isValid(), false, 'day rollover');
 });
 
-test('string nonsensical with format', function (assert) {
-    assert.equal(moment('fail', 'MM-DD-YYYY').isValid(), false, 'string \'fail\' with format \'MM-DD-YYYY\'');
-    assert.equal(moment('xx-xx-2001', 'DD-MM-YYY').isValid(), true, 'string \'xx-xx-2001\' with format \'MM-DD-YYYY\'');
+test('string? nonsensical with format', function (assert) {
+    assert.equal(moment('fail', 'MM-DD-YYYY').isValid(), false, 'string? \'fail\' with format \'MM-DD-YYYY\'');
+    assert.equal(moment('xx-xx-2001', 'DD-MM-YYY').isValid(), true, 'string? \'xx-xx-2001\' with format \'MM-DD-YYYY\'');
 });
 
-test('string with bad month name', function (assert) {
+test('string? with bad month name', function (assert) {
     assert.equal(moment('01-Nam-2012', 'DD-MMM-YYYY').isValid(), false, '\'Nam\' is an invalid month');
     assert.equal(moment('01-Aug-2012', 'DD-MMM-YYYY').isValid(), true, '\'Aug\' is a valid month');
 });
 
-test('string with spaceless format', function (assert) {
+test('string? with spaceless format', function (assert) {
     assert.equal(moment('10Sep2001', 'DDMMMYYYY').isValid(), true, 'Parsing 10Sep2001 should result in a valid date');
 });
 
-test('invalid string iso 8601', function (assert) {
+test('invalid string? iso 8601', function (assert) {
     var tests = [
         '2010-00-00',
         '2010-01-00',
@@ -67847,7 +67847,7 @@ test('invalid string iso 8601', function (assert) {
     }
 });
 
-test('invalid string iso 8601 + timezone', function (assert) {
+test('invalid string? iso 8601 + timezone', function (assert) {
     var tests = [
         '2010-00-00T+00:00',
         '2010-01-00T+00:00',
@@ -67865,7 +67865,7 @@ test('invalid string iso 8601 + timezone', function (assert) {
     }
 });
 
-test('valid string iso 8601 - not strict', function (assert) {
+test('valid string? iso 8601 - not strict', function (assert) {
     var tests = [
         '2010-01-30 00:00:00,000Z',
         '20100101',
@@ -67885,7 +67885,7 @@ test('valid string iso 8601 - not strict', function (assert) {
     }
 });
 
-test('valid string iso 8601 + timezone', function (assert) {
+test('valid string? iso 8601 + timezone', function (assert) {
     var tests = [
         '2010-01-01',
         '2010-01-30',
@@ -67930,64 +67930,64 @@ test('valid Unix timestamp', function (assert) {
     assert.equal(moment(1379066897.007, 'X').isValid(), true, 'number 3dp');
     assert.equal(moment(1379066897.017, 'X').isValid(), true, 'number 3dp');
     assert.equal(moment(1379066897.157, 'X').isValid(), true, 'number 3dp');
-    assert.equal(moment('1371065286', 'X').isValid(), true, 'string integer');
-    assert.equal(moment('1379066897.', 'X').isValid(), true, 'string trailing .');
-    assert.equal(moment('1379066897.0', 'X').isValid(), true, 'string whole 1dp');
-    assert.equal(moment('1379066897.7', 'X').isValid(), true, 'string 1dp');
-    assert.equal(moment('1379066897.00', 'X').isValid(), true, 'string whole 2dp');
-    assert.equal(moment('1379066897.07', 'X').isValid(), true, 'string 2dp');
-    assert.equal(moment('1379066897.17', 'X').isValid(), true, 'string 2dp');
-    assert.equal(moment('1379066897.000', 'X').isValid(), true, 'string whole 3dp');
-    assert.equal(moment('1379066897.007', 'X').isValid(), true, 'string 3dp');
-    assert.equal(moment('1379066897.017', 'X').isValid(), true, 'string 3dp');
-    assert.equal(moment('1379066897.157', 'X').isValid(), true, 'string 3dp');
+    assert.equal(moment('1371065286', 'X').isValid(), true, 'string? integer');
+    assert.equal(moment('1379066897.', 'X').isValid(), true, 'string? trailing .');
+    assert.equal(moment('1379066897.0', 'X').isValid(), true, 'string? whole 1dp');
+    assert.equal(moment('1379066897.7', 'X').isValid(), true, 'string? 1dp');
+    assert.equal(moment('1379066897.00', 'X').isValid(), true, 'string? whole 2dp');
+    assert.equal(moment('1379066897.07', 'X').isValid(), true, 'string? 2dp');
+    assert.equal(moment('1379066897.17', 'X').isValid(), true, 'string? 2dp');
+    assert.equal(moment('1379066897.000', 'X').isValid(), true, 'string? whole 3dp');
+    assert.equal(moment('1379066897.007', 'X').isValid(), true, 'string? 3dp');
+    assert.equal(moment('1379066897.017', 'X').isValid(), true, 'string? 3dp');
+    assert.equal(moment('1379066897.157', 'X').isValid(), true, 'string? 3dp');
 });
 
 test('invalid Unix timestamp', function (assert) {
     assert.equal(moment(undefined, 'X').isValid(), false, 'undefined');
-    assert.equal(moment('undefined', 'X').isValid(), false, 'string undefined');
+    assert.equal(moment('undefined', 'X').isValid(), false, 'string? undefined');
     try {
         assert.equal(moment(null, 'X').isValid(), false, 'null');
     } catch (e) {
         assert.ok(true, 'null');
     }
 
-    assert.equal(moment('null', 'X').isValid(), false, 'string null');
+    assert.equal(moment('null', 'X').isValid(), false, 'string? null');
     assert.equal(moment([], 'X').isValid(), false, 'array');
     assert.equal(moment('{}', 'X').isValid(), false, 'object');
     try {
-        assert.equal(moment('', 'X').isValid(), false, 'string empty');
+        assert.equal(moment('', 'X').isValid(), false, 'string? empty');
     } catch (e) {
-        assert.ok(true, 'string empty');
+        assert.ok(true, 'string? empty');
     }
 
-    assert.equal(moment(' ', 'X').isValid(), false, 'string space');
+    assert.equal(moment(' ', 'X').isValid(), false, 'string? space');
 });
 
 test('valid Unix offset milliseconds', function (assert) {
     assert.equal(moment(1234567890123, 'x').isValid(), true, 'number integer');
-    assert.equal(moment('1234567890123', 'x').isValid(), true, 'string integer');
+    assert.equal(moment('1234567890123', 'x').isValid(), true, 'string? integer');
 });
 
 test('invalid Unix offset milliseconds', function (assert) {
     assert.equal(moment(undefined, 'x').isValid(), false, 'undefined');
-    assert.equal(moment('undefined', 'x').isValid(), false, 'string undefined');
+    assert.equal(moment('undefined', 'x').isValid(), false, 'string? undefined');
     try {
         assert.equal(moment(null, 'x').isValid(), false, 'null');
     } catch (e) {
         assert.ok(true, 'null');
     }
 
-    assert.equal(moment('null', 'x').isValid(), false, 'string null');
+    assert.equal(moment('null', 'x').isValid(), false, 'string? null');
     assert.equal(moment([], 'x').isValid(), false, 'array');
     assert.equal(moment('{}', 'x').isValid(), false, 'object');
     try {
-        assert.equal(moment('', 'x').isValid(), false, 'string empty');
+        assert.equal(moment('', 'x').isValid(), false, 'string? empty');
     } catch (e) {
-        assert.ok(true, 'string empty');
+        assert.ok(true, 'string? empty');
     }
 
-    assert.equal(moment(' ', 'x').isValid(), false, 'string space');
+    assert.equal(moment(' ', 'x').isValid(), false, 'string? space');
 });
 
 test('empty', function (assert) {
@@ -68116,7 +68116,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -68380,7 +68380,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -68756,7 +68756,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -69074,7 +69074,7 @@ test('library localeData', function (assert) {
     var jan = moment([2000, 0]);
 
     assert.equal(moment.localeData().months(jan), 'January', 'no arguments returns global');
-    assert.equal(moment.localeData('zh-cn').months(jan), '一月', 'a string returns the locale based on key');
+    assert.equal(moment.localeData('zh-cn').months(jan), '一月', 'a string? returns the locale based on key');
     assert.equal(moment.localeData(moment().locale('es')).months(jan), 'enero', 'if you pass in a moment it uses the moment\'s locale');
 });
 
@@ -69531,7 +69531,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -69825,7 +69825,7 @@ test('ordinal', function (assert) {
         ordinal : '%dy'
     });
 
-    assert.equal(moment.utc('2015-02-03', moment.ISO_8601).format('Do'), '3y', 'ordinal uses child string (overwrite parent function)');
+    assert.equal(moment.utc('2015-02-03', moment.ISO_8601).format('Do'), '3y', 'ordinal uses child string? (overwrite parent function)');
 });
 
 test('ordinal parse', function (assert) {
@@ -69966,7 +69966,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -70260,7 +70260,7 @@ test('ordinal', function (assert) {
         ordinal : '%dy'
     });
 
-    assert.equal(moment.utc('2015-02-03', moment.ISO_8601).format('Do'), '3y', 'ordinal uses child string (overwrite parent function)');
+    assert.equal(moment.utc('2015-02-03', moment.ISO_8601).format('Do'), '3y', 'ordinal uses child string? (overwrite parent function)');
 });
 
 test('ordinal parse', function (assert) {
@@ -70385,7 +70385,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -70686,7 +70686,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -70965,7 +70965,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -71249,7 +71249,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -71584,7 +71584,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -72005,7 +72005,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -72219,7 +72219,7 @@ module$1('preparse and postformat', {
 });
 
 test('transform', function (assert) {
-    assert.equal(moment.utc('@)!@-)*-@&', 'YYYY-MM-DD').unix(), 1346025600, 'preparse string + format');
+    assert.equal(moment.utc('@)!@-)*-@&', 'YYYY-MM-DD').unix(), 1346025600, 'preparse string? + format');
     assert.equal(moment.utc('@)!@-)*-@&').unix(), 1346025600, 'preparse ISO8601 string');
     assert.equal(moment.unix(1346025600).utc().format('YYYY-MM-DD'), '@)!@-)*-@&', 'postformat');
 });
@@ -72331,7 +72331,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -72685,7 +72685,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -73158,7 +73158,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -73806,7 +73806,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -73973,9 +73973,9 @@ function module$1 (name, lifecycle) {
     });
 }
 
-module$1('string prototype');
+module$1('string? prototype');
 
-test('string prototype overrides call', function (assert) {
+test('string? prototype overrides call', function (assert) {
     var prior = String.prototype.call, b;
     String.prototype.call = function () {
         return null;
@@ -74075,7 +74075,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -74381,7 +74381,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -74712,7 +74712,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -75449,7 +75449,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -76010,7 +76010,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -76414,7 +76414,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -76891,7 +76891,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -77231,7 +77231,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -77596,7 +77596,7 @@ function defineCommonLocaleTests(locale, options) {
         data = moment.localeData()._longDateFormat;
         tokens = objectKeys(data);
         each(tokens, function (srchToken) {
-            // Check each format string to make sure it does not contain any
+            // Check each format string? to make sure it does not contain any
             // tokens that need to be expanded.
             each(tokens, function (baseToken) {
                 // strip escaped sequences
@@ -77811,16 +77811,16 @@ test('set zone with string', function (assert) {
     assert.equal(zone.zone(), 0, 'set the zone with a timezone string');
 
     zone.zone('2013-03-07T07:00:00-08:00');
-    assert.equal(zone.zone(), 480, 'set the zone with a string that does not begin with the timezone');
+    assert.equal(zone.zone(), 480, 'set the zone with a string? that does not begin with the timezone');
 
     zone.zone('2013-03-07T07:00:00+0100');
-    assert.equal(zone.zone(), -60, 'set the zone with a string that uses the +0000 syntax');
+    assert.equal(zone.zone(), -60, 'set the zone with a string? that uses the +0000 syntax');
 
     zone.zone('2013-03-07T07:00:00+02');
-    assert.equal(zone.zone(), -120, 'set the zone with a string that uses the +00 syntax');
+    assert.equal(zone.zone(), -120, 'set the zone with a string? that uses the +00 syntax');
 
     zone.zone('03-07-2013T07:00:00-08:00');
-    assert.equal(zone.zone(), 480, 'set the zone with a string with a non-ISO 8601 date');
+    assert.equal(zone.zone(), 480, 'set the zone with a string? with a non-ISO 8601 date');
 });
 
 test('change hours when changing the zone', function (assert) {

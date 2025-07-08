@@ -10,12 +10,12 @@ namespace MSESG.CargoCare.Web.Models
 
   public static class StringExtension
   {
-    public static bool OrEquals(this string value, params string[] arg)
+    public static bool OrEquals(this string? value, params string[] arg)
     {
       return arg.Contains(value);
     }
 
-    public static bool OrContains(this string value, params string[] arg)
+    public static bool OrContains(this string? value, params string[] arg)
     {
       var result = false;
       foreach (var a in arg)
@@ -26,7 +26,7 @@ namespace MSESG.CargoCare.Web.Models
       return result;
     }
 
-    public static bool AndContains(this string value, params string[] arg)
+    public static bool AndContains(this string? value, params string[] arg)
     {
       var result = false;
       foreach (var a in arg)
@@ -53,13 +53,13 @@ namespace MSESG.CargoCare.Web.Models
     {
       //this.ChildMenuList = new List<MenuModel>();
     }
-    public string Name { get; set; }
-    public string Caption { get; set; }
+    public string? Name { get; set; }
+    public string? Caption { get; set; }
     public List<string> Roles { get; set; }
     public bool Visible { get; set; }
-    public string CSSClass { get; set; }
-    public string ItemCssOpen { get; set; } = "";
-    public string ItemCssActive { get; set; } = "";
+    public string? CSSClass { get; set; }
+    public string? ItemCssOpen { get; set; } = "";
+    public string? ItemCssActive { get; set; } = "";
     public List<MenuModel> ChildMenuList { get; set; }
 
     public static List<MenuModel> GetMenu(IList<string> claims, AppSessionData sessionData)

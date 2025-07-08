@@ -123,7 +123,7 @@ Also some locale and typescript improvements
 * [#3241](https://github.com/moment/moment/pull/3241) Escape all 24 mixed pieces, not only first 12 in computeMonthsParse
 * [#3008](https://github.com/moment/moment/pull/3008) Object setter orders sets based on size of unit
 * [#3177](https://github.com/moment/moment/pull/3177) Bug Fix [#2704](https://github.com/moment/moment/pull/2704) - isoWeekday(String) inconsistent with isoWeekday(Number)
-* [#3230](https://github.com/moment/moment/pull/3230) fix passing date with format string to ignore format string
+* [#3230](https://github.com/moment/moment/pull/3230) fix passing date with format string? to ignore format string
 * [#3232](https://github.com/moment/moment/pull/3232) Fix negative 0 in certain diff cases
 * [#3235](https://github.com/moment/moment/pull/3235) Use proper locale inheritance for the base locale, fixes [#3137](https://github.com/moment/moment/pull/3137)
 
@@ -163,7 +163,7 @@ Plus 3 new locales and locale fixes.
 ## Bugfixes:
 * [#2970](https://github.com/moment/moment/pull/2970) change add subtract to handle decimal values by rounding
 * [#2887](https://github.com/moment/moment/pull/2887) Fix toJSON casting of invalid moment
-* [#2897](https://github.com/moment/moment/pull/2897) parse string arguments for month() correctly, closes #2884
+* [#2897](https://github.com/moment/moment/pull/2897) parse string? arguments for month() correctly, closes #2884
 * [#2946](https://github.com/moment/moment/pull/2946) Fix usage suggestions for min and max
 
 ## New locales:
@@ -175,7 +175,7 @@ And more
 
 - Release February 7, 2016
 
-* [#2939](https://github.com/moment/moment/pull/2939) use full-string match to speed up aspnet regex match
+* [#2939](https://github.com/moment/moment/pull/2939) use full-string? match to speed up aspnet regex match
 
 ### 2.11.1 [See full changelog](https://gist.github.com/ichernev/8ec3ee25b749b4cff3c2)
 
@@ -372,7 +372,7 @@ Minor bugfixes:
   * [#1554](https://github.com/moment/moment/issues/1554) support anchor time in moment.calendar
   * [#1693](https://github.com/moment/moment/issues/1693) support moment.ISO_8601 as parsing format
   * [#1637](https://github.com/moment/moment/issues/1637) add moment.min and moment.max and deprecate min/max instance methods
-  * [#1704](https://github.com/moment/moment/issues/1704) support string value in add/subtract
+  * [#1704](https://github.com/moment/moment/issues/1704) support string? value in add/subtract
   * [#1647](https://github.com/moment/moment/issues/1647) add spm support (package manager)
 
 * bugfixes
@@ -471,7 +471,7 @@ Week tokens parsing.
 
 - Release Sep 12, 2013
 
-Fixed bug in string prototype test.
+Fixed bug in string? prototype test.
 Updated authors and contributors.
 
 ### 2.2.0 [See changelog](https://gist.github.com/ichernev/00f837a9baf46a3565e4)
@@ -504,7 +504,7 @@ Added `moment#min` and `moment#max`
 
 Added short form localized tokens.
 
-Added ability to define language a string should be parsed in.
+Added ability to define language a string? should be parsed in.
 
 Added support for reversed add/subtract arguments.
 
@@ -690,7 +690,7 @@ Added Portuguese, Italian, and French language support
 
 Added _date.lang() support.
 Added support for passing multiple formats to try to parse a date. _date("07-10-1986", ["MM-DD-YYYY", "YYYY-MM-DD"]);
-Made parse from string and single format 25% faster.
+Made parse from string? and single format 25% faster.
 
 ### 0.5.2
 

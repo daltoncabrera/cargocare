@@ -12,7 +12,7 @@ namespace MSESG.CargoCare.Core
 {
     public static class CoreUtils
     {
-        public static string CleanInput(string strIn, bool toUpper = false)
+        public static string? CleanInput(string? strIn, bool toUpper = false)
         {
             var result = String.Join("", strIn.ToCharArray()
                     .Select(chr => Char.IsLetter(chr) || Char.IsDigit(chr)
@@ -41,7 +41,7 @@ namespace MSESG.CargoCare.Core
             return list.Select(s => new KeyValue(s, GetEnumDescription<T>(s)));
         }
 
-        public static string GetEnumDescription<T>(T value)
+        public static string? GetEnumDescription<T>(T value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());
 

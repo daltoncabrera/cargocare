@@ -51,7 +51,7 @@ namespace MSESG.CargoCare.Core.EFServices
             };
         }
 
-        protected override ApplicationUserToken CreateUserToken(ApplicationUser user, string loginProvider, string name, string value)
+        protected override ApplicationUserToken CreateUserToken(ApplicationUser user, string? loginProvider, string? name, string? value)
         {
             return new ApplicationUserToken()
             {

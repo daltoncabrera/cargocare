@@ -10,9 +10,9 @@ namespace MSESG.CargoCare.Core
     public int TerminalId { get; set; }
     public bool EsPlanificacionDestino { get; set; } = false;
     public int Ord { get; set; }
-    public string Contacto { get; set; }
-    public string ConduceCaption { get; set; }
-    public string Telefono { get; set; }
-    public string Email { get; set; }
+    public string? Contacto { get; set; }
+    public string? ConduceCaption { get; set; }
+    public string? Telefono { get; set; }
+    public string? Email { get; set; }
   }
 }

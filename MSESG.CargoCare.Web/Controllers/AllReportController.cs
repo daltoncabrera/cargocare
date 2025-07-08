@@ -39,14 +39,14 @@ namespace MSESG.CargoCare.Web.Controllers
       return Ok(result);
     }
 
-    public IActionResult General(string name, DateTime? dateInit = null, DateTime? dateEnd = null, string tipo = null, string periodo = null, string grupo = null)
+    public IActionResult General(string? name, DateTime? dateInit = null, DateTime? dateEnd = null, string? tipo = null, string? periodo = null, string? grupo = null)
     {
       ViewData["name"] = name;
       return View();
     }
 
 
-    public IActionResult GetProductsReport(string name, DateTime? dateInit = null, DateTime? dateEnd = null, string tipo = null, string periodo = null, string grupo = null)
+    public IActionResult GetProductsReport(string? name, DateTime? dateInit = null, DateTime? dateEnd = null, string? tipo = null, string? periodo = null, string? grupo = null)
     {
       StiReport report = new StiReport();
       var path = "";
@@ -56,7 +56,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Dia
         if (periodo == "dia")
         {
-          string title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReport(CurAppSessionData.ClienteId, dateInit, dateEnd, title);
           if (grupo == "fecha")
           {
@@ -98,7 +98,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Mes
         if (periodo == "mes")
         {
-          string title = $"Movimiento de productos por Mes: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por Mes: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportMes(CurAppSessionData.ClienteId, dateInit, dateEnd, title);
           if (grupo == "fecha")
           {
@@ -137,7 +137,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Anio
         if (periodo == "anio")
         {
-          string title = $"Movimiento de productos por A�o: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por A�o: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportAnio(CurAppSessionData.ClienteId, dateInit, dateEnd, title);
           if (grupo == "fecha")
           {
@@ -180,7 +180,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Dia
         if (periodo == "dia")
         {
-          string title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGrafico(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {
@@ -220,7 +220,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Mes
         if (periodo == "mes")
         {
-          string title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGraficoMes(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {
@@ -260,7 +260,7 @@ namespace MSESG.CargoCare.Web.Controllers
         #region  Por Anio
         if (periodo == "anio")
         {
-          string title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
+          string? title = $"Movimiento de productos por D�a: desde {dateInit:dd/MM/yyy} hasta {dateEnd:dd/MM/yyy}, agrupado por {grupo}";
           var result = _unitOfWork.ProductoRepository.GetReportGraficoAnio(CurAppSessionData.ClienteId, dateInit, dateEnd);
           if (grupo == "fecha")
           {
@@ -334,7 +334,7 @@ namespace MSESG.CargoCare.Web.Controllers
 
 
 
-    protected string GetReportDirectory()
+    protected string? GetReportDirectory()
     {
       var curDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + Path.DirectorySeparatorChar + "Reportes";
       return curDirectory;

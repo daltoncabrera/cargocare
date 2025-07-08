@@ -155,7 +155,7 @@ angular.module('cgBusy').directive('cgBusy',['$compile','$templateCache','cgBusy
                     }
 
                     if (angular.isString(options)) {
-                        throw new Error('Invalid value for cg-busy. cgBusy no longer accepts string ids to represent promises/trackers.');
+                        throw new Error('Invalid value for cg-busy. cgBusy no longer accepts string? ids to represent promises/trackers.');
                     }
 
                     //is it an array (of promises) or one promise

@@ -11,7 +11,7 @@ namespace MSESG.CargoCare.Core.Entities
         public int? Compartimento { get; set; }
 
         public int? ProductoId { get; set; }
-        public string Producto { get; set; }
+        public string? Producto { get; set; }
 
 
         public decimal? Cantidad { get; set; }

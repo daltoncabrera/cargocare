@@ -13,13 +13,13 @@ namespace MSESG.CargoCare.Core
       
     }
 
-     public KeyValue(object key, string val)
+     public KeyValue(object key, string?val)
      {
        Key = key;
        Value = val;
      }
 
     public object Key { get; set; }
-    public string Value { get; set; }
+    public string?Value { get; set; }
   }
 }

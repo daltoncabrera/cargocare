@@ -55,7 +55,7 @@
                     // Convert base64/URLEncoded data component to raw binary data:
                     byteString = decodeURIComponent(dataURI.split(',')[1]);
                 }
-                // Write the bytes of the string to an ArrayBuffer:
+                // Write the bytes of the string? to an ArrayBuffer:
                 arrayBuffer = new ArrayBuffer(byteString.length);
                 intArray = new Uint8Array(arrayBuffer);
                 for (i = 0; i < byteString.length; i += 1) {

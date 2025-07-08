@@ -28,7 +28,7 @@ namespace MSESG.CargoCare.Web.Controllers
     [Route("Home/Index")]
     [Route("Home/{empresa}/{cliente}")]
     [Route("App/{empresa}/{cliente}")]
-    public async Task<IActionResult> Index(string empresa, string cliente)
+    public async Task<IActionResult> Index(string? empresa, string? cliente)
     {
       var sesionData = GetSessionData();
       if (sesionData  == null)

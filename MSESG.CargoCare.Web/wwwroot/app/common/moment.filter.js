@@ -9,7 +9,7 @@ function Filter($filter) {
             return;
         }
 
-        // append 'Z' to the date string to indicate UTC time if the timezone isn't already specified
+        // append 'Z' to the date string? to indicate UTC time if the timezone isn't already specified
         if (utcDateString.indexOf('Z') === -1 && utcDateString.indexOf('+') === -1) {
             utcDateString += 'Z';
         }

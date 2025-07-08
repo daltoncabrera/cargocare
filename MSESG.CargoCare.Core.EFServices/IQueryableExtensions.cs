@@ -6,7 +6,7 @@ namespace MSESG.CargoCare.Core.EFServices
 {
     public static class QueryableExtensions
     {
-        public static string ToSql<TEntity>(this IQueryable<TEntity> query) where TEntity : class
+        public static string? ToSql<TEntity>(this IQueryable<TEntity> query) where TEntity : class
         {
             if (query == null)
                 throw new ArgumentNullException(nameof(query));

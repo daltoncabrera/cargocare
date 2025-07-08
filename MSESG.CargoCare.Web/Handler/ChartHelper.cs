@@ -11,13 +11,13 @@ namespace MSESG.CargoCare.Web.Handler
 {
   public class ChartHelper
   {
-    private string _path = "";
+    private string? _path = "";
     private int _counter = 20;
     private XElement _nodeClone;
     private XElement _document;
     private XElement _serieList;
 
-    public ChartHelper(string path)
+    public ChartHelper(string? path)
     {
       _path = path;
       _document = XElement.Load(path);
@@ -38,7 +38,7 @@ namespace MSESG.CargoCare.Web.Handler
       return ++_counter;
     }
 
-    private XElement CloneElement(XElement xElement, string label, string arguments, string values)
+    private XElement CloneElement(XElement xElement, string? label, string? arguments, string? values)
     {
       var list = xElement.Descendants().Where(s => s.FirstAttribute != null && s.FirstAttribute.Name == "Ref");
       xElement.FirstAttribute.Value = $"{GetSeed()}{xElement.FirstAttribute.Value}";
@@ -59,7 +59,7 @@ namespace MSESG.CargoCare.Web.Handler
       return new XElement(xElement);
     }
 
-    public string GetReport(List<ChartReportDto> dtoList)
+    public string? GetReport(List<ChartReportDto> dtoList)
     {
       var result = "";
       CleanDocument();

@@ -31,7 +31,7 @@ namespace MSESG.CargoCare.Core.EFServices
     public readonly IEmailSender _emailSender;
     public readonly ISmsSender _smsSender;
     public readonly ILogger _logger;
-    public readonly string _externalCookieScheme;
+    public readonly string? _externalCookieScheme;
 
     public ApplicationDbContext AppDbContext { get; }
 

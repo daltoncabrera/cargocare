@@ -14,8 +14,8 @@ namespace MSESG.CargoCare.Core.EFServices.Dto
 
     public Planificacion Planificacion { get; set; }
     public IEnumerable<PlanificacionDespachoDto> PlanificacionDespacho { get; set; }
-    public string Empresa { get; set; }
-    public string Cliente { get; set; }
+    public string?Empresa { get; set; }
+    public string?Cliente { get; set; }
     public IEnumerable<KeyValue> Terminales { get; set; }
     public IEnumerable<KeyValue> Destinos { get; set; }
      

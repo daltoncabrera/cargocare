@@ -69,7 +69,7 @@ namespace MSESG.CargoCare.Web.Controllers
       return user;
     }
 
-    protected string GetCurUsermail()
+    protected string? GetCurUsermail()
     {
       return User?.Claims?.FirstOrDefault(s => s.Type == ClaimTypes.Name)?.Value;
     }
@@ -101,7 +101,7 @@ namespace MSESG.CargoCare.Web.Controllers
       return (result);
     }
 
-    protected string CleanInput(string strIn, bool toUpper = false)
+    protected string? CleanInput(string? strIn, bool toUpper = false)
     {
       return CoreUtils.CleanInput(strIn, toUpper);
     }
@@ -126,7 +126,7 @@ namespace MSESG.CargoCare.Web.Controllers
     }
 
 
-    protected string GetFilesDirectory()
+    protected string? GetFilesDirectory()
     {
 
       var path = new HttpContext(this.HttpContext).Server.MapPath("wwwroot/files");

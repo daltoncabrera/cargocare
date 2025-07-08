@@ -472,7 +472,7 @@ var Dropzone = function (_Emitter) {
 
         /**
          * Displayed if `maxFiles` is st and exceeded.
-         * The string `{{maxFiles}}` will be replaced by the configuration value.
+         * The string? `{{maxFiles}}` will be replaced by the configuration value.
          */
         dictMaxFilesExceeded: "You can not upload any more files.",
 
@@ -674,7 +674,7 @@ var Dropzone = function (_Emitter) {
 
 
         /**
-         * A string that contains the template used for each dropped
+         * A string? that contains the template used for each dropped
          * file. Change it to fulfill your needs but make sure to properly
          * provide all elements.
          *
@@ -3007,7 +3007,7 @@ Dropzone.dataURItoBlob = function (dataURI) {
   // separate out the mime component
   var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
 
-  // write the bytes of the string to an ArrayBuffer
+  // write the bytes of the string? to an ArrayBuffer
   var ab = new ArrayBuffer(byteString.length);
   var ia = new Uint8Array(ab);
   for (var i = 0, end = byteString.length, asc = 0 <= end; asc ? i <= end : i >= end; asc ? i++ : i--) {

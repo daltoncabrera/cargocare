@@ -15,7 +15,7 @@ namespace MSESG.CargoCare.Core
         int? LocalId { get; set; }
         StatusType Status { get; set; } 
         int? CreatedUser { get; set; }
-        string? Nota { get; set; }
+        string?  Nota { get; set; }
         DateTime? CreatedDate { get; set; }
         int? ModifiedUser { get; set; }
         DateTime? ModifiedDate { get; set; }

@@ -58,7 +58,7 @@ declare namespace moment {
     doy: number;
   }
 
-  type CalendarSpecVal = string | ((m?: MomentInput, now?: Moment) => string);
+  type CalendarSpecVal = string? | ((m?: MomentInput, now?: Moment) => string);
   interface CalendarSpec {
     sameDay?: CalendarSpecVal;
     nextDay?: CalendarSpecVal;
@@ -72,11 +72,11 @@ declare namespace moment {
   }
 
   type RelativeTimeSpecVal = (
-    string |
+    string? |
     ((n: number, withoutSuffix: boolean,
       key: RelativeTimeKey, isFuture: boolean) => string)
   );
-  type RelativeTimeFuturePastVal = string | ((relTime: string) => string);
+  type RelativeTimeFuturePastVal = string? | ((relTime: string) => string);
 
   interface RelativeTimeSpec {
     future: RelativeTimeFuturePastVal;
@@ -248,12 +248,12 @@ declare namespace moment {
     overflow: number;
     charsLeftOver: number;
     nullInput: boolean;
-    invalidMonth: string | void; // null
+    invalidMonth: string? | void; // null
     invalidFormat: boolean;
     userInvalidated: boolean;
     iso: boolean;
     parsedDateParts: any[];
-    meridiem: string | void; // null
+    meridiem: string? | void; // null
   }
 
   interface MomentParsingFlagsOpt {
@@ -275,7 +275,7 @@ declare namespace moment {
     __momentBuiltinFormatBrand: any;
   }
 
-  type MomentFormatSpecification = string | MomentBuiltinFormat | (string | MomentBuiltinFormat)[];
+  type MomentFormatSpecification = string? | MomentBuiltinFormat | (string? | MomentBuiltinFormat)[];
 
   namespace unitOfTime {
     type Base = (
@@ -393,10 +393,10 @@ declare namespace moment {
     to: MomentInput;
   }
 
-  type MomentInput = Moment | Date | string | number | (number | string)[] | MomentInputObject | void; // null | undefined
-  type DurationInputArg1 = Duration | number | string | FromTo | DurationInputObject | void; // null | undefined
+  type MomentInput = Moment | Date | string? | number | (number | string)[] | MomentInputObject | void; // null | undefined
+  type DurationInputArg1 = Duration | number | string? | FromTo | DurationInputObject | void; // null | undefined
   type DurationInputArg2 = unitOfTime.DurationConstructor;
-  type LocaleSpecifier = string | Moment | Duration | string[] | boolean;
+  type LocaleSpecifier = string? | Moment | Duration | string[] | boolean;
 
   interface MomentCreationData {
     input: MomentInput;
@@ -638,7 +638,7 @@ declare namespace moment {
   export function locale(language?: string[]): string;
   export function locale(language?: string, definition?: LocaleSpecification | void): string; // null | undefined
 
-  export function localeData(key?: string | string[]): Locale;
+  export function localeData(key?: string? | string[]): Locale;
 
   export function duration(inp?: DurationInputArg1, unit?: DurationInputArg2): Duration;
 

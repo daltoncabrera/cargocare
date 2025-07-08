@@ -8,7 +8,7 @@ namespace MSESG.CargoCare.Core.Entities
   {
     public DateTime FechaInicio { get; set; }
     public DateTime FechaFin { get; set; }
-    public string Referencia { get; set; }
+    public string? Referencia { get; set; }
   }
 
 

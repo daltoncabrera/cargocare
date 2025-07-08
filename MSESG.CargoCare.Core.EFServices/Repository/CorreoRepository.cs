@@ -33,7 +33,7 @@ namespace MSESG.CargoCare.Core.EFServices
       return All.Where(s => s.ClienteId == clienteId);
     }
 
-    public Correo GetByEmail(string email)
+    public Correo GetByEmail(string? email)
     {
       return All.AsNoTracking().FirstOrDefault(s => s.Email == email);
     }

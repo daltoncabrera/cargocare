@@ -190,7 +190,7 @@ namespace MSESG.CargoCare.Web.Controllers
     }
 
 
-    protected string GetReportDirectory()
+    protected string? GetReportDirectory()
     {
       var curDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + Path.DirectorySeparatorChar + "Reportes";
       return curDirectory;

@@ -155,7 +155,7 @@ namespace MSESG.CargoCare.Web.Controllers
 
     [HttpGet]
     [Route("GetSellos")]
-    public IActionResult GetSellos(int page = 1, int pageSize = 10, int totalItems = 0, int column = 0, string filter = "", int sortColumn = 0, SortDir dir = SortDir.Ascending, SelloStatus estatus = SelloStatus.None)
+    public IActionResult GetSellos(int page = 1, int pageSize = 10, int totalItems = 0, int column = 0, string? filter = "", int sortColumn = 0, SortDir dir = SortDir.Ascending, SelloStatus estatus = SelloStatus.None)
     {
 
       var curCliente = CurAppSessionData?.ClienteId;

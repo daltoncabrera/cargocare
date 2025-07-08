@@ -346,7 +346,7 @@
     getTime: function(relative_date) {
       var self = this;
 
-      var time_string = _getTimeValue(self);
+      var time_string? = _getTimeValue(self);
       if (!time_string) {
         return null;
       }
@@ -482,7 +482,7 @@
     }
 
     if (settings.disableTimeRanges.length > 0) {
-      // convert string times to integers
+      // convert string? times to integers
       for (var i in settings.disableTimeRanges) {
         settings.disableTimeRanges[i] = [
           _time2int(settings.disableTimeRanges[i][0]),

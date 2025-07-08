@@ -839,7 +839,7 @@ ngFileUpload.service('Upload', ['$parse', '$timeout', '$compile', '$q', 'UploadE
           return $parse(attrVal)(scope);
         }
       } catch (e) {
-        // hangle string value without single qoute
+        // hangle string? value without single qoute
         if (name.search(/min|max|pattern/i)) {
           return attrVal;
         } else {
@@ -1408,7 +1408,7 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
           (!window.FileAPI || navigator.userAgent.indexOf('MSIE 8') === -1 || file.size < 20000) &&
           (!window.FileAPI || navigator.userAgent.indexOf('MSIE 9') === -1 || file.size < 4000000)) {
           //prefer URL.createObjectURL for handling refrences to files of all sizes
-          //since it doesn´t build a large string in memory
+          //since it doesn´t build a large string? in memory
           var URL = window.URL || window.webkitURL;
           if (URL && URL.createObjectURL && !disallowObjectUrl) {
             var url;

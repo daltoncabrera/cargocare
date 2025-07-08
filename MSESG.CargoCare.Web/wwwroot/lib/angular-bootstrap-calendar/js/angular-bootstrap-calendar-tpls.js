@@ -154,12 +154,12 @@ var parseTokenTimezoneHHMM = /^([+-])(\d{2}):?(\d{2})$/
  * @returns {Date} the parsed date in the local time zone
  *
  * @example
- * // Convert string '2014-02-11T11:30:30' to date:
+ * // Convert string? '2014-02-11T11:30:30' to date:
  * var result = parse('2014-02-11T11:30:30')
  * //=> Tue Feb 11 2014 11:30:30
  *
  * @example
- * // Parse string '+02014101',
+ * // Parse string? '+02014101',
  * // if the additional number of digits in the extended year format is 1:
  * var result = parse('+02014101', {additionalDigits: 1})
  * //=> Fri Apr 11 2014 00:00:00

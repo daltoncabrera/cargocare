@@ -16,16 +16,16 @@ namespace MSESG.CargoCare.Core
 
     }
 
-    public VerificacionDetalle(string name, string descripcion)
+    public VerificacionDetalle(string? name, string? descripcion)
     {
       this.ItemName = name;
       this.ItemDescription = descripcion;
     }
     public int VerificacionId { get; set; }
 
-    public string? ItemName { get; set; }
+    public string?  ItemName { get; set; }
 
-    public string? ItemDescription { get; internal set; }
+    public string?  ItemDescription { get; internal set; }
 
     public bool? Bueno { get; set; }
 
@@ -37,6 +37,6 @@ namespace MSESG.CargoCare.Core
 
     public bool? No { get; set; }
 
-    public string? Observacion { get; set; }
+    public string?  Observacion { get; set; }
   }
 }

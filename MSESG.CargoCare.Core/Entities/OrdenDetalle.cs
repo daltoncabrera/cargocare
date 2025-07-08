@@ -12,7 +12,7 @@ namespace MSESG.CargoCare.Core.Entities
         public int? Compartimento { get; set; }
 
         public int? ProductoId { get; set; }
-        public string Producto { get; set; }
+        public string?Producto { get; set; }
 
         public int? MedidaId { get; set; }
         public int UnidadId { get; set; }
@@ -24,13 +24,13 @@ namespace MSESG.CargoCare.Core.Entities
         public decimal? CantidadDespachada { get; set; }
 
         public int? SelloChapaManholeId { get; set; }
-        public string SelloChapaManhole { get; set; }
+        public string?SelloChapaManhole { get; set; }
 
         public int? SelloBocaCargaId { get; set; }
-        public string SelloBocaCarga { get; set; }
+        public string?SelloBocaCarga { get; set; }
 
         public int? SelloBocaDescargaId { get; set; }
-        public string SelloBocaDescarga { get; set; }
+        public string?SelloBocaDescarga { get; set; }
 
     }
 }

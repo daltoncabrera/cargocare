@@ -7,16 +7,16 @@ namespace MSESG.CargoCare.Core.EFServices.Services
     public class UserClientModel 
     {
         public int ClientId { get; set; }
-        public string ClientName { get; set; }
+        public string? ClientName { get; set; }
         public int EmpresaId { get; set; }
-        public string EmpresaName { get; set; }
+        public string? EmpresaName { get; set; }
         public int UserId { get; set; }
-        public string UserFullName { get; set; }
-        public string UserMail { get; set; }
-        public string ClienteSlug { get; set; }
-        public string EmpresaSlug { get; set; }
-        public string Logo { get; internal set; }
-    public string UserClaims { get; set; }
+        public string? UserFullName { get; set; }
+        public string? UserMail { get; set; }
+        public string? ClienteSlug { get; set; }
+        public string? EmpresaSlug { get; set; }
+        public string? Logo { get; internal set; }
+    public string? UserClaims { get; set; }
 
     public override bool Equals(object obj)
         {

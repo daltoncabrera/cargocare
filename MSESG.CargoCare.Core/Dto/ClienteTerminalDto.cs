@@ -9,7 +9,7 @@ namespace MSESG.CargoCare.Core.EFServices.Dto
     public int? TerminalOrd { get; set; }
     public int? TerminalId { get; set; }
     public int? ClienteId { get; set; }
-    public string Nombre { get; set; }
+    public string? Nombre { get; set; }
     public int? Total { get; set; }
   }
 }

@@ -7,31 +7,31 @@ namespace MSESG.CargoCare.Core.EFServices.Dto
 {
   public class PrecargaDto
   {
-    public string CodigoProducto;
+    public string?CodigoProducto;
 
     public int PrecargaId { get; set; }
     public int? Correlativo { get; set; }
     public DateTime Fecha { get; set; }
-    public string Referncia { get; set; }
+    public string?Referncia { get; set; }
     public int? PlanificacionId { get; set; }
     public int ChoferId { get; set; }
-    public string ChoferNombre { get; set; }
-    public string FichaCamion { get; set; }
-    public string FichaCisterna { get; set; }
-    public string SecuenciaSellos { get; set; }
-    public string NoCargaRefineria { get; set; }
-    public string Referencia { get; set; }
+    public string?ChoferNombre { get; set; }
+    public string?FichaCamion { get; set; }
+    public string?FichaCisterna { get; set; }
+    public string?SecuenciaSellos { get; set; }
+    public string?NoCargaRefineria { get; set; }
+    public string?Referencia { get; set; }
     public int? Planificacion { get; set; }
     public bool ShowDetail { get; set; } = false;
-    public string Terminal { get; set; }
-    public string ClienteNombre { get;  set; }
-    public string EmpresaNombre { get;  set; }
-    public string ClienteSlug { get;  set; }
-    public string EmpresaSlug { get;  set; }
+    public string?Terminal { get; set; }
+    public string?ClienteNombre { get;  set; }
+    public string?EmpresaNombre { get;  set; }
+    public string?ClienteSlug { get;  set; }
+    public string?EmpresaSlug { get;  set; }
     public int InspeccionId { get; set; }
     public DateTime? FechaInicio { get;  set; }
     public DateTime? FechaFin { get;  set; }
-    public string Destino { get; set; }
+    public string?Destino { get; set; }
     public int? Inspeccion { get; set; }
   }
 }

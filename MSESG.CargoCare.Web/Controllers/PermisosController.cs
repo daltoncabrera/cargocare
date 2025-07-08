@@ -21,7 +21,7 @@ namespace MSESG.CargoCare.Web.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly string _externalCookieScheme;
+        private readonly string? _externalCookieScheme;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
@@ -78,10 +78,10 @@ namespace MSESG.CargoCare.Web.Controllers
 
         }
 
-        public string CreatePassword(int length)
+        public string? CreatePassword(int length)
         {
-            //const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-            const string valid = "1234567890";
+            //const string? valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            const string? valid = "1234567890";
             StringBuilder res = new StringBuilder();
             Random rnd = new Random();
             while (0 < length--)

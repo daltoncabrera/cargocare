@@ -97,7 +97,7 @@ namespace MSESG.CargoCare.Core.EFServices
       return result;
     }
 
-    public IEnumerable<Sello> GetByClienteSinUsar(int clienteId, int ordenId, string filter = "")
+    public IEnumerable<Sello> GetByClienteSinUsar(int clienteId, int ordenId, string? filter = "")
     {
 
       var sellosEnUso = (from s in _dbContext.Sellos

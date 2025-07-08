@@ -11,11 +11,11 @@ namespace MSESG.CargoCare.Core.EFServices
     {
         public ApplicationRole() : base() { }
 
-        public ApplicationRole(string name, string description) : base(name)
+        public ApplicationRole(string? name, string? description) : base(name)
         {
             this.Description = description;
         }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public RoleType RoleType { get; set; }
     }
 }

@@ -330,132 +330,6 @@ angular
     }]);
 angular
     .module('app')
-    .controller('choferCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.chofers = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/chofer', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.chofers = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.deletechofer = function(choferId)
-        {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar este chofer!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/chofer/' + choferId, $scope.chofer, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "chofer Eliminado.", "success")
-                            })
-                      
-                    } else {
-                       // SweetAlert.swal("Cancelado", "chofer no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editchofer = function (choferId) {
-
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "chofer/chofer.edit.ctrl.html",
-                controller: "choferEditCtrl",
-                resolve: {
-                    choferId: function () {
-                        return choferId;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-                $scope.refreshData();
-            });
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('choferEditCtrl', ['$scope', '$rootScope', '$http', 'choferId', function ($scope, $rootScope, $http, choferId) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.chofer = { nombre: '', email: '', contacto: '', telefono: '', fax: '', logo: '' }
-        $scope.choferId = choferId
-        $scope.getEmpresa = function () {
-            if ($scope.choferId > 0) {
-                $scope.myPromise = $http.get($rootScope.config.apiBase + '/chofer/' + $scope.choferId,
-                    { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $scope.chofer = result.data;
-                    },
-                    function error(err) {
-                        console.log(err);
-                    });
-            }
-        }
-        $scope.titleMsg = $scope.choferId > 0 ? "Editando chofer" : "Agregando chofer";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-            console.log(valid)
-            if (!valid) {
-
-                return;
-
-            }
-
-            if ($scope.choferId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/chofer/' + $scope.choferId, $scope.chofer, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('chofer', 'chofer guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/chofer/', $scope.chofer, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('chofers', 'chofer guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-
-
-        $scope.getEmpresa();
-    }]);
-angular
-    .module('app')
     .controller('cisternaCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
         $scope.cisternas = [];
         $scope.myPromise = false;
@@ -595,6 +469,132 @@ angular
         }
 
         $scope.getCisterna();
+    }]);
+angular
+    .module('app')
+    .controller('choferCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.chofers = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/chofer', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.chofers = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.deletechofer = function(choferId)
+        {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar este chofer!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/chofer/' + choferId, $scope.chofer, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "chofer Eliminado.", "success")
+                            })
+                      
+                    } else {
+                       // SweetAlert.swal("Cancelado", "chofer no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editchofer = function (choferId) {
+
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "chofer/chofer.edit.ctrl.html",
+                controller: "choferEditCtrl",
+                resolve: {
+                    choferId: function () {
+                        return choferId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+                $scope.refreshData();
+            });
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('choferEditCtrl', ['$scope', '$rootScope', '$http', 'choferId', function ($scope, $rootScope, $http, choferId) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.chofer = { nombre: '', email: '', contacto: '', telefono: '', fax: '', logo: '' }
+        $scope.choferId = choferId
+        $scope.getEmpresa = function () {
+            if ($scope.choferId > 0) {
+                $scope.myPromise = $http.get($rootScope.config.apiBase + '/chofer/' + $scope.choferId,
+                    { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $scope.chofer = result.data;
+                    },
+                    function error(err) {
+                        console.log(err);
+                    });
+            }
+        }
+        $scope.titleMsg = $scope.choferId > 0 ? "Editando chofer" : "Agregando chofer";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            console.log(valid)
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.choferId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/chofer/' + $scope.choferId, $scope.chofer, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('chofer', 'chofer guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/chofer/', $scope.chofer, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('chofers', 'chofer guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getEmpresa();
     }]);
 angular
     .module('app')
@@ -870,176 +870,6 @@ angular
         $scope.getCliente();
     }]);
 angular
-    .module('app')
-    .controller('DashboardCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'calendarConfig', '$timeout', 'calendarTitle', '$location', function DashboardCtrl($scope, $rootScope, $http, Popeye, calendarConfig, $timeout, calendarTitle, $location) {
-        $scope.loadingMsg = "cargando...";
-        $scope.clientes = [];
-        $scope.events = [];
-        $scope.ordenes = [];
-        $scope.terminales = [];
-        $scope.productos = [];
-        $scope.usuarios = [];
-        $scope.camiones = [];
-        $scope.choferes = [];
-        $scope.cisternas = [];
-        $scope.filterSello = {};
-        $scope.sellos = [];
-        //promises
-        $scope.clientesPromise = false;
-        $scope.eventsPromise = false;
-        $scope.ordenesPromise = false;
-        $scope.terminalesPromise = false;
-        $scope.productosPromise = false;
-        $scope.usuariosPromise = false;
-        $scope.camionesPromise = false;
-        $scope.cisternasPromise = false;
-        $scope.choferesPromise = false;
-        $scope.sellosPromise = false;
-
-        $scope.calendarView = 'month';
-        $scope.viewDate = moment().startOf('month').toDate();
-        $scope.excludedDays = [0, 6];
-        $scope.filter = { clinicId: null }
-        $scope.msg = "";
-        $scope.getTitle = function () {
-
-            var d = moment($scope.viewDate);
-
-            var result = "";
-            if ($scope.calendarView == 'day')
-                result = d.format('MMMM Do YYYY');
-            if ($scope.calendarView == 'month')
-                result = d.format('MMMM YYYY');
-            if ($scope.calendarView == 'year')
-                result = d.format('YYYY');
-            if ($scope.calendarView == 'week')
-                result = d.format('[Week #]W [of] YYYY')
-
-            return result;
-        }
-
-        $scope.eventClicked = function (event) {
-            $rootScope.goToRoot('/App/' + event.empresaSlug + '/' + event.clienteSlug + '/#!/inspeccion/' + event.id);
-        };
-
-        $scope.clearFilter = function () {
-            $scope.filter.clinicId = null;
-            $scope.updateMsg();
-            $scope.loadEvents();
-        };
-
-
-
-        $scope.getClientes = function () {
-            $scope.clientesPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetClientes', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.clientes = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.getEvents = function () {
-            $scope.eventsPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetPenddingOrders', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.events = [];
-                    if (result.data) {
-                        for (var i = 0; i < result.data.length; i++) {
-                            var e = result.data[i];
-                            $scope.events.push({
-                                id: e.ordenId,
-                                empresaNombre: e.empresaNombre,
-                                empresaSlug: e.empresaSlug,
-                                clienteNombre: e.clienteNombre,
-                                clienteSlug: e.clienteSlug,
-                                choferNombre: e.choferNombre,
-                                fichaCamion: e.fichaCamion,
-                                fichaCisterna: e.fichaCisterna,
-                                terminal: e.terminal,
-                                title: e.clienteNombre,
-                                color: calendarConfig.colorTypes.info,
-                                startsAt: moment.utc(e.fecha).toDate()
-                            })
-                        }
-                    }
-
-
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.getOrdenes = function () {
-            $scope.ordenesPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetOrdenes', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.ordenes = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-
-        $scope.curId = 0;
-        $scope.print = function (id) {
-            $scope.curId = id;
-            console.log(id);
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
-                containerClass: 'popprint',
-                controller: "inspeccionPrintCtrl",
-                resolve: {
-                    url: function () {
-                        return '/Report/Inspeccion/' + $scope.curId;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-
-            });
-        };
-
-
-
-        if ($rootScope.hasClaim('sadmin', 'supervisor', 'inspector')) {
-            $scope.getClientes();
-            //$scope.getUsuarios();
-            //$scope.getTerminales();
-            //$scope.getProductos();
-
-            //$scope.getEvents();
-            $scope.getOrdenes();
-
-        } else if($rootScope.info.clienteId > 0) {
-
-           // $scope.getEvents();
-            $scope.getOrdenes();
-        }
-        
-        $scope.editinspeccion = function (inspeccionId) {
-            $location.path('/inspeccion/0/' + inspeccionId);
-        };
-
-
-
-    }]);
-var dashboardService = angular.module('dashboardService', ['ngResource']);
-
-// create the factory
-dashboardService.factory('DashSvc', ['$resource','$rootScope', function ($resource, $rootScope) {
-    return $resource(':url/:action', { action: "@action" }, {
-      
-    });
-}]);
-angular
     .module('app').factory('responseInterceptor', ['$q', '$location', 'toasty', '$rootScope', function ($q, $location, toasty, $rootScope) {
     return {
         response: function (response) {
@@ -1077,7 +907,7 @@ function Filter($filter) {
             return;
         }
 
-        // append 'Z' to the date string to indicate UTC time if the timezone isn't already specified
+        // append 'Z' to the date string? to indicate UTC time if the timezone isn't already specified
         if (utcDateString.indexOf('Z') === -1 && utcDateString.indexOf('+') === -1) {
             utcDateString += 'Z';
         }
@@ -1248,6 +1078,176 @@ angular.module('app')
 
 angular
     .module('app')
+    .controller('DashboardCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'calendarConfig', '$timeout', 'calendarTitle', '$location', function DashboardCtrl($scope, $rootScope, $http, Popeye, calendarConfig, $timeout, calendarTitle, $location) {
+        $scope.loadingMsg = "cargando...";
+        $scope.clientes = [];
+        $scope.events = [];
+        $scope.ordenes = [];
+        $scope.terminales = [];
+        $scope.productos = [];
+        $scope.usuarios = [];
+        $scope.camiones = [];
+        $scope.choferes = [];
+        $scope.cisternas = [];
+        $scope.filterSello = {};
+        $scope.sellos = [];
+        //promises
+        $scope.clientesPromise = false;
+        $scope.eventsPromise = false;
+        $scope.ordenesPromise = false;
+        $scope.terminalesPromise = false;
+        $scope.productosPromise = false;
+        $scope.usuariosPromise = false;
+        $scope.camionesPromise = false;
+        $scope.cisternasPromise = false;
+        $scope.choferesPromise = false;
+        $scope.sellosPromise = false;
+
+        $scope.calendarView = 'month';
+        $scope.viewDate = moment().startOf('month').toDate();
+        $scope.excludedDays = [0, 6];
+        $scope.filter = { clinicId: null }
+        $scope.msg = "";
+        $scope.getTitle = function () {
+
+            var d = moment($scope.viewDate);
+
+            var result = "";
+            if ($scope.calendarView == 'day')
+                result = d.format('MMMM Do YYYY');
+            if ($scope.calendarView == 'month')
+                result = d.format('MMMM YYYY');
+            if ($scope.calendarView == 'year')
+                result = d.format('YYYY');
+            if ($scope.calendarView == 'week')
+                result = d.format('[Week #]W [of] YYYY')
+
+            return result;
+        }
+
+        $scope.eventClicked = function (event) {
+            $rootScope.goToRoot('/App/' + event.empresaSlug + '/' + event.clienteSlug + '/#!/inspeccion/' + event.id);
+        };
+
+        $scope.clearFilter = function () {
+            $scope.filter.clinicId = null;
+            $scope.updateMsg();
+            $scope.loadEvents();
+        };
+
+
+
+        $scope.getClientes = function () {
+            $scope.clientesPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetClientes', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.clientes = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.getEvents = function () {
+            $scope.eventsPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetPenddingOrders', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.events = [];
+                    if (result.data) {
+                        for (var i = 0; i < result.data.length; i++) {
+                            var e = result.data[i];
+                            $scope.events.push({
+                                id: e.ordenId,
+                                empresaNombre: e.empresaNombre,
+                                empresaSlug: e.empresaSlug,
+                                clienteNombre: e.clienteNombre,
+                                clienteSlug: e.clienteSlug,
+                                choferNombre: e.choferNombre,
+                                fichaCamion: e.fichaCamion,
+                                fichaCisterna: e.fichaCisterna,
+                                terminal: e.terminal,
+                                title: e.clienteNombre,
+                                color: calendarConfig.colorTypes.info,
+                                startsAt: moment.utc(e.fecha).toDate()
+                            })
+                        }
+                    }
+
+
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.getOrdenes = function () {
+            $scope.ordenesPromise = $http.get($rootScope.config.apiBase + '/DashBoard/GetOrdenes', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.ordenes = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+
+        $scope.curId = 0;
+        $scope.print = function (id) {
+            $scope.curId = id;
+            console.log(id);
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
+                containerClass: 'popprint',
+                controller: "inspeccionPrintCtrl",
+                resolve: {
+                    url: function () {
+                        return '/Report/Inspeccion/' + $scope.curId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+
+            });
+        };
+
+
+
+        if ($rootScope.hasClaim('sadmin', 'supervisor', 'inspector')) {
+            $scope.getClientes();
+            //$scope.getUsuarios();
+            //$scope.getTerminales();
+            //$scope.getProductos();
+
+            //$scope.getEvents();
+            $scope.getOrdenes();
+
+        } else if($rootScope.info.clienteId > 0) {
+
+           // $scope.getEvents();
+            $scope.getOrdenes();
+        }
+        
+        $scope.editinspeccion = function (inspeccionId) {
+            $location.path('/inspeccion/0/' + inspeccionId);
+        };
+
+
+
+    }]);
+var dashboardService = angular.module('dashboardService', ['ngResource']);
+
+// create the factory
+dashboardService.factory('DashSvc', ['$resource','$rootScope', function ($resource, $rootScope) {
+    return $resource(':url/:action', { action: "@action" }, {
+      
+    });
+}]);
+angular
+    .module('app')
     .controller('empresaCtrl', ['$scope', '$rootScope', '$http', '$location', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, $location, Popeye, SweetAlert) {
         $scope.empresas = [];
         $scope.myPromise = false;
@@ -1413,7 +1413,7 @@ angular
                 return;
             }
 
-            // append 'Z' to the date string to indicate UTC time if the timezone isn't already specified
+            // append 'Z' to the date string? to indicate UTC time if the timezone isn't already specified
             if (utcDateString.indexOf('Z') === -1 && utcDateString.indexOf('+') === -1) {
                 utcDateString += 'Z';
             }
@@ -1423,320 +1423,6 @@ angular
         };
     }
 })();
-angular
-    .module('app')
-    .controller('ordenCtrl', ['$scope', '$rootScope', '$location', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope,  $location, $http, Popeye, SweetAlert) {
-        $scope.ordenes = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/orden', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.ordenes = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.deleteorden = function (ordenId) {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar este orden!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/orden/' + ordenId, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "orden Eliminado.", "success")
-                            })
-
-                    } else {
-                        // SweetAlert.swal("Cancelado", "orden no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editorden = function (ordenId) {
-
-            $location.path('/orden/' + ordenId);
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('ordenEditCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams', function ($scope, $rootScope, $http, $location, $routeParams) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.model = { ordern: {}, detalle: [] }
-        $scope.fecha2 = false;
-        $scope.ordenId = $routeParams.id;
-        $scope.planificacionId = $routeParams.planificacionId;
-        $scope.orden = [];
-        $scope.detalle = [];
-        $scope.choferes = [];
-        $scope.camiones = [];
-        $scope.cisternas = [];
-        $scope.productos = [];
-        $scope.terminales = [];
-        $scope.sellos = [];
-        $scope.cisternaDetalles = []
-        $scope.choosedProducto = false;
-        $scope.curCisterna = {};
-        $scope.hstep = 1;
-        $scope.mstep = 10;
-        $scope.ismeridian = false;
-        $scope.$watch('model.orden.camionId', function (n, o) { $scope.camionChange(n, o) }, true);
-        $scope.$watch('model.orden.cisternaId', function (n, o) { $scope.cisternaChange(n, o) }, true);
-
-        $scope.camionChange = function (n, o) {
-            if (n != o && $scope.ordenForm.$dirty) {
-                for (var i = 0; i < $scope.camiones.length; i++) {
-                    if ($scope.camiones[i].key == n) {
-                        $scope.model.orden.cisternaId = $scope.camiones[i].cisternaId
-                        $scope.model.orden.choferId = $scope.camiones[i].choferId
-                        break
-                    }
-                }
-
-            }
-        }
-
-        $scope.cisternaChange = function (n, o) {
-            if (n != o && $scope.ordenForm.$dirty) {
-                $scope.model.detalle = []
-                var tmp = []
-                $scope.choosedProducto = false;
-                for (var i = 0; i < $scope.cisternaDetalles.length; i++) {
-                    if ($scope.cisternaDetalles[i].cisternaId == n) {
-
-                        var detalle = $scope.cisternaDetalles[i];
-                        tmp.push({
-                            compartimento: detalle.compartimento,
-                            cisternaDetalleId: detalle.id,
-                            cantidadConduce: detalle.capacidad,
-                            selloChapaManholeId: 0,
-                            selloChapaManhole: '',
-                            selloBocaCarga: '',
-                            selloBocaCargaId: 0,
-                            selloBocaDescargaId: 0,
-                            selloBocaDescarga: '',
-                            productoId: 0,
-                            enUso: true
-                        })
-                    }
-                }
-
-                $scope.model.detalle = tmp.sort(function (a, b) { return a.compartimento - b.compartimento; })
-
-                /// $scope.model.detalle = $filter('orderBy')($scope.model.detalle, 'compartimento')
-
-            }
-        }
-
-
-        $scope.detalleChecked = function (d) {
-            if (!d.enUso) {
-                d.productoId = null;
-                d.producto = null;
-
-                d.cantidadConduce = null;
-                d.selloChapaManholeId = null;
-                d.selloChapaManhole = null;
-
-                d.selloBocaCargaId = null;
-                d.selloBocaCarga = null;
-
-                d.selloBocaDesCargaId = null;
-                d.selloBocaDescarga = null;
-            }
-        }
-
-        $scope.selectSelloCallBack = function ($item, $model, detalle, target) {
-
-            if (target === 0) {
-                detalle.selloChapaManholeId = $item.id;
-                var i = 0;
-                if (detalle.compartimento == 1) {
-                    $http.get($rootScope.config.apiBase + '/sello/GetSellosAfter', {
-                        params: {
-                            intSello: $item.intSello,
-
-                        }
-                    }).then(function (response) {
-
-                        var data = response.data;
-                        if (data && data.length > 0) {
-                            var i = 0;
-                            for (var j = 0; j < $scope.model.detalle.length; j++) {
-                                console.log($scope.model.detalle[j])
-                                if (j == 0) {
-                                    if ($scope.model.detalle[j].selloBocaCargaId <= 0) {
-                                        $scope.model.detalle[j].selloBocaCargaId = data[i].id;
-                                        $scope.model.detalle[j].selloBocaCarga = data[i].codSello
-                                        i++;
-                                    }
-                                    if ($scope.model.detalle[j].selloBocaDescargaId <= 0) {
-                                        $scope.model.detalle[j].selloBocaDescargaId = data[i].id;
-                                        $scope.model.detalle[j].selloBocaDescarga = data[i].codSello
-                                        i++;
-                                    }
-                                } else {
-                                    if ($scope.model.detalle[j].selloChapaManholeId <= 0) {
-                                        $scope.model.detalle[j].selloChapaManholeId = data[i].id;
-                                        $scope.model.detalle[j].selloChapaManhole = data[i].codSello
-                                        i++;
-                                    }
-                                    if ($scope.model.detalle[j].selloBocaCargaId <= 0) {
-                                        $scope.model.detalle[j].selloBocaCargaId = data[i].id;
-                                        $scope.model.detalle[j].selloBocaCarga = data[i].codSello
-
-                                        i++;
-                                    }
-
-                                    if ($scope.model.detalle[j].selloBocaDescargaId <= 0) {
-                                        $scope.model.detalle[j].selloBocaDescargaId = data[i].id;
-                                        $scope.model.detalle[j].selloBocaDescarga = data[i].codSello
-                                        i++;
-                                    }
-                                }
-                            }
-                        }
-
-                    });
-
-
-                }
-
-
-            } else if (target === 1) {
-                detalle.selloBocaCargaId = $item.id;
-            } else if (target === 2) {
-                detalle.selloBocaDesCargaId = $item.id;
-            }
-
-
-
-        }
-
-        $scope.getSellos = function (filter) {
-            return $http.get($rootScope.config.apiBase + '/sello/Search', {
-                params: {
-                    filter: filter,
-                    ordenId: $scope.ordenId
-                }
-            }).then(function (response) {
-                return response.data
-            });
-        };
-
-        $scope.ngModelOptionsSelected = function (value) {
-            if (arguments.length) {
-                _selected = value;
-            } else {
-                return _selected;
-            }
-        };
-
-        $scope.productoChanged = function (detalle) {
-            var nombre = ''
-            for (var j = 0; j < $scope.productos.length; j++) {
-                if ($scope.productos[j].key === detalle.productoId) {
-                    nombre = $scope.productos[j].value;
-                    break;
-                }
-            }
-            detalle.producto = nombre
-
-            //if (!$scope.choosedProducto) {
-            //    $scope.choosedProducto = true;
-
-            //    for (var i = 0; i < $scope.model.detalle.length; i++) {
-            //        $scope.model.detalle[i].productoId = detalle.productoId
-            //        $scope.model.detalle[i].producto =  nombre
-            //    }
-            //}
-        }
-
-        $scope.getOrden = function () {
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/orden/' + $scope.ordenId + '/' + $scope.planificacionId,
-                { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    if (result.data.model.orden && result.data.model.orden.fecha) {
-                        result.data.model.orden.fecha = moment.utc(result.data.model.orden.fecha).toDate();
-                    }
-
-                    $scope.model = result.data.model;
-                    $scope.detalle = result.data.detalle;
-                    $scope.choferes = result.data.choferes;
-                    $scope.camiones = result.data.camiones;
-                    $scope.cisternas = result.data.cisternas;
-                    $scope.productos = result.data.productos;
-                    $scope.sellos = result.data.sellos;
-                    $scope.cisternaDetalles = result.data.cisternaDetalles;
-                    $scope.terminales = result.data.terminales;
-
-                },
-                function error(err) {
-                    console.log(err);
-                });
-        }
-        $scope.titleMsg = $scope.ordenId > 0 ? "Editando orden" : "Agregando orden";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-            if (!valid) {
-                return;
-            }
-
-            if ($scope.model.orden.camionId <= 0 ||
-                $scope.model.orden.choferId <= 0 ||
-                $scope.model.orden.cisternaId <= 0) {
-                $rootScope.error("Favor llenar camion, chofer y cisterna")
-                return;
-            }
-
-            for (var i = 0; i < $scope.model.detalle.length; i++) {
-                if ($scope.model.detalle[i].enUso &&
-                    ($scope.model.detalle[i].productoId <= 0 || $scope.model.detalle[i].cantidad <= 0)) {
-                    $rootScope.error("Favor indicar cantidad y producto para los compartimentos en uso")
-                    return;
-                }
-            }
-
-            if ($scope.ordenId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/orden/' + $scope.ordenId, $scope.model, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('orden', 'orden guardado')
-                        $rootScope.goTo('/ordenes')
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/orden/', $scope.model, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('ordens', 'orden guardado')
-                        $rootScope.goTo('/ordenes')
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-        $scope.getOrden();
-    }]);
 angular
     .module('app')
     .controller('inspeccionCtrl', ['$scope', '$rootScope', '$location', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope,  $location, $http, Popeye, SweetAlert) {
@@ -2154,717 +1840,6 @@ angular
     }]);
 angular
     .module('app')
-    .controller('productoCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.productoes = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/producto', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.productoes = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.deleteproducto = function(productoId)
-        {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar esta producto!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/producto/' + productoId, $scope.producto, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "producto Eliminada.", "success")
-                            })
-                      
-                    } else {
-                       // SweetAlert.swal("Cancelado", "producto no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editproducto = function (productoId) {
-
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "producto/producto.edit.ctrl.html",
-                controller: "productoEditCtrl",
-                resolve: {
-                    productoId: function () {
-                        return productoId;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-                $scope.refreshData();
-            });
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('productoEditCtrl', ['$scope', '$rootScope', '$http', 'productoId', function ($scope, $rootScope, $http, productoId) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.producto = { nombre: '', telefono: '', direccion: '', multipleInstances: false}
-        $scope.productoId = productoId
-        $scope.getproducto = function () {
-            if ($scope.productoId > 0) {
-                $scope.myPromise = $http.get($rootScope.config.apiBase + '/producto/' + $scope.productoId,
-                    { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $scope.producto = result.data;
-                    },
-                    function error(err) {
-                        console.log(err);
-                    });
-            }
-        }
-        $scope.titleMsg = $scope.productoId > 0 ? "Editando producto" : "Agregando producto";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-            console.log(valid)
-            if (!valid) {
-
-                return;
-
-            }
-
-            if ($scope.productoId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/producto/' + $scope.productoId, $scope.producto, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('productoes', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/producto/', $scope.producto, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('productoes', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-
-
-        $scope.getproducto();
-    }]);
-angular
-    .module('app')
-    .controller('precargaCtrl', ['$scope', '$rootScope', '$location', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $location, $http, Popeye, SweetAlert) {
-        $scope.precargas = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/precarga', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.precargas = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
- 
-
-        $scope.deleteprecarga = function (precargaId) {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar este precarga!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/precarga/' + precargaId, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "precarga Eliminado.", "success")
-                            })
-
-                    } else {
-                        // SweetAlert.swal("Cancelado", "precarga no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editprecarga = function (precargaId) {
-            $location.path('/precarga/' + precargaId);
-        };
-
-
-        $scope.print = function (id) {
-
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
-                containerClass: 'popprint',
-                controller: "inspeccionPrintCtrl",
-                resolve: {
-                    url: function () {
-                        return '/Report/Precarga/' + id;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-               
-            });
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('precargaEditCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams', 'Popeye', function ($scope, $rootScope, $http, $location, $routeParams, Popeye) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.model = { ordern: {}, detalle: [] }
-        $scope.fecha2 = false;
-        $scope.precargaId = $routeParams.id;
-        $scope.planificacionId = $routeParams.planificacionId;
-        $scope.precarga = {};
-        $scope.detalle = [];
-        $scope.choferes = [];
-        $scope.camiones = [];
-        $scope.cisternas = [];
-        $scope.productos = [];
-        $scope.terminales = [];
-        $scope.destinos = [];
-        $scope.sellos = [];
-        $scope.cisternaDetalles = []
-        $scope.choosedProducto = false;
-        $scope.curCisterna = {};
-        $scope.hstep = 1;
-        $scope.mstep = 10;
-        $scope.ismeridian = false;
-        $scope.$watch('model.precarga.camionId', function (n, o) { $scope.camionChange(n, o) }, true);
-        $scope.$watch('model.precarga.cisternaId', function (n, o) { $scope.cisternaChange(n, o) }, true);
-        console.log($routeParams)
-        $scope.camionChange = function (n, o) {
-            if (n != o && $scope.precargaForm.$dirty) {
-                for (var i = 0; i < $scope.camiones.length; i++) {
-                    if ($scope.camiones[i].key == n) {
-                        $scope.model.precarga.cisternaId = $scope.camiones[i].cisternaId
-                        $scope.model.precarga.choferId = $scope.camiones[i].choferId
-                        break
-                    }
-                }
-
-            }
-        }
-
-        $scope.cisternaChange = function (n, o) {
-            if (n != o && $scope.precargaForm.$dirty) {
-                var tmp = []
-                $scope.choosedProducto = false;
-                for (var i = 0; i < $scope.cisternaDetalles.length; i++) {
-                    if ($scope.cisternaDetalles[i].cisternaId == n) {
-
-                        var detalle = $scope.cisternaDetalles[i];
-
-                    }
-                }
-
-            }
-        }
-
-        $scope.cancel = function () {
-            if ($scope.$close) {
-                $scope.$close();
-            } else {
-                $rootScope.goTo('/precargas');
-            }
-        }
-
-        $scope.sumaCompartimentos = function (deta, no) {
-            console.log(deta)
-            for (var i = 0; i < $scope.model.detalle.length; i++) {
-
-                if (no == 1 && $scope.model.detalle[i].compartimento1 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
-                    return true;
-                }
-               
-                if (no == 2 && $scope.model.detalle[i].compartimento2 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
-                    return true;
-                }
-
-                if (no == 3 && $scope.model.detalle[i].compartimento3 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
-                    return true;
-                }
-
-                if (no == 4 && $scope.model.detalle[i].compartimento4 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
-                    return true;
-                }
-
-                if (no == 5 && $scope.model.detalle[i].compartimento5 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
-                    return true;
-                }
-
-
-            }
-            console.log('NA');
-            return false;
-
-        }
-
-        $scope.print = function () {
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
-                containerClass: 'popprint',
-                controller: "inspeccionPrintCtrl",
-                resolve: {
-                    url: function () {
-                        return '/Report/Precarga/' + $scope.precargaId;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-
-            });
-        };
-
-        $scope.getprecarga = function () {
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/precarga/' + $scope.precargaId + '/' + $scope.planificacionId,
-                { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    if (result.data.model.precarga && result.data.model.precarga.fecha) {
-                        result.data.model.precarga.fecha = moment(result.data.model.precarga.fecha).toDate();
-                    }
-
-                    $scope.model = result.data.model;
-                    $scope.detalle = result.data.detalle;
-                    $scope.choferes = result.data.choferes;
-                    $scope.camiones = result.data.camiones;
-                    $scope.cisternas = result.data.cisternas;
-                    $scope.cisternaDetalles = result.data.cisternaDetalles;
-                    $scope.terminales = result.data.terminales;
-                    $scope.destinos = result.data.destinos;
-
-                },
-                function error(err) {
-                    console.log(err);
-                });
-        }
-        $scope.titleMsg = $scope.precargaId > 0 ? "Editando precarga" : "Agregando precarga";
-
-        $scope.lineChanged = function (line) {
-            line.cantidad = line.compartimento1 +
-                line.compartimento2 +
-                line.compartimento3 +
-                line.compartimento4 +
-                line.compartimento5 +
-                line.compartimento6;
-        }
-
-        $scope.saveData = function (valid) {
-            if (!valid) {
-                return;
-            }
-
-            if ($scope.model.precarga.camionId <= 0 ||
-                $scope.model.precarga.choferId <= 0 ||
-                $scope.model.precarga.cisternaId <= 0) {
-                $rootScope.error("Favor llenar camion, chofer y cisterna")
-                return;
-            }
-
-            for (var i = 0; i < $scope.model.detalle.length; i++) {
-
-            }
-            if ($scope.precargaId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/precarga/' + $scope.precargaId, $scope.model, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('precarga', 'precarga guardado')
-
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/precarga/', $scope.model, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('precargas', 'precarga guardado')
-                            $scope.model = result.data;
-                        },
-                    function error(err) {
-                    });
-            }
-        }
-
-        $scope.getprecarga();
-    }]);
-angular
-    .module('app')
-    .controller('rolCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.roles = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/Permisos/Rol', { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    $scope.roles = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.deleteRol = function (rolId) {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar este rol!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/Permisos/Rol/' + rolId, $scope.rol, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "Usuario Eliminada.", "success")
-                            })
-
-                    } else {
-                        // SweetAlert.swal("Cancelado", "Usuario no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editRol = function (rolId) {
-
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "app/rol/rol.edit.ctrl.html",
-                controller: "rolEditCtrl",
-                resolve: {
-                    rolId: function () {
-                        return rolId;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-                $scope.refreshData();
-            });
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('rolEditCtrl', ['$scope', '$rootScope', '$http', 'rolId', function ($scope, $rootScope, $http, rolId) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.rol = { name: '', description: ''}
-        $scope.rolId = rolId
-        $scope.getRol = function () {
-            if ($scope.rolId > 0) {
-                $scope.myPromise =  $http.get($rootScope.config.apiBase + '/Permisos/Rol/' + $scope.rolId,
-                    { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $scope.rol = result.data;
-                    },
-                    function error(err) {
-                        console.log(err);
-                    });
-            }
-        }
-        $scope.titleMsg = $scope.rolId > 0 ? "Editando Rol" : "Agregando Rol";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-
-            if (!valid) {
-
-                return;
-
-            }
-
-            if ($scope.rolId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/Permisos/Rol/' + $scope.rolId, $scope.rol, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('Rols', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/Permisos/Rol/', $scope.rol, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('Roles', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-
-
-        $scope.getRol();
-    }]);
-angular
-    .module('app')
-    .controller('selloCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.sellos = []
-        $scope.filter = {};
-        $scope.search = ""
-        $scope.myPromise = false;
-        $scope.lotes = []
-        $scope.estatus = []
-        $scope.curEstatus = '';
-        $scope.curPage = 0;
-        $scope.loadingMsg = "Cargando...";
-        $scope.curDetalleId = 0;
-
-        $scope.update = function (s) {
-            $scope.myPromise = $http.put($rootScope.config.apiBase + '/sello/' + s.id, s, { 'Content-Type': 'application/json' })
-                .then(function success(result) {
-                    console.log(result)
-                    $rootScope.success('sello', 'sello guardado')
-                    for (var i = 0; i < $scope.sellos.length; i++) {
-                        if ($scope.sellos[i].id === result.data.id) {
-                            $scope.sellos[i].selloStatus = result.data.selloStatus
-                            $scope.sellos[i].selloStatusId = result.data.selloStatusId
-                            break
-                        }
-                    }
-                    $scope.curDetalleId = 0;
-
-                },
-                function error(err) {
-                });
-        }
-
-        $scope.cancel = function () {
-            $scope.curDetalleId = 0;
-        }
-
-        $scope.editsello = function (s) {
-            $scope.curDetalleId = (s.id > 0) ? s.id : 0;
-        }
-
-        $scope.addsello = function () {
-            // Open a modal to show the selected user profile
-            var modal = Popeye.openModal({
-                templateUrl: "sello/sello.edit.ctrl.html",
-                controller: "selloEditCtrl",
-                resolve: {
-                    selloId: function () {
-                        return 0;
-                    }
-                }
-            });
-
-            // Show a spinner while modal is resolving dependencies
-            $scope.showLoading = true;
-            modal.resolved.then(function () {
-                $scope.showLoading = false;
-            });
-
-            // Update user after modal is closed
-            modal.closed.then(function () {
-                $scope.refreshData();
-            });
-        };
-
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/sello',
-                { 'params': $scope.filter },
-                { 'Content-Type': 'application/json' }
-            )
-                .then(function success(result) {
-                    $scope.sellos = result.data.sellos;
-                    $scope.filter = result.data.filter;
-                    if (result.data.lotes)
-                        $scope.lotes = result.data.lotes;
-                    if (result.data.estatus)
-                        $scope.estatus = result.data.estatus;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.changeLote = function () {
-            $scope.filter.filter = $scope.search;
-            $scope.filter.column = 1;
-            $scope.filter.page = 1;
-            $scope.refreshData();
-        }
-
-        $scope.changeEstatus = function () {
-            $scope.filter.estatus = $scope.curEstatus;
-            $scope.refreshData();
-        }
-
-        $scope.totalPages = function () {
-            var nume = $scope.filter.totalItems
-            var deno = $scope.filter.pageSize > 0 ? $scope.filter.pageSize : 1
-            return Math.ceil(nume / deno)
-        }
-
-        $scope.movePage = function (dir) {
-            if (dir === "right" && $scope.filter.page < $scope.filter.totalItems) {
-                $scope.filter.page++;
-            }
-
-            if (dir === "left" && $scope.filter.page > 0) {
-                $scope.filter.page--;
-            }
-
-            $scope.refreshData();
-        }
-
-        $scope.deletesello = function (lote) {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar este lote (" + lote + ")!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/sello/DeleteLote/?id=' + lote, { 'Content-Type': 'application/json' })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "Lote Eliminado.", "success")
-                            })
-
-                    } else {
-                        // SweetAlert.swal("Cancelado", "sello no eliminada", "error");
-                    }
-                });
-        }
-
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('selloEditCtrl', ['$scope', '$rootScope', '$http', 'selloId', function ($scope, $rootScope, $http, selloId) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.sello = { inicial: '', final: '', espacios: 6, lote: ''}
-        $scope.selloId = selloId
-        $scope.getSello = function () {
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/sello/GetCreate',
-                    { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $scope.sello = result.data;
-                    },
-                    function error(err) {
-                        console.log(err);
-                    });
-        }
-        $scope.titleMsg = $scope.selloId > 0 ? "Editando sello" : "Agregando sello";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-            console.log(valid)
-            if (!valid) {
-
-                return;
-
-            }
-
-            if ($scope.selloId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/sello/' + $scope.selloId, $scope.sello, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('sello', 'sello guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/sello/', $scope.sello, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('sellos', 'sello guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-
-
-        $scope.getSello();
-    }]);
-angular
-    .module('app')
     .controller('planificacionCtrl', ['$scope', '$rootScope', '$http', '$location', 'Popeye', 'SweetAlert', function($scope, $rootScope, $http, $location, Popeye, SweetAlert) {
         $scope.planificacions = [];
         $scope.myPromise = false;
@@ -3148,26 +2123,25 @@ angular
     }]);
 angular
     .module('app')
-    .controller('terminalCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.terminales = [];
+    .controller('ordenCtrl', ['$scope', '$rootScope', '$location', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope,  $location, $http, Popeye, SweetAlert) {
+        $scope.ordenes = [];
         $scope.myPromise = false;
         $scope.loadingMsg = "Cargando...";
 
         $scope.refreshData = function () {
 
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/Terminal', { 'Content-Type': 'application/json' })
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/orden', { 'Content-Type': 'application/json' })
                 .then(function success(result) {
-                    $scope.terminales = result.data;
+                    $scope.ordenes = result.data;
                 }, function error(err) {
                     console.log(err);
                 });
         }
 
-        $scope.deleteTerminal = function(terminalId)
-        {
+        $scope.deleteorden = function (ordenId) {
             SweetAlert.swal({
                 title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar esta terminal!",
+                text: "Esta seguro de quere elimnar este orden!",
                 type: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
@@ -3177,27 +2151,349 @@ angular
             },
                 function (isConfirm) {
                     if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/Terminal/' + terminalId, $scope.terminal, { 'Content-Type': 'application/json' })
+                        $http.delete($rootScope.config.apiBase + '/orden/' + ordenId, { 'Content-Type': 'application/json' })
                             .then(function success(result) {
                                 $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "Terminal Eliminada.", "success")
+                                SweetAlert.swal("Eliminado!", "orden Eliminado.", "success")
                             })
-                      
+
                     } else {
-                       // SweetAlert.swal("Cancelado", "Terminal no eliminada", "error");
+                        // SweetAlert.swal("Cancelado", "orden no eliminada", "error");
                     }
                 });
         }
 
-        $scope.editTerminal = function (terminalId) {
+        $scope.editorden = function (ordenId) {
+
+            $location.path('/orden/' + ordenId);
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('ordenEditCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams', function ($scope, $rootScope, $http, $location, $routeParams) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.model = { ordern: {}, detalle: [] }
+        $scope.fecha2 = false;
+        $scope.ordenId = $routeParams.id;
+        $scope.planificacionId = $routeParams.planificacionId;
+        $scope.orden = [];
+        $scope.detalle = [];
+        $scope.choferes = [];
+        $scope.camiones = [];
+        $scope.cisternas = [];
+        $scope.productos = [];
+        $scope.terminales = [];
+        $scope.sellos = [];
+        $scope.cisternaDetalles = []
+        $scope.choosedProducto = false;
+        $scope.curCisterna = {};
+        $scope.hstep = 1;
+        $scope.mstep = 10;
+        $scope.ismeridian = false;
+        $scope.$watch('model.orden.camionId', function (n, o) { $scope.camionChange(n, o) }, true);
+        $scope.$watch('model.orden.cisternaId', function (n, o) { $scope.cisternaChange(n, o) }, true);
+
+        $scope.camionChange = function (n, o) {
+            if (n != o && $scope.ordenForm.$dirty) {
+                for (var i = 0; i < $scope.camiones.length; i++) {
+                    if ($scope.camiones[i].key == n) {
+                        $scope.model.orden.cisternaId = $scope.camiones[i].cisternaId
+                        $scope.model.orden.choferId = $scope.camiones[i].choferId
+                        break
+                    }
+                }
+
+            }
+        }
+
+        $scope.cisternaChange = function (n, o) {
+            if (n != o && $scope.ordenForm.$dirty) {
+                $scope.model.detalle = []
+                var tmp = []
+                $scope.choosedProducto = false;
+                for (var i = 0; i < $scope.cisternaDetalles.length; i++) {
+                    if ($scope.cisternaDetalles[i].cisternaId == n) {
+
+                        var detalle = $scope.cisternaDetalles[i];
+                        tmp.push({
+                            compartimento: detalle.compartimento,
+                            cisternaDetalleId: detalle.id,
+                            cantidadConduce: detalle.capacidad,
+                            selloChapaManholeId: 0,
+                            selloChapaManhole: '',
+                            selloBocaCarga: '',
+                            selloBocaCargaId: 0,
+                            selloBocaDescargaId: 0,
+                            selloBocaDescarga: '',
+                            productoId: 0,
+                            enUso: true
+                        })
+                    }
+                }
+
+                $scope.model.detalle = tmp.sort(function (a, b) { return a.compartimento - b.compartimento; })
+
+                /// $scope.model.detalle = $filter('orderBy')($scope.model.detalle, 'compartimento')
+
+            }
+        }
+
+
+        $scope.detalleChecked = function (d) {
+            if (!d.enUso) {
+                d.productoId = null;
+                d.producto = null;
+
+                d.cantidadConduce = null;
+                d.selloChapaManholeId = null;
+                d.selloChapaManhole = null;
+
+                d.selloBocaCargaId = null;
+                d.selloBocaCarga = null;
+
+                d.selloBocaDesCargaId = null;
+                d.selloBocaDescarga = null;
+            }
+        }
+
+        $scope.selectSelloCallBack = function ($item, $model, detalle, target) {
+
+            if (target === 0) {
+                detalle.selloChapaManholeId = $item.id;
+                var i = 0;
+                if (detalle.compartimento == 1) {
+                    $http.get($rootScope.config.apiBase + '/sello/GetSellosAfter', {
+                        params: {
+                            intSello: $item.intSello,
+
+                        }
+                    }).then(function (response) {
+
+                        var data = response.data;
+                        if (data && data.length > 0) {
+                            var i = 0;
+                            for (var j = 0; j < $scope.model.detalle.length; j++) {
+                                console.log($scope.model.detalle[j])
+                                if (j == 0) {
+                                    if ($scope.model.detalle[j].selloBocaCargaId <= 0) {
+                                        $scope.model.detalle[j].selloBocaCargaId = data[i].id;
+                                        $scope.model.detalle[j].selloBocaCarga = data[i].codSello
+                                        i++;
+                                    }
+                                    if ($scope.model.detalle[j].selloBocaDescargaId <= 0) {
+                                        $scope.model.detalle[j].selloBocaDescargaId = data[i].id;
+                                        $scope.model.detalle[j].selloBocaDescarga = data[i].codSello
+                                        i++;
+                                    }
+                                } else {
+                                    if ($scope.model.detalle[j].selloChapaManholeId <= 0) {
+                                        $scope.model.detalle[j].selloChapaManholeId = data[i].id;
+                                        $scope.model.detalle[j].selloChapaManhole = data[i].codSello
+                                        i++;
+                                    }
+                                    if ($scope.model.detalle[j].selloBocaCargaId <= 0) {
+                                        $scope.model.detalle[j].selloBocaCargaId = data[i].id;
+                                        $scope.model.detalle[j].selloBocaCarga = data[i].codSello
+
+                                        i++;
+                                    }
+
+                                    if ($scope.model.detalle[j].selloBocaDescargaId <= 0) {
+                                        $scope.model.detalle[j].selloBocaDescargaId = data[i].id;
+                                        $scope.model.detalle[j].selloBocaDescarga = data[i].codSello
+                                        i++;
+                                    }
+                                }
+                            }
+                        }
+
+                    });
+
+
+                }
+
+
+            } else if (target === 1) {
+                detalle.selloBocaCargaId = $item.id;
+            } else if (target === 2) {
+                detalle.selloBocaDesCargaId = $item.id;
+            }
+
+
+
+        }
+
+        $scope.getSellos = function (filter) {
+            return $http.get($rootScope.config.apiBase + '/sello/Search', {
+                params: {
+                    filter: filter,
+                    ordenId: $scope.ordenId
+                }
+            }).then(function (response) {
+                return response.data
+            });
+        };
+
+        $scope.ngModelOptionsSelected = function (value) {
+            if (arguments.length) {
+                _selected = value;
+            } else {
+                return _selected;
+            }
+        };
+
+        $scope.productoChanged = function (detalle) {
+            var nombre = ''
+            for (var j = 0; j < $scope.productos.length; j++) {
+                if ($scope.productos[j].key === detalle.productoId) {
+                    nombre = $scope.productos[j].value;
+                    break;
+                }
+            }
+            detalle.producto = nombre
+
+            //if (!$scope.choosedProducto) {
+            //    $scope.choosedProducto = true;
+
+            //    for (var i = 0; i < $scope.model.detalle.length; i++) {
+            //        $scope.model.detalle[i].productoId = detalle.productoId
+            //        $scope.model.detalle[i].producto =  nombre
+            //    }
+            //}
+        }
+
+        $scope.getOrden = function () {
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/orden/' + $scope.ordenId + '/' + $scope.planificacionId,
+                { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    if (result.data.model.orden && result.data.model.orden.fecha) {
+                        result.data.model.orden.fecha = moment.utc(result.data.model.orden.fecha).toDate();
+                    }
+
+                    $scope.model = result.data.model;
+                    $scope.detalle = result.data.detalle;
+                    $scope.choferes = result.data.choferes;
+                    $scope.camiones = result.data.camiones;
+                    $scope.cisternas = result.data.cisternas;
+                    $scope.productos = result.data.productos;
+                    $scope.sellos = result.data.sellos;
+                    $scope.cisternaDetalles = result.data.cisternaDetalles;
+                    $scope.terminales = result.data.terminales;
+
+                },
+                function error(err) {
+                    console.log(err);
+                });
+        }
+        $scope.titleMsg = $scope.ordenId > 0 ? "Editando orden" : "Agregando orden";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            if (!valid) {
+                return;
+            }
+
+            if ($scope.model.orden.camionId <= 0 ||
+                $scope.model.orden.choferId <= 0 ||
+                $scope.model.orden.cisternaId <= 0) {
+                $rootScope.error("Favor llenar camion, chofer y cisterna")
+                return;
+            }
+
+            for (var i = 0; i < $scope.model.detalle.length; i++) {
+                if ($scope.model.detalle[i].enUso &&
+                    ($scope.model.detalle[i].productoId <= 0 || $scope.model.detalle[i].cantidad <= 0)) {
+                    $rootScope.error("Favor indicar cantidad y producto para los compartimentos en uso")
+                    return;
+                }
+            }
+
+            if ($scope.ordenId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/orden/' + $scope.ordenId, $scope.model, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('orden', 'orden guardado')
+                        $rootScope.goTo('/ordenes')
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/orden/', $scope.model, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('ordens', 'orden guardado')
+                        $rootScope.goTo('/ordenes')
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+        $scope.getOrden();
+    }]);
+angular
+    .module('app')
+    .controller('precargaCtrl', ['$scope', '$rootScope', '$location', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $location, $http, Popeye, SweetAlert) {
+        $scope.precargas = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/precarga', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.precargas = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+ 
+
+        $scope.deleteprecarga = function (precargaId) {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar este precarga!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/precarga/' + precargaId, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "precarga Eliminado.", "success")
+                            })
+
+                    } else {
+                        // SweetAlert.swal("Cancelado", "precarga no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editprecarga = function (precargaId) {
+            $location.path('/precarga/' + precargaId);
+        };
+
+
+        $scope.print = function (id) {
 
             // Open a modal to show the selected user profile
             var modal = Popeye.openModal({
-                templateUrl: "terminal/terminal.edit.ctrl.html",
-                controller: "terminalEditCtrl",
+                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
+                containerClass: 'popprint',
+                controller: "inspeccionPrintCtrl",
                 resolve: {
-                    terminalId: function () {
-                        return terminalId;
+                    url: function () {
+                        return '/Report/Precarga/' + id;
                     }
                 }
             });
@@ -3210,7 +2506,7 @@ angular
 
             // Update user after modal is closed
             modal.closed.then(function () {
-                $scope.refreshData();
+               
             });
         };
 
@@ -3218,185 +2514,191 @@ angular
     }]);
 angular
     .module('app')
-    .controller('terminalEditCtrl', ['$scope', '$rootScope', '$http', 'terminalId', function ($scope, $rootScope, $http, terminalId) {
+    .controller('precargaEditCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams', 'Popeye', function ($scope, $rootScope, $http, $location, $routeParams, Popeye) {
         $scope.myPromise = false;
         $scope.loadingMsg = "Cargando...";
-        $scope.terminal = { nombre: '', telefono: '', direccion: '', multipleInstances: false}
-        $scope.terminalId = terminalId
-        $scope.getTerminal = function () {
-            if ($scope.terminalId > 0) {
-                $scope.myPromise = $http.get($rootScope.config.apiBase + '/Terminal/' + $scope.terminalId,
-                    { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $scope.terminal = result.data;
-                    },
-                    function error(err) {
-                        console.log(err);
-                    });
-            }
-        }
-        $scope.titleMsg = $scope.terminalId > 0 ? "Editando Terminal" : "Agregando Terminal";
-
-        $scope.cancel = function () {
-            $scope.$close()
-        }
-
-        $scope.saveData = function (valid) {
-            console.log(valid)
-            if (!valid) {
-
-                return;
-
-            }
-
-            if ($scope.terminalId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/Terminal/' + $scope.terminalId, $scope.terminal, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('Terminales', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/Terminal/', $scope.terminal, { 'Content-Type': 'application/json' })
-                    .then(function success(result) {
-                        $rootScope.success('Terminales', 'Registro guardado')
-                        $scope.$close()
-                    },
-                    function error(err) {
-                    });
-            }
-        }
-
-
-
-        $scope.getTerminal();
-    }]);
-angular
-    .module('app')
-    .controller('verificacionCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
-        $scope.verificaciones = [];
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-
-        $scope.refreshData = function () {
-
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/verificacion', { headers: { 'Content-Type': 'application/json' } })
-                .then(function success(result) {
-                    $scope.verificaciones = result.data;
-                }, function error(err) {
-                    console.log(err);
-                });
-        }
-
-        $scope.deleteverificacion = function (verificacionId) {
-            SweetAlert.swal({
-                title: "Esta seguro?",
-                text: "Esta seguro de quere elimnar esta verificacion!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
-                cancelButtonText: "No, cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-                function (isConfirm) {
-                    if (isConfirm) {
-                        $http.delete($rootScope.config.apiBase + '/verificacion/' + verificacionId, $scope.verificacion, { headers: { 'Content-Type': 'application/json' } })
-                            .then(function success(result) {
-                                $scope.refreshData()
-                                SweetAlert.swal("Eliminado!", "verificacion Eliminada.", "success")
-                            })
-
-                    } else {
-                        // SweetAlert.swal("Cancelado", "verificacion no eliminada", "error");
-                    }
-                });
-        }
-
-        $scope.editVerificacion = function (verificacionId) {
-            $rootScope.goTo("/verificacion/" + verificacionId)
-        };
-
-        $scope.refreshData()
-    }]);
-angular
-    .module('app')
-    .controller('verificacionEditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', function ($scope, $rootScope, $http, $routeParams) {
-        $scope.myPromise = false;
-        $scope.loadingMsg = "Cargando...";
-        $scope.model = {}
+        $scope.model = { ordern: {}, detalle: [] }
+        $scope.fecha2 = false;
+        $scope.precargaId = $routeParams.id;
+        $scope.planificacionId = $routeParams.planificacionId;
+        $scope.precarga = {};
+        $scope.detalle = [];
         $scope.choferes = [];
         $scope.camiones = [];
-        $scope.cisternas = []
-        $scope.verificacionId = $routeParams.id
+        $scope.cisternas = [];
+        $scope.productos = [];
+        $scope.terminales = [];
+        $scope.destinos = [];
+        $scope.sellos = [];
+        $scope.cisternaDetalles = []
+        $scope.choosedProducto = false;
+        $scope.curCisterna = {};
+        $scope.hstep = 1;
+        $scope.mstep = 10;
+        $scope.ismeridian = false;
+        $scope.$watch('model.precarga.camionId', function (n, o) { $scope.camionChange(n, o) }, true);
+        $scope.$watch('model.precarga.cisternaId', function (n, o) { $scope.cisternaChange(n, o) }, true);
+        console.log($routeParams)
+        $scope.camionChange = function (n, o) {
+            if (n != o && $scope.precargaForm.$dirty) {
+                for (var i = 0; i < $scope.camiones.length; i++) {
+                    if ($scope.camiones[i].key == n) {
+                        $scope.model.precarga.cisternaId = $scope.camiones[i].cisternaId
+                        $scope.model.precarga.choferId = $scope.camiones[i].choferId
+                        break
+                    }
+                }
 
-        $scope.itemChange = function(item, ord, isYesNo) {
-            if (isYesNo) {
-                item.si = item.si && ord === 1;
-                item.no = item.no && ord === 2;
-            } else {
-                item.bueno = item.bueno && ord === 1;
-                item.regular = item.regular && ord === 2;
-                item.malo = item.malo && ord === 3;
             }
         }
 
-        $scope.getverificacion = function () {
-            $scope.myPromise = $http.get($rootScope.config.apiBase + '/verificacion/' + $scope.verificacionId,
+        $scope.cisternaChange = function (n, o) {
+            if (n != o && $scope.precargaForm.$dirty) {
+                var tmp = []
+                $scope.choosedProducto = false;
+                for (var i = 0; i < $scope.cisternaDetalles.length; i++) {
+                    if ($scope.cisternaDetalles[i].cisternaId == n) {
+
+                        var detalle = $scope.cisternaDetalles[i];
+
+                    }
+                }
+
+            }
+        }
+
+        $scope.cancel = function () {
+            if ($scope.$close) {
+                $scope.$close();
+            } else {
+                $rootScope.goTo('/precargas');
+            }
+        }
+
+        $scope.sumaCompartimentos = function (deta, no) {
+            console.log(deta)
+            for (var i = 0; i < $scope.model.detalle.length; i++) {
+
+                if (no == 1 && $scope.model.detalle[i].compartimento1 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
+                    return true;
+                }
+               
+                if (no == 2 && $scope.model.detalle[i].compartimento2 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
+                    return true;
+                }
+
+                if (no == 3 && $scope.model.detalle[i].compartimento3 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
+                    return true;
+                }
+
+                if (no == 4 && $scope.model.detalle[i].compartimento4 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
+                    return true;
+                }
+
+                if (no == 5 && $scope.model.detalle[i].compartimento5 > 0 && $scope.model.detalle[i].productoId != deta.productoId) {
+                    return true;
+                }
+
+
+            }
+            console.log('NA');
+            return false;
+
+        }
+
+        $scope.print = function () {
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "inspeccion/inspeccion.print.ctrl.html",
+                containerClass: 'popprint',
+                controller: "inspeccionPrintCtrl",
+                resolve: {
+                    url: function () {
+                        return '/Report/Precarga/' + $scope.precargaId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+
+            });
+        };
+
+        $scope.getprecarga = function () {
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/precarga/' + $scope.precargaId + '/' + $scope.planificacionId,
                 { 'Content-Type': 'application/json' })
                 .then(function success(result) {
+                    if (result.data.model.precarga && result.data.model.precarga.fecha) {
+                        result.data.model.precarga.fecha = moment(result.data.model.precarga.fecha).toDate();
+                    }
 
-                        if (result.data.model.verificacion.fecha) {
-                            result.data.model.verificacion.fecha =
-                                moment.utc(result.data.model.verificacion.fecha).toDate();
-                        }
-
-                        $scope.model = result.data.model;
+                    $scope.model = result.data.model;
+                    $scope.detalle = result.data.detalle;
                     $scope.choferes = result.data.choferes;
                     $scope.camiones = result.data.camiones;
                     $scope.cisternas = result.data.cisternas;
+                    $scope.cisternaDetalles = result.data.cisternaDetalles;
+                    $scope.terminales = result.data.terminales;
+                    $scope.destinos = result.data.destinos;
+
                 },
                 function error(err) {
                     console.log(err);
                 });
         }
-        $scope.titleMsg = $scope.verificacionId > 0 ? "Editando verificacion" : "Agregando verificacion";
+        $scope.titleMsg = $scope.precargaId > 0 ? "Editando precarga" : "Agregando precarga";
 
-        $scope.cancel = function () {
-            $scope.$close()
+        $scope.lineChanged = function (line) {
+            line.cantidad = line.compartimento1 +
+                line.compartimento2 +
+                line.compartimento3 +
+                line.compartimento4 +
+                line.compartimento5 +
+                line.compartimento6;
         }
 
         $scope.saveData = function (valid) {
-            console.log(valid)
             if (!valid) {
-
                 return;
-
             }
 
-            if ($scope.verificacionId > 0) {
-                $scope.myPromise = $http.put($rootScope.config.apiBase + '/verificacion/' + $scope.verificacionId, $scope.model, { headers: { 'Content-Type': 'application/json' } })
+            if ($scope.model.precarga.camionId <= 0 ||
+                $scope.model.precarga.choferId <= 0 ||
+                $scope.model.precarga.cisternaId <= 0) {
+                $rootScope.error("Favor llenar camion, chofer y cisterna")
+                return;
+            }
+
+            for (var i = 0; i < $scope.model.detalle.length; i++) {
+
+            }
+            if ($scope.precargaId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/precarga/' + $scope.precargaId, $scope.model, { 'Content-Type': 'application/json' })
                     .then(function success(result) {
-                        $rootScope.success('verificaciones', 'Registro guardado')
-                        $scope.$close()
+                        $rootScope.success('precarga', 'precarga guardado')
+
                     },
                     function error(err) {
                     });
             } else {
-                $scope.myPromise = $http.post($rootScope.config.apiBase + '/verificacion/', $scope.model, { headers: { 'Content-Type': 'application/json' } })
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/precarga/', $scope.model, { 'Content-Type': 'application/json' })
                     .then(function success(result) {
-                        $rootScope.success('verificaciones', 'Registro guardado')
-                        $scope.$close()
-                    },
+                        $rootScope.success('precargas', 'precarga guardado')
+                            $scope.model = result.data;
+                        },
                     function error(err) {
                     });
             }
         }
 
-
-
-        $scope.getverificacion();
+        $scope.getprecarga();
     }]);
 angular
     .module('app')
@@ -3984,6 +3286,508 @@ angular
     }]);
 angular
     .module('app')
+    .controller('productoCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.productoes = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/producto', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.productoes = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.deleteproducto = function(productoId)
+        {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar esta producto!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/producto/' + productoId, $scope.producto, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "producto Eliminada.", "success")
+                            })
+                      
+                    } else {
+                       // SweetAlert.swal("Cancelado", "producto no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editproducto = function (productoId) {
+
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "producto/producto.edit.ctrl.html",
+                controller: "productoEditCtrl",
+                resolve: {
+                    productoId: function () {
+                        return productoId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+                $scope.refreshData();
+            });
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('productoEditCtrl', ['$scope', '$rootScope', '$http', 'productoId', function ($scope, $rootScope, $http, productoId) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.producto = { nombre: '', telefono: '', direccion: '', multipleInstances: false}
+        $scope.productoId = productoId
+        $scope.getproducto = function () {
+            if ($scope.productoId > 0) {
+                $scope.myPromise = $http.get($rootScope.config.apiBase + '/producto/' + $scope.productoId,
+                    { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $scope.producto = result.data;
+                    },
+                    function error(err) {
+                        console.log(err);
+                    });
+            }
+        }
+        $scope.titleMsg = $scope.productoId > 0 ? "Editando producto" : "Agregando producto";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            console.log(valid)
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.productoId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/producto/' + $scope.productoId, $scope.producto, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('productoes', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/producto/', $scope.producto, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('productoes', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getproducto();
+    }]);
+angular
+    .module('app')
+    .controller('rolCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.roles = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/Permisos/Rol', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.roles = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.deleteRol = function (rolId) {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar este rol!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/Permisos/Rol/' + rolId, $scope.rol, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "Usuario Eliminada.", "success")
+                            })
+
+                    } else {
+                        // SweetAlert.swal("Cancelado", "Usuario no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editRol = function (rolId) {
+
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "app/rol/rol.edit.ctrl.html",
+                controller: "rolEditCtrl",
+                resolve: {
+                    rolId: function () {
+                        return rolId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+                $scope.refreshData();
+            });
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('rolEditCtrl', ['$scope', '$rootScope', '$http', 'rolId', function ($scope, $rootScope, $http, rolId) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.rol = { name: '', description: ''}
+        $scope.rolId = rolId
+        $scope.getRol = function () {
+            if ($scope.rolId > 0) {
+                $scope.myPromise =  $http.get($rootScope.config.apiBase + '/Permisos/Rol/' + $scope.rolId,
+                    { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $scope.rol = result.data;
+                    },
+                    function error(err) {
+                        console.log(err);
+                    });
+            }
+        }
+        $scope.titleMsg = $scope.rolId > 0 ? "Editando Rol" : "Agregando Rol";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.rolId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/Permisos/Rol/' + $scope.rolId, $scope.rol, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('Rols', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/Permisos/Rol/', $scope.rol, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('Roles', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getRol();
+    }]);
+angular
+    .module('app')
+    .controller('terminalCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.terminales = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/Terminal', { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    $scope.terminales = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.deleteTerminal = function(terminalId)
+        {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar esta terminal!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/Terminal/' + terminalId, $scope.terminal, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "Terminal Eliminada.", "success")
+                            })
+                      
+                    } else {
+                       // SweetAlert.swal("Cancelado", "Terminal no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editTerminal = function (terminalId) {
+
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "terminal/terminal.edit.ctrl.html",
+                controller: "terminalEditCtrl",
+                resolve: {
+                    terminalId: function () {
+                        return terminalId;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+                $scope.refreshData();
+            });
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('terminalEditCtrl', ['$scope', '$rootScope', '$http', 'terminalId', function ($scope, $rootScope, $http, terminalId) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.terminal = { nombre: '', telefono: '', direccion: '', multipleInstances: false}
+        $scope.terminalId = terminalId
+        $scope.getTerminal = function () {
+            if ($scope.terminalId > 0) {
+                $scope.myPromise = $http.get($rootScope.config.apiBase + '/Terminal/' + $scope.terminalId,
+                    { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $scope.terminal = result.data;
+                    },
+                    function error(err) {
+                        console.log(err);
+                    });
+            }
+        }
+        $scope.titleMsg = $scope.terminalId > 0 ? "Editando Terminal" : "Agregando Terminal";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            console.log(valid)
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.terminalId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/Terminal/' + $scope.terminalId, $scope.terminal, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('Terminales', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/Terminal/', $scope.terminal, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('Terminales', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getTerminal();
+    }]);
+angular
+    .module('app')
+    .controller('verificacionCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.verificaciones = [];
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/verificacion', { headers: { 'Content-Type': 'application/json' } })
+                .then(function success(result) {
+                    $scope.verificaciones = result.data;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.deleteverificacion = function (verificacionId) {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar esta verificacion!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/verificacion/' + verificacionId, $scope.verificacion, { headers: { 'Content-Type': 'application/json' } })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "verificacion Eliminada.", "success")
+                            })
+
+                    } else {
+                        // SweetAlert.swal("Cancelado", "verificacion no eliminada", "error");
+                    }
+                });
+        }
+
+        $scope.editVerificacion = function (verificacionId) {
+            $rootScope.goTo("/verificacion/" + verificacionId)
+        };
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('verificacionEditCtrl', ['$scope', '$rootScope', '$http', '$routeParams', function ($scope, $rootScope, $http, $routeParams) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.model = {}
+        $scope.choferes = [];
+        $scope.camiones = [];
+        $scope.cisternas = []
+        $scope.verificacionId = $routeParams.id
+
+        $scope.itemChange = function(item, ord, isYesNo) {
+            if (isYesNo) {
+                item.si = item.si && ord === 1;
+                item.no = item.no && ord === 2;
+            } else {
+                item.bueno = item.bueno && ord === 1;
+                item.regular = item.regular && ord === 2;
+                item.malo = item.malo && ord === 3;
+            }
+        }
+
+        $scope.getverificacion = function () {
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/verificacion/' + $scope.verificacionId,
+                { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+
+                        if (result.data.model.verificacion.fecha) {
+                            result.data.model.verificacion.fecha =
+                                moment.utc(result.data.model.verificacion.fecha).toDate();
+                        }
+
+                        $scope.model = result.data.model;
+                    $scope.choferes = result.data.choferes;
+                    $scope.camiones = result.data.camiones;
+                    $scope.cisternas = result.data.cisternas;
+                },
+                function error(err) {
+                    console.log(err);
+                });
+        }
+        $scope.titleMsg = $scope.verificacionId > 0 ? "Editando verificacion" : "Agregando verificacion";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            console.log(valid)
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.verificacionId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/verificacion/' + $scope.verificacionId, $scope.model, { headers: { 'Content-Type': 'application/json' } })
+                    .then(function success(result) {
+                        $rootScope.success('verificaciones', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/verificacion/', $scope.model, { headers: { 'Content-Type': 'application/json' } })
+                    .then(function success(result) {
+                        $rootScope.success('verificaciones', 'Registro guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getverificacion();
+    }]);
+angular
+    .module('app')
     .controller('usuarioCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
         $scope.usuarios = [];
         $scope.myPromise = false;
@@ -4117,6 +3921,202 @@ angular
         }
 
         $scope.getUsuario();
+    }]);
+angular
+    .module('app')
+    .controller('selloCtrl', ['$scope', '$rootScope', '$http', 'Popeye', 'SweetAlert', function ($scope, $rootScope, $http, Popeye, SweetAlert) {
+        $scope.sellos = []
+        $scope.filter = {};
+        $scope.search = ""
+        $scope.myPromise = false;
+        $scope.lotes = []
+        $scope.estatus = []
+        $scope.curEstatus = '';
+        $scope.curPage = 0;
+        $scope.loadingMsg = "Cargando...";
+        $scope.curDetalleId = 0;
+
+        $scope.update = function (s) {
+            $scope.myPromise = $http.put($rootScope.config.apiBase + '/sello/' + s.id, s, { 'Content-Type': 'application/json' })
+                .then(function success(result) {
+                    console.log(result)
+                    $rootScope.success('sello', 'sello guardado')
+                    for (var i = 0; i < $scope.sellos.length; i++) {
+                        if ($scope.sellos[i].id === result.data.id) {
+                            $scope.sellos[i].selloStatus = result.data.selloStatus
+                            $scope.sellos[i].selloStatusId = result.data.selloStatusId
+                            break
+                        }
+                    }
+                    $scope.curDetalleId = 0;
+
+                },
+                function error(err) {
+                });
+        }
+
+        $scope.cancel = function () {
+            $scope.curDetalleId = 0;
+        }
+
+        $scope.editsello = function (s) {
+            $scope.curDetalleId = (s.id > 0) ? s.id : 0;
+        }
+
+        $scope.addsello = function () {
+            // Open a modal to show the selected user profile
+            var modal = Popeye.openModal({
+                templateUrl: "sello/sello.edit.ctrl.html",
+                controller: "selloEditCtrl",
+                resolve: {
+                    selloId: function () {
+                        return 0;
+                    }
+                }
+            });
+
+            // Show a spinner while modal is resolving dependencies
+            $scope.showLoading = true;
+            modal.resolved.then(function () {
+                $scope.showLoading = false;
+            });
+
+            // Update user after modal is closed
+            modal.closed.then(function () {
+                $scope.refreshData();
+            });
+        };
+
+
+        $scope.refreshData = function () {
+
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/sello',
+                { 'params': $scope.filter },
+                { 'Content-Type': 'application/json' }
+            )
+                .then(function success(result) {
+                    $scope.sellos = result.data.sellos;
+                    $scope.filter = result.data.filter;
+                    if (result.data.lotes)
+                        $scope.lotes = result.data.lotes;
+                    if (result.data.estatus)
+                        $scope.estatus = result.data.estatus;
+                }, function error(err) {
+                    console.log(err);
+                });
+        }
+
+        $scope.changeLote = function () {
+            $scope.filter.filter = $scope.search;
+            $scope.filter.column = 1;
+            $scope.filter.page = 1;
+            $scope.refreshData();
+        }
+
+        $scope.changeEstatus = function () {
+            $scope.filter.estatus = $scope.curEstatus;
+            $scope.refreshData();
+        }
+
+        $scope.totalPages = function () {
+            var nume = $scope.filter.totalItems
+            var deno = $scope.filter.pageSize > 0 ? $scope.filter.pageSize : 1
+            return Math.ceil(nume / deno)
+        }
+
+        $scope.movePage = function (dir) {
+            if (dir === "right" && $scope.filter.page < $scope.filter.totalItems) {
+                $scope.filter.page++;
+            }
+
+            if (dir === "left" && $scope.filter.page > 0) {
+                $scope.filter.page--;
+            }
+
+            $scope.refreshData();
+        }
+
+        $scope.deletesello = function (lote) {
+            SweetAlert.swal({
+                title: "Esta seguro?",
+                text: "Esta seguro de quere elimnar este lote (" + lote + ")!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55", confirmButtonText: "Eliminar!",
+                cancelButtonText: "No, cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $http.delete($rootScope.config.apiBase + '/sello/DeleteLote/?id=' + lote, { 'Content-Type': 'application/json' })
+                            .then(function success(result) {
+                                $scope.refreshData()
+                                SweetAlert.swal("Eliminado!", "Lote Eliminado.", "success")
+                            })
+
+                    } else {
+                        // SweetAlert.swal("Cancelado", "sello no eliminada", "error");
+                    }
+                });
+        }
+
+
+        $scope.refreshData()
+    }]);
+angular
+    .module('app')
+    .controller('selloEditCtrl', ['$scope', '$rootScope', '$http', 'selloId', function ($scope, $rootScope, $http, selloId) {
+        $scope.myPromise = false;
+        $scope.loadingMsg = "Cargando...";
+        $scope.sello = { inicial: '', final: '', espacios: 6, lote: ''}
+        $scope.selloId = selloId
+        $scope.getSello = function () {
+            $scope.myPromise = $http.get($rootScope.config.apiBase + '/sello/GetCreate',
+                    { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $scope.sello = result.data;
+                    },
+                    function error(err) {
+                        console.log(err);
+                    });
+        }
+        $scope.titleMsg = $scope.selloId > 0 ? "Editando sello" : "Agregando sello";
+
+        $scope.cancel = function () {
+            $scope.$close()
+        }
+
+        $scope.saveData = function (valid) {
+            console.log(valid)
+            if (!valid) {
+
+                return;
+
+            }
+
+            if ($scope.selloId > 0) {
+                $scope.myPromise = $http.put($rootScope.config.apiBase + '/sello/' + $scope.selloId, $scope.sello, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('sello', 'sello guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            } else {
+                $scope.myPromise = $http.post($rootScope.config.apiBase + '/sello/', $scope.sello, { 'Content-Type': 'application/json' })
+                    .then(function success(result) {
+                        $rootScope.success('sellos', 'sello guardado')
+                        $scope.$close()
+                    },
+                    function error(err) {
+                    });
+            }
+        }
+
+
+
+        $scope.getSello();
     }]);
 angular.module('app')
     .directive('dynamic', function($compile) {

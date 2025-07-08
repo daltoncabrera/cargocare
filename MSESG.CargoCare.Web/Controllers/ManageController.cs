@@ -21,7 +21,7 @@ namespace MSESG.CargoCare.Web.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly string _externalCookieScheme;
+        private readonly string? _externalCookieScheme;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
@@ -157,7 +157,7 @@ namespace MSESG.CargoCare.Web.Controllers
         //
         // GET: /Manage/VerifyPhoneNumber
         [HttpGet]
-        public async Task<IActionResult> VerifyPhoneNumber(string phoneNumber)
+        public async Task<IActionResult> VerifyPhoneNumber(string? phoneNumber)
         {
             var user = await GetCurrentUserAsync();
             if (user == null)
@@ -309,7 +309,7 @@ namespace MSESG.CargoCare.Web.Controllers
         // POST: /Manage/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> LinkLogin(string provider)
+        public async Task<IActionResult> LinkLogin(string? provider)
         {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

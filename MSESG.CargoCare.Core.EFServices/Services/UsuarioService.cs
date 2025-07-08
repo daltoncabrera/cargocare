@@ -288,7 +288,7 @@ namespace MSESG.CargoCare.Core.EFServices
     }
 
 
-    public List<UserClientModel> GetClientByUser(string usermail)
+    public List<UserClientModel> GetClientByUser(string? usermail)
     {
       var result = new List<UserClientModel>();
       var roles = (from u in _ctx.Users
@@ -372,7 +372,7 @@ namespace MSESG.CargoCare.Core.EFServices
       return result.Distinct().ToList();
     }
 
-    public List<Empresa> GetEmpresaByUser(string usermail)
+    public List<Empresa> GetEmpresaByUser(string? usermail)
     {
       var result = from u in _ctx.Users
                    from e in _ctx.Empresas

@@ -6,6 +6,6 @@ namespace MSESG.CargoCare.Core
 {
   public class Componente : Updateable
   {
-    public string? Nombre { get; set; }
+    public string?  Nombre { get; set; }
   }
 }

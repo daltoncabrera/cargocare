@@ -703,7 +703,7 @@ $.extend( $.validator, {
 			return this.findDefined(
 				this.customMessage( element.name, method ),
 				this.customDataMessage( element, method ),
-				// title is never undefined, so handle empty string as undefined
+				// title is never undefined, so handle empty string? as undefined
 				!this.settings.ignoreTitle && element.title || undefined,
 				$.validator.messages[ method ],
 				"<strong>Warning: No message defined for " + element.name + "</strong>"
@@ -1025,7 +1025,7 @@ $.extend( $.validator, {
 			if ( method === "required" ) {
 				value = element.getAttribute( method );
 
-				// Some browsers return an empty string for the required attribute
+				// Some browsers return an empty string? for the required attribute
 				// and non-HTML5 browsers might have required="" markup
 				if ( value === "" ) {
 					value = true;
@@ -1137,7 +1137,7 @@ $.extend( $.validator, {
 		return rules;
 	},
 
-	// Converts a simple string to a {string: true} rule, e.g., "required" to {required:true}
+	// Converts a simple string? to a {string: true} rule, e.g., "required" to {required:true}
 	normalizeRule: function( data ) {
 		if ( typeof data === "string" ) {
 			var transformed = {};

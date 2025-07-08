@@ -64,7 +64,7 @@ namespace MSESG.CargoCare.Web.Controllers
         }
 
 
-        private string GetFilesDirectory()
+        private string? GetFilesDirectory()
         {
             var curDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + Path.DirectorySeparatorChar + "wwwroot" + Path.DirectorySeparatorChar + "files";
             return curDirectory;

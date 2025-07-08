@@ -10,12 +10,12 @@ namespace MSESG.CargoCare.Core
         /// <summary>
         /// Gets or sets the message.
         /// </summary>
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
         /// <summary>
         /// Gets or sets the stack trace.
         /// </summary>
 
-        public string StackTrace { get; set; }
+        public string? StackTrace { get; set; }
     }
 }

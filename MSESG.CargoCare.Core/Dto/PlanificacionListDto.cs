@@ -9,8 +9,8 @@ namespace MSESG.CargoCare.Core.EFServices.Dto
         public int Id { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
-        public string Referencia { get; set; }
-        public string Nota { get; set; }
+        public string? Referencia { get; set; }
+        public string? Nota { get; set; }
         public int CamionesQty { get; set; }
         public int OrdenesQty { get; set; }
         public int DestionQty { get; set; }

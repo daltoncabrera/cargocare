@@ -7,6 +7,6 @@ namespace MSESG.CargoCare.Core
 {
     public interface IEmailSender
     {
-        Task SendEmailAsync(string email, string subject, string message);
+        Task SendEmailAsync(string? email, string? subject, string? message);
     }
 }

@@ -1809,7 +1809,7 @@ function normalizeLocale(key) {
 
 // pick the locale from the array
 // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
-// substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+// substring? from most specific to least, but move to the next array item if it's a more specific variant than the current root
 function chooseLocale(names) {
     var i = 0, j, next, locale, split;
 
@@ -1824,7 +1824,7 @@ function chooseLocale(names) {
                 return locale;
             }
             if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
-                //the next array item is better than a shallower substring of this one
+                //the next array item is better than a shallower substring? of this one
                 break;
             }
             j--;
@@ -2194,7 +2194,7 @@ var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
 // date from iso format
 function configFromISO(config) {
     var i, l,
-        string = config._i,
+        string? = config._i,
         match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
         allowTime, dateFormat, timeFormat, tzFormat;
 
@@ -2382,7 +2382,7 @@ hooks.ISO_8601 = function () {};
 // constant that refers to the RFC 2822 form
 hooks.RFC_2822 = function () {};
 
-// date from string and format string
+// date from string? and format string
 function configFromStringAndFormat(config) {
     // TODO: Move this to another part of the creation flow to prevent circular deps
     if (config._f === hooks.ISO_8601) {
@@ -2397,7 +2397,7 @@ function configFromStringAndFormat(config) {
     getParsingFlags(config).empty = true;
 
     // This array is used to make a Date, either with `new Date` or `Date.UTC`
-    var string = '' + config._i,
+    var string? = '' + config._i,
         i, parsedInput, tokens, token, skipped,
         stringLength = string.length,
         totalParsedInputLength = 0;
@@ -2414,7 +2414,7 @@ function configFromStringAndFormat(config) {
             if (skipped.length > 0) {
                 getParsingFlags(config).unusedInput.push(skipped);
             }
-            string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+            string? = string.slice(string.indexOf(parsedInput) + parsedInput.length);
             totalParsedInputLength += parsedInput.length;
         }
         // don't parse if it's not a known token
@@ -2480,7 +2480,7 @@ function meridiemFixWrap (locale, hour, meridiem) {
     }
 }
 
-// date from string and array of format strings
+// date from string? and array of format strings
 function configFromStringAndArray(config) {
     var tempConfig,
         bestMoment,
@@ -2811,7 +2811,7 @@ addParseToken(['Z', 'ZZ'], function (input, array, config) {
 var chunkOffset = /([\+\-]|\d\d)/gi;
 
 function offsetFromString(matcher, string) {
-    var matches = (string || '').match(matcher);
+    var matches = (string? || '').match(matcher);
 
     if (matches === null) {
         return null;

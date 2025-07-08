@@ -16,7 +16,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
         }
 
-        public string? FullName { get; set; }
+        public string?  FullName { get; set; }
         public  bool Activo { get; set; }
         public bool HasToChangePassword { get; set; }
     }

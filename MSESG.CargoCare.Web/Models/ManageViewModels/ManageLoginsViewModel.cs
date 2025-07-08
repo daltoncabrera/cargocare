@@ -15,7 +15,7 @@ namespace MSESG.CargoCare.Web.Models.ManageViewModels
 
     public class ExternalLoginProvider
     {
-        public string AuthenticationScheme { get; set; }
-        public string DisplayName { get; set; }
+        public string? AuthenticationScheme { get; set; }
+        public string? DisplayName { get; set; }
     }
 }

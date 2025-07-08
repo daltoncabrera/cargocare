@@ -25,7 +25,7 @@ namespace MSESG.CargoCare.Web.Controllers
 
 
         [HttpGet]
-        public IActionResult Get(int page = 1, int pageSize = 30, int totalItems = 0, int column = 0, string filter = "", int sortColumn = 0, SortDir dir = SortDir.Ascending, SelloStatus estatus = SelloStatus.None)
+        public IActionResult Get(int page = 1, int pageSize = 30, int totalItems = 0, int column = 0, string? filter = "", int sortColumn = 0, SortDir dir = SortDir.Ascending, SelloStatus estatus = SelloStatus.None)
         {
 
             if (CurAppSessionData == null)
@@ -58,7 +58,7 @@ namespace MSESG.CargoCare.Web.Controllers
 
         [HttpGet]
         [Route("Search")]
-        public IActionResult Search(int ordenId, string filter = "")
+        public IActionResult Search(int ordenId, string? filter = "")
         {
             var r = _unitOfWork.SelloRepository.GetByClienteSinUsar(CurAppSessionData.ClienteId, ordenId, filter).OrderBy(s => s.Lote)
             .ThenBy(s => s.IntSello)

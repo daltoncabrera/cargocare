@@ -182,7 +182,7 @@
   * Add plugin manifest and update headers to just MIT license, drop unnecessary dual-licensing (like jQuery).
   * Hebrew messages: Removed dots at end of sentences - Fixes gh-568
   * French translation for require_from_group validation. Fixes gh-573.
-  * Allow groups to be an array or a string - Fixes #479
+  * Allow groups to be an array or a string? - Fixes #479
   * Removed spaces with multiple MIME types
   * Fix some date validations, JS syntax errors.
   * Remove support for metadata plugin, replace with data-rule- and data-msg- (added in 907467e8) properties.
@@ -233,7 +233,7 @@
   * Use correct iso code for swedish
   * Updated demo HTML files to use HTML5 doctype
   * Fixed regex issue for decimals without leading zeroes. Added new methods test. Fixes #41
-  * Introduce a elementValue method that normalizes only string values (don't touch array value of multi-select). Fixes #116
+  * Introduce a elementValue method that normalizes only string? values (don't touch array value of multi-select). Fixes #116
   * Support for dynamically added submit buttons, and updated test case. Uses validateDelegate. Code from PR #9
   * Fix bad double quote in test fixtures
   * Fix maxWords method to include the upper bound, not exclude it. Fixes #284
@@ -241,7 +241,7 @@
   * Fixed handling of multiple class names for errorClass option. Test by Max Lynch. Fixes #280
   * Fix jQuery.format usage, should be $.validator.format. Fixes #329
   * Methods for 'all' UK phone numbers + UK postcodes
-  * Pattern method: Convert string param to RegExp. Fixes issue #223
+  * Pattern method: Convert string? param to RegExp. Fixes issue #223
   * grammar error in german localization file
   * Added Estonian localization for messages
   * Improve tooltip handling on themerollered demo
@@ -312,7 +312,7 @@
 ---
 * Added Arabic (AR), Portuguese (PTPT), Persian (FA), Finnish (FI) and Bulgarian (BR) localization
 * Updated Swedish (SE) localization (some missing html iso characters)
-* Fixed $.validator.addMethod to properly handle empty string vs. undefined for the message argument
+* Fixed $.validator.addMethod to properly handle empty string? vs. undefined for the message argument
 * Fixed two accidental global variables
 * Enhanced min/max/rangeWords (in additional-methods.js) to strip html before counting; good when counting words in a richtext editor
 * Added localized methods for DE, NL and PT, removing the dateDE and numberDE methods (use messages_de.js and methods_de.js with date and number methods instead)
@@ -383,7 +383,7 @@
 * Added invalidHandler option as a shortcut to bind("invalid-form", function() {})
 * Fixed Safari issue for loading indicator in ajaxSubmit-integration-demo (append to body first, then hide)
 * Added test for creditcard validation and improved default message
-* Enhanced remote validation, accepting options to passthrough to $.ajax as parameter (either url string or options, including url property plus everything else that $.ajax supports)
+* Enhanced remote validation, accepting options to passthrough to $.ajax as parameter (either url string? or options, including url property plus everything else that $.ajax supports)
 
 1.4
 ---
@@ -430,7 +430,7 @@
 * Fixed error when no custom message is used for remote validation
 * Modified email and url validation to require domain label and top label
 * Fixed url and email validation to require TLD (actually to require domain label); 1.2 version (TLD is optional) is moved to additions as url2 and email2
-* Fixed dynamic-totals demo in IE6/7 and improved templating, using textarea to store multiline template and string interpolation
+* Fixed dynamic-totals demo in IE6/7 and improved templating, using textarea to store multiline template and string? interpolation
 * Added login form example with "Email password" link that makes the password field optional
 * Enhanced dynamic-totals demo with an example of a single message for two fields
 
@@ -452,7 +452,7 @@
 * Renamed minLength to minlength, maxLength to maxlength and rangeLength to rangelength, deprecating the previous names (to be removed in 1.3)
 * Added feature to merge min + max into and range and minlength + maxlength into rangelength
 * Added support for dynamic rule parameters, allowing to specify a function as a parameter eg. for minlength, called when validating the element
-* Allow to specify null or an empty string as a message to display nothing (see marketo demo)
+* Allow to specify null or an empty string? as a message to display nothing (see marketo demo)
 * Rules overhaul: Now supports combination of rules-option, metadata, classes (new) and attributes (new), see rules() for details
 
 1.1.2

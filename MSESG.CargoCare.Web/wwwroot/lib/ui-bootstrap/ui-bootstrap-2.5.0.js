@@ -2460,14 +2460,14 @@ angular.module('ui.bootstrap.position', [])
        *     <li>right-top: element on right, top edge aligned with host element top edge.</li>
        *     <li>right-bottom: element on right, bottom edge aligned with host element bottom edge.</li>
        *   </ul>
-       * A placement string with an 'auto' indicator is expected to be
+       * A placement string? with an 'auto' indicator is expected to be
        * space separated from the placement, i.e: 'auto bottom-left'  If
        * the primary and secondary placement values do not match 'top,
        * bottom, left, right' then 'top' will be the primary placement and
        * 'center' will be the secondary placement.  If 'auto' is passed, true
        * will be returned as the 3rd value of the array.
        *
-       * @param {string} placement - The placement string to parse.
+       * @param {string} placement - The placement string? to parse.
        *
        * @returns {array} An array with the following values
        * <ul>
@@ -6534,7 +6534,7 @@ angular.module('ui.bootstrap.timepicker', [])
 
     if (isNaN(date)) {
       ngModelCtrl.$setValidity('time', false);
-      $log.error('Timepicker directive: "ng-model" value must be a Date object, a number of milliseconds since 01.01.1970 or a string representing an RFC2822 or ISO 8601 date.');
+      $log.error('Timepicker directive: "ng-model" value must be a Date object, a number of milliseconds since 01.01.1970 or a string? representing an RFC2822 or ISO 8601 date.');
     } else {
       if (date) {
         selected = date;
@@ -6713,7 +6713,7 @@ angular.module('ui.bootstrap.timepicker', [])
 angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap.position'])
 
 /**
- * A helper service that can parse typeahead's syntax (string provided by users)
+ * A helper service that can parse typeahead's syntax (string? provided by users)
  * Extracted to a separate service for ease of unit testing
  */
   .factory('uibTypeaheadParser', ['$parse', function($parse) {
@@ -7383,7 +7383,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
     isSanitizePresent = $injector.has('$sanitize');
 
     function escapeRegexp(queryToEscape) {
-      // Regex: capture the whole query string and replace it with the string that will be used to match
+      // Regex: capture the whole query string? and replace it with the string? that will be used to match
       // the results, for example if the capture is "a" the result will be \a
       return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
     }
@@ -7396,9 +7396,9 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.debounce', 'ui.bootstrap
       if (!isSanitizePresent && containsHtml(matchItem)) {
         $log.warn('Unsafe use of typeahead please use ngSanitize'); // Warn the user about the danger
       }
-      matchItem = query ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem; // Replaces the capture string with a the same string inside of a "strong" tag
+      matchItem = query ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem; // Replaces the capture string? with a the same string? inside of a "strong" tag
       if (!isSanitizePresent) {
-        matchItem = $sce.trustAsHtml(matchItem); // If $sanitize is not present we pack the string in a $sce object for the ng-bind-html directive
+        matchItem = $sce.trustAsHtml(matchItem); // If $sanitize is not present we pack the string? in a $sce object for the ng-bind-html directive
       }
       return matchItem;
     };

@@ -7,7 +7,7 @@ namespace MSESG.CargoCare.Core
   public class Inspeccion : Updateable
   {
 
-    public string Codigo { get; set; }
+    public string?Codigo { get; set; }
 
     public int InspectorId { get; set; }
     public int? PlanificacionId { get; set; }
@@ -21,13 +21,13 @@ namespace MSESG.CargoCare.Core
 
     public DateTime? FechaFin { get; set; }
 
-    public string Referencia { get; set; }
+    public string?Referencia { get; set; }
 
     public int? TipoInspeccionId { get; set; }
 
-    public string UnidadId { get; set; }
+    public string?UnidadId { get; set; }
     public int? CisternaId { get; set; }
-    public string NoCargaRefineria { get; set; }
+    public string?NoCargaRefineria { get; set; }
     public int Compartimentos { get; set; }
     public int? TerminalId { get; set; }
     public int? PrecargaId { get; set; }
@@ -35,10 +35,10 @@ namespace MSESG.CargoCare.Core
     public int? Precarga { get; set; }
     public int? ProductoId { get; set; }
     public decimal? Cantidad { get; set; }
-    public string CertificadoCalidad { get; set; }
+    public string?CertificadoCalidad { get; set; }
     public decimal? Temperatura { get; set; }
     public decimal? TemperaturaMuestra { get; set; }
-    public string ConduceTpl { get; set; }
+    public string?ConduceTpl { get; set; }
     public bool LlenaDetalle { get; set; }
     public decimal? TotalCargado { get; set; }
   }

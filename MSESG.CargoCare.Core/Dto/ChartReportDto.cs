@@ -13,7 +13,7 @@ namespace MSESG.CargoCare.Core.EFServices.Dto
         Values = new List<string>();
       }
 
-      public string Label { get; set; }
+      public string?Label { get; set; }
       public List<string> Arguments { get; set; }
       public List<string> Values { get; set; }
 

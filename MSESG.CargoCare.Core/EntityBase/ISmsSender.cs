@@ -7,6 +7,6 @@ namespace MSESG.CargoCare.Core
 {
     public interface ISmsSender
     {
-        Task SendSmsAsync(string number, string message);
+        Task SendSmsAsync(string?number, string?message);
     }
 }

@@ -44,7 +44,7 @@ namespace MSESG.CargoCare.Web.Handler
 
 
 
-    public Task<SendResponse> SendPlanificacion(string html)
+    public Task<SendResponse> SendPlanificacion(string? html)
     {
       var email = new Email(_settings.FromEmail)
         .To(_settings.CcEmail)

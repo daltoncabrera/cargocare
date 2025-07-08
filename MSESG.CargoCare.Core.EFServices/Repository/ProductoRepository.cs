@@ -73,7 +73,7 @@ namespace MSESG.CargoCare.Core.EFServices
       }
     }
 
-    public object GetReport(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
+    public object GetReport(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string? title = "")
     {
       var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
@@ -107,7 +107,7 @@ namespace MSESG.CargoCare.Core.EFServices
       return new { header, detail = result };
     }
 
-    public object GetReportMes(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
+    public object GetReportMes(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string? title = "")
     {
       var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id
@@ -140,7 +140,7 @@ namespace MSESG.CargoCare.Core.EFServices
       return new { header, detail = result };
     }
 
-    public object GetReportAnio(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string title = "")
+    public object GetReportAnio(int? clienteId, DateTime? dateInit, DateTime? dateEnd, string? title = "")
     {
       var prod = from d in _dbContext.InspeccionDetalles.Where(s => s.ClienteId == clienteId).ToList()
                  join i in _dbContext.Inspeciones on d.IdInspeccion equals i.Id

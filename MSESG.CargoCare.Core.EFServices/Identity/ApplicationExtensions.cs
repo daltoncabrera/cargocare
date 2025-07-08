@@ -88,7 +88,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
         }
 
-        private static Cliente CreateCliente(UnitOfWork uow, int empresaId, string nombre, string contacto)
+        private static Cliente CreateCliente(UnitOfWork uow, int empresaId, string? nombre, string? contacto)
         {
 
             var repo = new ClienteRepository(uow.AppDbContext);
@@ -101,7 +101,7 @@ namespace MSESG.CargoCare.Core.EFServices
             return cli;
         }
 
-        private static Empresa AgregarEmpresa(UnitOfWork uow, string nombre)
+        private static Empresa AgregarEmpresa(UnitOfWork uow, string? nombre)
         {
             var repo = new EmpresaRepository(uow.AppDbContext);
             var emp = new Empresa();
@@ -121,14 +121,14 @@ namespace MSESG.CargoCare.Core.EFServices
             AddUserToRole(app, uow, 0, 0, user, role);
         }
 
-        private static async Task CreateUserWithRole(IApplicationBuilder app, UnitOfWork uow, int empresaId, int clienteId, string mail, string fullName, string roleName, string roleDesc, RoleType type = RoleType.Cliente)
+        private static async Task CreateUserWithRole(IApplicationBuilder app, UnitOfWork uow, int empresaId, int clienteId, string? mail, string? fullName, string? roleName, string? roleDesc, RoleType type = RoleType.Cliente)
         {
             var user = await CreateUser(app, mail, fullName);
             var role = await CreateRole(app, type, roleName, roleDesc);
             AddUserToRole(app, uow, empresaId, clienteId, user, role);
         }
 
-        private static async Task<ApplicationRole> CreateRole(IApplicationBuilder app, RoleType type, string roleName, string roleDesc)
+        private static async Task<ApplicationRole> CreateRole(IApplicationBuilder app, RoleType type, string? roleName, string? roleDesc)
         {
             var roleManager = app.ApplicationServices.GetService<RoleManager<ApplicationRole>>();
 
@@ -170,7 +170,7 @@ namespace MSESG.CargoCare.Core.EFServices
 
         }
 
-        private static async Task<ApplicationUser> CreateUser(IApplicationBuilder app, string email, string fullName)
+        private static async Task<ApplicationUser> CreateUser(IApplicationBuilder app, string? email, string? fullName)
         {
             var userManager = app.ApplicationServices.GetService<UserManager<ApplicationUser>>();
             var roleManager = app.ApplicationServices.GetService<RoleManager<ApplicationRole>>();

@@ -43,7 +43,7 @@ var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
 // date from iso format
 export function configFromISO(config) {
     var i, l,
-        string = config._i,
+        string? = config._i,
         match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
         allowTime, dateFormat, timeFormat, tzFormat;
 
@@ -114,7 +114,7 @@ export function configFromRFC2822(config) {
     var military = 'YXWVUTSRQPONZABCDEFGHIKLM';
     var timezone, timezoneIndex;
 
-    string = config._i
+    string? = config._i
         .replace(/\([^\)]*\)|[\n\t]/g, ' ') // Remove comments and folding whitespace
         .replace(/(\s\s+)/g, ' ') // Replace multiple-spaces with a single space
         .replace(/^\s|\s$/g, ''); // Remove leading and trailing spaces

@@ -48,7 +48,7 @@ addParseToken(['Z', 'ZZ'], function (input, array, config) {
 var chunkOffset = /([\+\-]|\d\d)/gi;
 
 function offsetFromString(matcher, string) {
-    var matches = (string || '').match(matcher);
+    var matches = (string? || '').match(matcher);
 
     if (matches === null) {
         return null;
